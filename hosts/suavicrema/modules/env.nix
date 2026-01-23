@@ -1,0 +1,8 @@
+{ ... }:
+
+{
+  environment.sessionVariables = {
+    WLR_NO_HARDWARE_CURSORS = "1";
+    XDG_SESSION_TYPE = "wayland";
+  };
+};
