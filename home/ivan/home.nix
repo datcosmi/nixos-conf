@@ -13,8 +13,10 @@
 
     ./modules/tmux.nix
     ./modules/rofi.nix
-    ./scripts/waybar-media-player.nix
     ./modules/catppuccin.nix
+
+    ./scripts/waybar-media-player.nix
+    ./scripts/hyprland-audio-switcher.nix
   ];
 
   home.username = "ivan";
