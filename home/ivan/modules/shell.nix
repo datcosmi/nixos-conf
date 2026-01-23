@@ -18,6 +18,8 @@
       cd = "z";
       inv = "nvim $(fzf -m --preview='bat --color=always {}')";
       shell = "source ~/.zshrc";
+      nix-rebuild = "sudo nixos-rebuild switch --flake /etc/nixos#suavicrema";
+      flake-check = "nix flake check /etc/nixos";
     };
 
     oh-my-zsh = {

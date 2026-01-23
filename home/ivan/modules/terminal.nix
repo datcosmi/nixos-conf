@@ -46,7 +46,7 @@
     settings = {
       font-family = "JetBrainsMono Nerd Font";
       font-size = 11;
-      background-opacity = 0.5;
+      background-opacity = 0.73;
       gtk-titlebar = false;
       confirm-close-surface = false;
       window-padding-x = 13;

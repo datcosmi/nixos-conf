@@ -10,6 +10,7 @@
     settings = {
       vim_keys = true;
       proc_sorting = "memory";
+      theme_background = false;
     };
   };
 

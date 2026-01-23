@@ -2,19 +2,19 @@
 
 {
   imports = [
-    ./shell.nix
-    ./terminal.nix
-    ./gtk.nix
-    ./packages.nix
-    ./session.nix
-    ./services.nix
-    ./utils.nix
-    ./ssh.nix
+    ./modules/shell.nix
+    ./modules/terminal.nix
+    ./modules/gtk.nix
+    ./modules/packages.nix
+    ./modules/session.nix
+    ./modules/services.nix
+    ./modules/utils.nix
+    ./modules/ssh.nix
 
-    ./tmux.nix
-    ./rofi.nix
-    ./waybar/waybar-media-player.nix
-    ./catppuccin.nix
+    ./modules/tmux.nix
+    ./modules/rofi.nix
+    ./scripts/waybar-media-player.nix
+    ./modules/catppuccin.nix
   ];
 
   home.username = "ivan";
