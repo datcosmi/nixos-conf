@@ -45,7 +45,7 @@ class PlayerManager:
         self.excluded_player = excluded_player.split(',') if excluded_player else []
 
         self.init_players()
-        self.clear_output() # Always show the module, delete or comment if causes problems
+        # self.clear_output() # Always show the module, delete or comment if causes problems
 
     def init_players(self):
         for player in self.manager.props.player_names:
@@ -118,8 +118,8 @@ class PlayerManager:
         current_player = self.get_first_playing_player()
         if current_player is not None:
             self.on_metadata_changed(current_player, current_player.props.metadata)
-        else:    
-            self.clear_output()
+        # else:    
+        #     self.clear_output()
 
     def on_metadata_changed(self, player, metadata, _=None):
         logger.debug(f"Metadata changed for player {player.props.player_name}")

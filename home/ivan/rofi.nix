@@ -3,6 +3,9 @@
 {
   programs.rofi = {
     enable = true;
+    plugins = [
+      pkgs.rofi-calc
+    ];
     
     font = "JetBrains Mono Nerd Font 10";
     

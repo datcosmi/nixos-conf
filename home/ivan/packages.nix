@@ -13,6 +13,9 @@
     proton-pass
 
     wiremix
+    grim
+    slurp
+    wl-clipboard
 
     nodejs_24
 
