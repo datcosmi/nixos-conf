@@ -24,8 +24,10 @@
       nix-rebuild = "sudo nixos-rebuild switch --flake /etc/nixos#suavicrema";
       flake-check = "nix flake check /etc/nixos";
       upgrade-nix = "sudo nixos-rebuild switch --upgrade";
+
       list-gen = "nix profile history --profile /nix/var/nix/profiles/system";
-      gc-keep = "nh clean all --keep 6";
+      gc-keep = "sudo nix-env --profile /nix/var/nix/profiles/system --delete-generations +6";
+      gc = "sudo nix-collect-garbage";
     };
 
     oh-my-zsh = {
