@@ -1,5 +1,5 @@
 {
-  description = "Suavicrema";
+  description = "Suavicrema Hyprland";
 
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";

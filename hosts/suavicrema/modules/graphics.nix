@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ config, pkgs, ... }:
 
 {
   services.xserver = {
@@ -13,9 +13,13 @@
   hardware.graphics.enable = true;
 
   hardware.nvidia = {
-    open = false;
+    open = true;
     modesetting.enable = true;
     powerManagement.enable = true;
+    powerManagement.finegrained = false;
+
+    nvidiaSettings = true;
+    package = config.boot.kernelPackages.nvidiaPackages.stable;
   };
 
   services.displayManager.sddm.enable = false;

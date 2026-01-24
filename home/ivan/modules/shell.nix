@@ -16,10 +16,16 @@
       la = "eza --icons=always -a";
       ls = "eza --icons=always";
       cd = "z";
+
       inv = "nvim $(fzf -m --preview='bat --color=always {}')";
+
       shell = "source ~/.zshrc";
+
       nix-rebuild = "sudo nixos-rebuild switch --flake /etc/nixos#suavicrema";
       flake-check = "nix flake check /etc/nixos";
+      upgrade-nix = "sudo nixos-rebuild switch --upgrade";
+      list-gen = "nix profile history --profile /nix/var/nix/profiles/system";
+      gc-keep = "nh clean all --keep 6";
     };
 
     oh-my-zsh = {
