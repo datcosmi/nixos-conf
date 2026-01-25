@@ -19,6 +19,7 @@
     ./scripts/hyprland-audio-switcher.nix
 
     ./modules/hypr/idle.nix
+    ./modules/hypr/lock.nix
   ];
   
   home.username = "ivan";

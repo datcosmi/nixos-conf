@@ -19,6 +19,8 @@
 
     nodejs_24
 
+    brightnessctl
+
     inputs.swww.packages.${pkgs.stdenv.hostPlatform.system}.swww
     inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
     inputs.rose-pine-hyprcursor.packages.${pkgs.stdenv.hostPlatform.system}.default
