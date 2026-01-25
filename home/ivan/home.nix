@@ -17,11 +17,13 @@
 
     ./scripts/waybar-media-player.nix
     ./scripts/hyprland-audio-switcher.nix
+
+    ./modules/hypr/idle.nix
   ];
   
   home.username = "ivan";
   home.homeDirectory = "/home/ivan";
   home.stateVersion = "26.05";
 
-  programs.home-manager.enable = true;
+  # programs.home-manager.enable = true;
 }

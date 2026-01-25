@@ -9,8 +9,6 @@
     tree
     stow
     tuigreet
-
-    home-manager
   ];
 
   fonts.packages = with pkgs; [

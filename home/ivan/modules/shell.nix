@@ -26,7 +26,8 @@
       upgrade-nix = "sudo nixos-rebuild switch --upgrade";
 
       list-gen = "nix profile history --profile /nix/var/nix/profiles/system";
-      gc-keep = "sudo nix-env --profile /nix/var/nix/profiles/system --delete-generations +6";
+      # gc-keep = "sudo nix-env --profile /nix/var/nix/profiles/system --delete-generations +6";
+      del-gen = "sudo nix-env --profile /nix/var/nix/profiles/system --delete-generations";
       gc = "sudo nix-collect-garbage";
     };
 
