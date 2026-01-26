@@ -18,6 +18,7 @@
     wl-clipboard
 
     nodejs_24
+    alejandra
 
     brightnessctl
 
