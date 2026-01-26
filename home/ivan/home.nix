@@ -15,6 +15,7 @@
     ./modules/rofi.nix
     ./modules/catppuccin.nix
     ./modules/fastfetch.nix
+    ./modules/starship.nix
 
     ./scripts/waybar-media-player.nix
     ./scripts/hyprland-audio-switcher.nix

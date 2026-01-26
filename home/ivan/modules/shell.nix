@@ -67,13 +67,9 @@
   };
 
   programs.zoxide.enable = true;
-  programs.starship.enable = true;
   programs.bat.enable = true;
   programs.eza.enable = true;
   programs.fzf.enable = true;
   programs.lazygit.enable = true;
-
-  programs.bash = {
-    enable = true;
-  };
+  programs.bash.enable = true;
 }
