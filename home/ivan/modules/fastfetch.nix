@@ -1,12 +1,14 @@
 { pkgs, ... }:
 
 {
+  home.file. ".config/fastfetch/luna.txt".source = ../assets/fastfetch/luna.txt;
+  
   programs.fastfetch = {
     enable = true;
 
     settings = {
       logo = {
-        source = "/etc/nixos/home/ivan/assets/fastfetch/luna.txt";
+        source = "$HOME/.config/fastfetch/luna.txt";
         padding = {
           top = 1;
           left = 2;
