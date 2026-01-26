@@ -14,6 +14,7 @@
     ./modules/tmux.nix
     ./modules/rofi.nix
     ./modules/catppuccin.nix
+    ./modules/fastfetch.nix
 
     ./scripts/waybar-media-player.nix
     ./scripts/hyprland-audio-switcher.nix
