@@ -6,6 +6,7 @@
 
     settings = {
       margin = 200;
+      buttons-per-row = "5";
       delay-command-ms = 100;
       close-on-lost-focus = true;
       buttons = [
@@ -57,10 +58,6 @@
   };
 
   programs.yazi = {
-    enable = true;
-  };
-
-  programs.fastfetch = {
     enable = true;
   };
 }
