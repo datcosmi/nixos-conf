@@ -1,6 +1,8 @@
-{ pkgs, inputs, ... }:
-
 {
+  pkgs,
+  inputs,
+  ...
+}: {
   home.packages = with pkgs; [
     brave
     spotify
@@ -16,6 +18,10 @@
     grim
     slurp
     wl-clipboard
+
+    # protontricks
+    # protonup-ng
+    # winetricks
 
     nodejs_24
     alejandra

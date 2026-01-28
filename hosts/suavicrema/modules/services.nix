@@ -8,6 +8,12 @@
   services.udisks2.enable = true;
   services.printing.enable = true;
 
+  services.avahi = {
+    enable = true;
+    nssmdns4 = true;
+    openFirewall = true;
+  };
+
   security.polkit.enable = true;
 
   services.gnome.gnome-keyring.enable = true;
