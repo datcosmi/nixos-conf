@@ -24,8 +24,8 @@
   ];
 
   nixpkgs.config.allowUnfree = true;
-
-  programs.nix-ld.enable = true;
-  fonts.fontDir.enable = true;
-  fonts.enableDefaultPackages = true;
+  #
+  # programs.nix-ld.enable = true;
+  # fonts.fontDir.enable = true;
+  # fonts.enableDefaultPackages = true;
 }
