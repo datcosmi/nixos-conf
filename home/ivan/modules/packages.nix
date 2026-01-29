@@ -10,6 +10,8 @@
     nautilus
     localsend
     ente-auth
+    vlc
+    ffmpeg
 
     protonvpn-gui
     proton-pass
@@ -32,4 +34,6 @@
     inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
     inputs.rose-pine-hyprcursor.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];
+
+  fonts.fontconfig.enable = true;
 }

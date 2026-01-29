@@ -12,12 +12,6 @@
     stow
     tuigreet
 
-    corefonts
-    vista-fonts
-    freetype
-    fontconfig
-    winetricks
-
     system-config-printer
   ];
 
@@ -27,13 +21,11 @@
     nerd-fonts.commit-mono
 
     noto-fonts-color-emoji
-
-    corefonts
-    vista-fonts
-    liberation_ttf
-    dejavu_fonts
-    freefont_ttf
   ];
 
   nixpkgs.config.allowUnfree = true;
+
+  programs.nix-ld.enable = true;
+  fonts.fontDir.enable = true;
+  fonts.enableDefaultPackages = true;
 }

@@ -47,7 +47,7 @@
       imagebox = {
         padding = mkLiteral "20px";
         background-color = mkLiteral "transparent";
-        background-image = mkLiteral "url(\"$HOME/.local/share/themes/wallpapers/rofi-bg.jpg\", height)";
+        background-image = mkLiteral "url(\"~/.local/share/themes/wallpapers/rofi-bg.jpg\", height)";
         orientation = mkLiteral "vertical";
         children = map mkLiteral [ "inputbar" "dummy" "mode-switcher" ];
       };

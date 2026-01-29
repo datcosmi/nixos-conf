@@ -22,8 +22,6 @@
     package = config.boot.kernelPackages.nvidiaPackages.stable;
   };
 
-  services.displayManager.sddm.enable = false;
-
   programs.hyprland = {
     enable = true;
     withUWSM = true;

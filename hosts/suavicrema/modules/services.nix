@@ -31,6 +31,4 @@
   };
 
   programs.seahorse.enable = true;
-
-  system.stateVersion = "16.05";
 }
