@@ -31,4 +31,6 @@
   };
 
   programs.seahorse.enable = true;
+
+  hardware.bluetooth.enable = true;
 }

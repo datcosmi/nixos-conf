@@ -17,6 +17,8 @@
     proton-pass
 
     wiremix
+    bluetui
+    overskride
     grim
     slurp
     wl-clipboard
@@ -26,8 +28,7 @@
     # protonup-ng
     # winetricks
 
-    nodejs_24
-    alejandra
+    # nodejs_24
 
     brightnessctl
     

@@ -60,4 +60,16 @@
   programs.yazi = {
     enable = true;
   };
+
+  programs.ripgrep = {
+    enable = true;
+  };
+
+  programs.fd = {
+    enable = true;
+  };
+
+  programs.bluetuith = {
+    enable = true;
+  };
 }

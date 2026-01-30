@@ -1,6 +1,4 @@
-{ pkgs, ... }:
-
-{
+{pkgs, ...}: {
   programs.zsh = {
     enable = true;
     enableCompletion = true;
@@ -21,9 +19,11 @@
 
       shell = "source ~/.zshrc";
 
-      nix-rebuild = "sudo nixos-rebuild switch --flake /etc/nixos#suavicrema";
+      nix-rebuild = "sudo nixos-rebuild switch --flake $HOME/nixos-conf";
+      # nix-rebuild = "sudo nixos-rebuild switch --flake /etc/nixos#suavicrema";
       flake-check = "nix flake check /etc/nixos";
-      upgrade-nix = "cd ~/nixos-conf; nix flake update; sudo nixos-rebuild switch --upgrade";
+      upgrade-nix = "cd ~/nixos-conf; nix flake update; sudo nixos-rebuild switch --flake $HOME/nixos-conf";
+      # upgrade-nix = "cd ~/nixos-conf; nix flake update; sudo nixos-rebuild switch --upgrade";
 
       list-gen = "nix profile history --profile /nix/var/nix/profiles/system";
       # gc-keep = "sudo nix-env --profile /nix/var/nix/profiles/system --delete-generations +6";
