@@ -20,6 +20,7 @@
     grim
     slurp
     wl-clipboard
+    unzip
 
     # protontricks
     # protonup-ng
@@ -29,6 +30,25 @@
     alejandra
 
     brightnessctl
+    
+    # LSP's
+    lua-language-server
+    rust-analyzer
+    tailwindcss-language-server
+    nodePackages.typescript-language-server
+    nodePackages.vscode-langservers-extracted
+    nodePackages.svelte-language-server
+    pyright
+    astro-language-server
+
+    # Formatters
+    stylua
+    isort
+    black
+    rustc
+    prettierd
+    nodePackages.prettier
+    alejandra
 
     inputs.swww.packages.${pkgs.stdenv.hostPlatform.system}.swww
     inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default

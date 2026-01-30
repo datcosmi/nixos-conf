@@ -10,11 +10,11 @@
       bold_italic_font = "auto";
       font_size = 11.0;
   
-      initial_window_width = "80c";
-      initial_window_height = "24c";
+      # initial_window_width = "80c";
+      # initial_window_height = "24c";
   
       # Window
-      window_padding_width = 3;
+      window_padding_width = 10;
       hide_window_decorations = "yes";
       show_window_resize_notification = "no";
       confirm_os_window_close = 0;
