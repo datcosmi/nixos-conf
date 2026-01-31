@@ -23,6 +23,8 @@
     slurp
     wl-clipboard
     unzip
+    loupe
+    ristretto
 
     # protontricks
     # protonup-ng

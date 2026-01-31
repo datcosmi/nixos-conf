@@ -6,7 +6,7 @@
   wallpaper = "$HOME/.local/share/themes/wallpapers/blue-landscape-cat.png";
 in {
   home.packages = with pkgs; [
-    swww
+    # swww
     socat
     jq
   ];

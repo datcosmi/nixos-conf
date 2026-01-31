@@ -8,6 +8,7 @@
     ./modules/services.nix
     ./modules/utils.nix
     ./modules/ssh.nix
+    ./modules/default-apps.nix
 
     ./modules/tmux.nix
     ./modules/rofi.nix
