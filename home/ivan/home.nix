@@ -1,6 +1,4 @@
-{ ... }:
-
-{
+{...}: {
   imports = [
     ./modules/shell.nix
     ./modules/terminal.nix
@@ -22,8 +20,9 @@
 
     ./modules/hypr/idle.nix
     ./modules/hypr/lock.nix
+    ./modules/hypr/hypr-monitor-fix.nix
   ];
-  
+
   home.username = "ivan";
   home.homeDirectory = "/home/ivan";
   home.stateVersion = "26.05";

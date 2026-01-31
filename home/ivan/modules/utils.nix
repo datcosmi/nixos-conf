@@ -1,6 +1,4 @@
-{ pkgs, ... }:
-
-{
+{pkgs, ...}: {
   programs.wleave = {
     enable = true;
 
@@ -69,7 +67,7 @@
     enable = true;
   };
 
-  programs.bluetuith = {
-    enable = true;
-  };
+  # programs.bluetuith = {
+  #   enable = true;
+  # };
 }

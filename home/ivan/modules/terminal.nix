@@ -12,7 +12,7 @@
       # initial_window_height = "24c";
 
       # Window
-      window_padding_width = 10;
+      window_padding_width = 13;
       hide_window_decorations = "yes";
       show_window_resize_notification = "no";
       confirm_os_window_close = 0;

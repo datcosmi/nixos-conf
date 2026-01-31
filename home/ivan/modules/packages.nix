@@ -18,7 +18,7 @@
 
     wiremix
     bluetui
-    overskride
+    # overskride
     grim
     slurp
     wl-clipboard
@@ -31,7 +31,7 @@
     # nodejs_24
 
     brightnessctl
-    
+
     # LSP's
     lua-language-server
     rust-analyzer

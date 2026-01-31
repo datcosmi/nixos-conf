@@ -1,6 +1,4 @@
-{ pkgs, ... }:
-
-{
+{pkgs, ...}: {
   time.timeZone = "America/Mexico_City";
   i18n.defaultLocale = "en_US.UTF-8";
 
@@ -33,4 +31,6 @@
   programs.seahorse.enable = true;
 
   hardware.bluetooth.enable = true;
+
+  services.flatpak.enable = true;
 }
