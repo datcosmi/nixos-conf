@@ -12,6 +12,10 @@
   xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
   xdg.portal.config.common.default = "gtk";
 
+  wayland.windowManager.hyprland.settings = {
+    "$browser" = "zen";
+  };
+
   # security.sudo.extraConfig = ''
   #   Defaults prompt="Password: "
   # '';
