@@ -53,7 +53,7 @@
     nodePackages.prettier
     alejandra
 
-    inputs.swww.packages.${pkgs.stdenv.hostPlatform.system}.swww
+    inputs.awww.packages.${pkgs.stdenv.hostPlatform.system}.awww
     inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
     inputs.rose-pine-hyprcursor.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];
