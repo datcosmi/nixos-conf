@@ -1,6 +1,4 @@
-{ pkgs, ... }:
-
-{
+{pkgs, ...}: {
   services.hypridle = {
     enable = true;
 
@@ -15,7 +13,7 @@
         {
           timeout = 150;
           on-timeout = "${pkgs.brightnessctl}/bin/brightnessctl -s set 10";
-          on-resume  = "${pkgs.brightnessctl}/bin/brightnessctl -r";
+          on-resume = "${pkgs.brightnessctl}/bin/brightnessctl -r";
         }
         {
           timeout = 300;
@@ -27,7 +25,7 @@
         #   on-resume  = "hyprctl dispatch dpms on && ${pkgs.brightnessctl}/bin/brightnessctl -r";
         # }
         {
-          timeout = 1800;
+          timeout = 1200;
           on-timeout = "systemctl suspend";
         }
       ];

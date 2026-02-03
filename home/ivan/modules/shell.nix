@@ -20,8 +20,8 @@
       shell = "source ~/.zshrc";
 
       nix-rebuild = "sudo nixos-rebuild switch --flake $HOME/nixos-conf";
-      # nix-rebuild = "sudo nixos-rebuild switch --flake /etc/nixos#suavicrema";
-      flake-check = "nix flake check /etc/nixos";
+      # nix-rebuild = "sudo nixos-rebuild switch --flake $HOME/nixos-conf#suavicrema";
+      flake-check = "nix flake check $HOME/nixos-conf";
       upgrade-nix = "cd ~/nixos-conf; nix flake update; sudo nixos-rebuild switch --flake $HOME/nixos-conf";
       # upgrade-nix = "cd ~/nixos-conf; nix flake update; sudo nixos-rebuild switch --upgrade";
 

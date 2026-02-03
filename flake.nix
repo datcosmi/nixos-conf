@@ -37,30 +37,27 @@
     catppuccin,
     home-manager,
     ...
-  } @ inputs: {
+  } @ inputs: let
+    system = "x86_64-linux";
+    pkgs = nixpkgs.legacyPackages.${system};
+  in {
     nixosConfigurations.suavicrema = nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
+      inherit system;
       specialArgs = {inherit inputs;};
       modules = [
         ./hosts/suavicrema/configuration.nix
-
         catppuccin.nixosModules.catppuccin
         home-manager.nixosModules.home-manager
         {
           home-manager = {
             useGlobalPkgs = true;
             useUserPackages = true;
-            users.ivan = {
-              imports = [
-                ./home/ivan/home.nix
-                catppuccin.homeModules.catppuccin
-              ];
-            };
             backupFileExtension = "backup";
-
-            extraSpecialArgs = {
-              inherit inputs;
-            };
+            extraSpecialArgs = {inherit inputs;};
+            users.ivan = import ./home/ivan/home.nix;
+            sharedModules = [
+              catppuccin.homeModules.catppuccin
+            ];
           };
         }
       ];

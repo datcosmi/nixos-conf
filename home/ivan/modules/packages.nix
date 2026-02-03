@@ -6,7 +6,6 @@
   home.packages = with pkgs; [
     brave
     spotify
-    discord
     nautilus
     localsend
     ente-auth
@@ -25,12 +24,6 @@
     unzip
     loupe
     ristretto
-
-    # protontricks
-    # protonup-ng
-    # winetricks
-
-    # nodejs_24
 
     brightnessctl
 
