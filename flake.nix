@@ -4,6 +4,15 @@
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
 
+    hyprland = {
+      url = "github:hyprwm/Hyprland";
+    };
+
+    # hyprland-plugins = {
+    #   url = "github:hyprwm/hyprland-plugins";
+    #   inputs.hyprland.follows = "hyprland";
+    # };
+
     awww = {
       url = "git+https://codeberg.org/LGFae/awww";
       inputs.nixpkgs.follows = "nixpkgs";

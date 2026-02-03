@@ -1,16 +1,22 @@
-{ config, pkgs, ... }:
-
 {
+  config,
+  pkgs,
+  inputs,
+  ...
+}: {
   services.xserver = {
     enable = true;
-    videoDrivers = [ "nvidia" ];
+    videoDrivers = ["nvidia"];
     xkb = {
       layout = "us";
       variant = "altgr-intl";
     };
   };
 
-  hardware.graphics.enable = true;
+  hardware.graphics = {
+    enable = true;
+    enable32Bit = true;
+  };
 
   hardware.nvidia = {
     open = true;
@@ -22,9 +28,13 @@
     package = config.boot.kernelPackages.nvidiaPackages.stable;
   };
 
-  programs.hyprland = {
+  xdg.portal = {
     enable = true;
-    withUWSM = true;
-    xwayland.enable = true;
+    extraPortals = [pkgs.xdg-desktop-portal-gtk pkgs.xdg-desktop-portal-hyprland];
+    config.common.default = "gtk";
   };
+
+  # wayland.windowManager.hyprland.settings = {
+  #   "$browser" = "zen";
+  # };
 }

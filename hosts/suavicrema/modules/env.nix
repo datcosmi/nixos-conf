@@ -8,16 +8,6 @@
     STEAM_EXTRA_COMPAT_TOOLS_PATHS = "\${HOME}/.steam/root/compatibilitytools.d";
   };
 
-  xdg.portal = {
-    enable = true;
-    extraPortals = [ pkgs.xdg-desktop-portal-gtk pkgs.xdg-desktop-portal-hyprland ];
-    config.common.default = "gtk";
-  };
-
-  wayland.windowManager.hyprland.settings = {
-    "$browser" = "zen";
-  };
-
   # security.sudo.extraConfig = ''
   #   Defaults prompt="Password: "
   # '';
