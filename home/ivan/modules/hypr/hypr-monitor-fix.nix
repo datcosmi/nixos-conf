@@ -36,7 +36,9 @@ in {
           case "$line" in
             monitoradded*|monitorremoved*)
               awww img "${wallpaper}" --transition-type grow --transition-duration 1.2 --transition-fps 60
-              pkill waybar && waybar &
+              pkill waybar
+
+              waybar &
               ;;
           esac
         done

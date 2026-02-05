@@ -1,0 +1,52 @@
+{config, ...}: {
+  wayland.windowManager.hyprland.settings = {
+    env = [
+      # Cursor size
+      "XCURSOR_SIZE,24"
+      "HYPRCURSOR_SIZE,24"
+
+      # Force all apps to use Wayland
+      "GDK_BACKEND,wayland,x11,*"
+      "QT_QPA_PLATFORM,wayland;xcb"
+      "QT_STYLE_OVERRIDE,kvantum"
+      "SDL_VIDEODRIVER,wayland"
+      "MOZ_ENABLE_WAYLAND,1"
+      "ELECTRON_OZONE_PLATFORM_HINT,wayland"
+      "OZONE_PLATFORM,wayland"
+      "XDG_SESSION_TYPE,wayland"
+
+      # Allow better support for screen sharing (Google Meet, Discord, etc)
+      "XDG_CURRENT_DESKTOP,Hyprland"
+      "XDG_SESSION_DESKTOP,Hyprland"
+
+      # Use XCompose file
+      "XCOMPOSEFILE,~/.XCompose"
+
+      "HYPRCURSOR_THEME,rose-pine-hyprcursor"
+
+      # NVIDIA environment variables
+      "NVD_BACKEND,direct"
+      "LIBVA_DRIVER_NAME,nvidia"
+      "__GLX_VENDOR_LIBRARY_NAME,nvidia"
+
+      # Cursor
+      "HYPRCURSOR_THEME,rose-pine-hyprcursor"
+
+      # Keyrings
+      "SSH_AUTH_SOCK,$XDG_RUNTIME_DIR/keyring/ssh"
+
+      # QT Apps dark theme
+      "QT_QPA_PLATFORMTHEME,qt6ct"
+      "QT_QPA_PLATFORM,wayland"
+    ];
+
+    xwayland = {
+      force_zero_scaling = true;
+    };
+
+    # Don't show update on first launch
+    ecosystem = {
+      no_update_news = true;
+    };
+  };
+}

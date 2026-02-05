@@ -9,8 +9,8 @@
       "$mainMod, J, Toggle window split, layoutmsg, togglesplit, # dwindle"
       "$mainMod, P, Pseudo window, layoutmsg, pseudo, # dwindle"
       # $mainMod, T, Toggle window floating/tiling, togglefloating,
-      "bind = $mainMod, T, togglefloating, centerwindow"
-      "bind = $mainMod, C, centerwindow"
+      "$mainMod, T, Togggle floating window, togglefloating, centerwindow"
+      "$mainMod, C, Center window, centerwindow"
       "$mainMod, F, Full screen, fullscreen, 0"
       "$mainMod CTRL, F, Tiled full screen, fullscreenstate, 0 2"
       "$mainMod ALT, F, Full width, fullscreen, 1"
