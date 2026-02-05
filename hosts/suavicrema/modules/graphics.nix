@@ -16,6 +16,9 @@
   hardware.graphics = {
     enable = true;
     enable32Bit = true;
+
+    # package = pkgs-unstable.mesa;
+    # package32 = pkgs-unstable.pkgsi686Linux.mesa;
   };
 
   hardware.nvidia = {
@@ -30,11 +33,19 @@
 
   xdg.portal = {
     enable = true;
-    extraPortals = [pkgs.xdg-desktop-portal-gtk pkgs.xdg-desktop-portal-hyprland];
+    extraPortals = [
+      pkgs.xdg-desktop-portal-gtk
+      # pkgs.xdg-desktop-portal-hyprland
+    ];
     config.common.default = "gtk";
   };
 
-  # wayland.windowManager.hyprland.settings = {
-  #   "$browser" = "zen";
-  # };
+  programs.hyprland = {
+    enable = true;
+    withUWSM = true;
+    xwayland.enable = true;
+
+    package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
+    portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
+  };
 }

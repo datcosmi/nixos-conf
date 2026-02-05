@@ -13,7 +13,5 @@
       "5,monitor:DP-1"
       "6,monitor:HDMI-A-1"
     ];
-
-    env = "GDK_SCALE,1";
   };
 }

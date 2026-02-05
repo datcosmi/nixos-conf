@@ -16,10 +16,15 @@
 
   services.gnome.gnome-keyring.enable = true;
 
-  services.dbus.packages = [
-    pkgs.gnome-keyring
-    pkgs.gcr
-  ];
+  services.dbus = {
+    enable = true;
+    implementation = "broker";
+
+    packages = [
+      pkgs.gnome-keyring
+      pkgs.gcr
+    ];
+  };
 
   security.pam.services = {
     # sddm.enableGnomeKeyring = true;

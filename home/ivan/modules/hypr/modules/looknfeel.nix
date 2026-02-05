@@ -131,15 +131,66 @@
       hide_on_key_press = true;
     };
 
-    env = [
-      # Style Gum confirm to match terminal theme
-      "GUM_CONFIRM_PROMPT_FOREGROUND,6" # Cyan
-      "GUM_CONFIRM_SELECTED_FOREGROUND,0" # Black
-      "GUM_CONFIRM_SELECTED_BACKGROUND,2" # Green
-      "GUM_CONFIRM_UNSELECTED_FOREGROUND,0" # Black
-      "GUM_CONFIRM_UNSELECTED_BACKGROUND,8" # Dark grey
-    ];
+    windowrule = [
+      # Ignore maximize requests from apps
+      "suppress_event maximize, match:class .*"
 
-    windowrule = "opacity 0.9 0.83, match:class .*";
+      # Fix some dragging issues with XWayland
+      "no_initial_focus on, match:class ^$, match:title ^$, match:xwayland 1, match:float 1, match:fullscreen 0, match:pin 0"
+
+      # Simple floating windows
+      "float on, match:class ^(nvidia-settings)$"
+
+      # TUIs
+      "float on, center on, size 1280 800, match:class ^(btop|wiremix|yazi|bluetui)$"
+
+      # Kitty
+      "float on, center on, size 1500 860, match:class ^(kitty)$"
+
+      # GNOME / utility dialogs
+      "float on, center on, size 1280 800, match:class ^(org.gnome.Loupe|org.gnome.NautilusPreviewer|org.gnome.Nautilus|virt-manager|system-config-printer|Proton Pass)$"
+
+      # Bind apps to workspaces
+      "workspace 3, match:class zen"
+      "workspace 2, match:class ^(discord|com.discordapp.Discord|spotify)$"
+      "workspace 1, match:class kitty"
+      "workspace 5, match:class steam"
+
+      # Opacity tweaks
+      "opacity 0.9 0.83, match:class .*"
+
+      # BROWSER TWEAKS
+
+      # Browser types
+      "tag +chromium-based-browser, match:class ((google-)?[cC]hrom(e|ium)|[bB]rave-browser|[mM]icrosoft-edge|Vivaldi-stable|helium)"
+      "tag +firefox-based-browser, match:class ([fF]irefox|zen|librewolf)"
+
+      # Force chromium-based browsers into a tile to deal with --app bug
+      "tile on, match:tag chromium-based-browser"
+
+      # Only a subtle opacity change, but not for video sites
+      "opacity 1 0.97, match:tag chromium-based-browser"
+      "opacity 1 0.97, match:tag firefox-based-browser"
+
+      # Some video sites should never have opacity applied to them
+      "opacity 1.0 1.0, match:title ((?i)(?:[a-z0-9-]+\.)*youtube\.com_/|app\.zoom\.us_/wc/home)"
+
+      # Float and center Zen Browser history tab
+      "float on, match:class zen, match:title Library"
+      "center on, match:class zen, match:title Library"
+
+      # STEAM TWEAKS
+
+      # Float Steam
+      "float on, match:class steam"
+      "center on, match:class steam, match:title Steam"
+      "opacity 1 1, match:class steam"
+
+      "size 1380 800, match:class steam, match:title Steam"
+      "size 460 800, match:class steam, match:title Friends List"
+
+      # Prevent idle when Steam is fullscreen
+      "match:class ^(steam)$, idle_inhibit always"
+    ];
   };
 }

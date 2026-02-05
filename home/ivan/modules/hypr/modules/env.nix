@@ -38,6 +38,16 @@
       # QT Apps dark theme
       "QT_QPA_PLATFORMTHEME,qt6ct"
       "QT_QPA_PLATFORM,wayland"
+
+      # Monitors
+      "GDK_SCALE,1"
+
+      # Style Gum confirm to match terminal theme
+      "GUM_CONFIRM_PROMPT_FOREGROUND,6" # Cyan
+      "GUM_CONFIRM_SELECTED_FOREGROUND,0" # Black
+      "GUM_CONFIRM_SELECTED_BACKGROUND,2" # Green
+      "GUM_CONFIRM_UNSELECTED_FOREGROUND,0" # Black
+      "GUM_CONFIRM_UNSELECTED_BACKGROUND,8" # Dark grey
     ];
 
     xwayland = {

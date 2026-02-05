@@ -81,10 +81,6 @@
       "$mainMod, mouse_down, Scroll active workspace forward, workspace, e+1"
       "$mainMod, mouse_up, Scroll active workspace backward, workspace, e-1"
 
-      # Move/resize windows with mainMod + LMB/RMB and dragging
-      "bindmd = $mainMod, mouse:272, Move window, movewindow"
-      "bindmd = $mainMod, mouse:273, Resize window, resizewindow"
-
       # Toggle groups
       "$mainMod, G, Toggle window grouping, togglegroup"
       "$mainMod ALT, G, Move active window out of group, moveoutofgroup"
@@ -113,6 +109,12 @@
       "$mainMod ALT, code:12, Switch to group window 3, changegroupactive, 3"
       "$mainMod ALT, code:13, Switch to group window 4, changegroupactive, 4"
       "$mainMod ALT, code:14, Switch to group window 5, changegroupactive, 5"
+    ];
+
+    bindmd = [
+      # Move/resize windows with mainMod + LMB/RMB and dragging
+      "$mainMod, mouse:272, Move window, movewindow"
+      "$mainMod, mouse:273, Resize window, resizewindow"
     ];
   };
 }
