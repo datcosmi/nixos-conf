@@ -17,7 +17,7 @@
       "$mainMod, RETURN, Open terminal, exec, $terminal"
       "$mainMod SHIFT, RETURN, Open tmux directly,  exec, $terminal -e tmux"
       "$mainMod, W, Close window, killactive,"
-      "$mainMod, M, Kill session, exit,"
+      # "$mainMod, M, Kill session, exit,"
       "$mainMod SHIFT, F, Open file manager, exec, $fileManager"
       "$mainMod SHIFT, B, Open browser, exec, $browser"
       "$mainMod SHIFT, Y, Open yazi file manager, exec, $terminal --class yazi -e yazi"

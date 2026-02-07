@@ -15,10 +15,10 @@
       # $mainMod, O, Pop window out (float & pin), exec, omarchy-hyprland-window-pop
 
       # Move focus with $mainMod + arrow keys
-      "$mainMod, LEFT, Move window focus left, movefocus, l"
-      "$mainMod, RIGHT, Move window focus right, movefocus, r"
-      "$mainMod, UP, Move window focus up, movefocus, u"
-      "$mainMod, DOWN, Move window focus down, movefocus, d"
+      # "$mainMod, LEFT, Move window focus left, movefocus, l"
+      # "$mainMod, RIGHT, Move window focus right, movefocus, r"
+      # "$mainMod, UP, Move window focus up, movefocus, u"
+      # "$mainMod, DOWN, Move window focus down, movefocus, d"
 
       # Switch workspaces with $mainMod + [1-9]
       "$mainMod, code:10, Switch to workspace 1, workspace, 1"
@@ -58,10 +58,10 @@
       "$mainMod SHIFT ALT, RIGHT, Move workspace to right monitor, movecurrentworkspacetomonitor, r"
 
       # Swap active window with the one next to it with $mainMod + SHIFT + arrow keys
-      "$mainMod SHIFT, LEFT, Swap window to the left, swapwindow, l"
-      "$mainMod SHIFT, RIGHT, Swap window to the right, swapwindow, r"
-      "$mainMod SHIFT, UP, Swap window up, swapwindow, u"
-      "$mainMod SHIFT, DOWN, Swap window down, swapwindow, d"
+      # "$mainMod SHIFT, LEFT, Swap window to the left, swapwindow, l"
+      # "$mainMod SHIFT, RIGHT, Swap window to the right, swapwindow, r"
+      # "$mainMod SHIFT, UP, Swap window up, swapwindow, u"
+      # "$mainMod SHIFT, DOWN, Swap window down, swapwindow, d"
 
       # Cycle through applications on active workspace
       "ALT, TAB, Cycle to next window, cyclenext"
@@ -70,10 +70,10 @@
       "ALT SHIFT, TAB, Reveal active window on top, bringactivetotop"
 
       # Resize active window
-      "$mainMod, code:20, Expand window left, resizeactive, -100 0    # - key"
-      "$mainMod, code:21, Shrink window left, resizeactive, 100 0     # = key"
-      "$mainMod SHIFT, code:20, Shrink window up, resizeactive, 0 -100"
-      "$mainMod SHIFT, code:21, Expand window down, resizeactive, 0 100"
+      # "$mainMod, code:20, Expand window left, resizeactive, -100 0    # - key"
+      # "$mainMod, code:21, Shrink window left, resizeactive, 100 0     # = key"
+      # "$mainMod SHIFT, code:20, Shrink window up, resizeactive, 0 -100"
+      # "$mainMod SHIFT, code:21, Expand window down, resizeactive, 0 100"
 
       # Scroll through existing workspaces with $mainMod + scroll
       "$mainMod, mouse_down, Scroll active workspace forward, workspace, e+1"
@@ -110,25 +110,43 @@
 
       # SCROLLING LAYOUT
 
-      # Column navigation
-      "$mainMod, comma, Scroll column left, layoutmsg, move -1"
-      "$mainMod, period, Scroll column right, layoutmsg, move +1"
+      # Scroll layout by columns
+      "$mainMod, h, Column left, layoutmsg, move -col"
+      "$mainMod, l, Column right, layoutmsg, move +col"
 
       # Move windows between columns
-      "$mainMod SHIFT, comma, Move window to left column, layoutmsg, movewindow -1"
-      "$mainMod SHIFT, period, Move window to right column, layoutmsg, movewindow +1"
+      "$mainMod SHIFT, h, Move window left column, layoutmsg, movewindow l"
+      "$mainMod SHIFT, l, Move window right column, layoutmsg, movewindow r"
+      "$mainMod SHIFT, k, Move window up column, layoutmsg, movewindow u"
+      "$mainMod SHIFT, j, Move window down column, layoutmsg, movewindow d"
 
-      # Column resizing
-      "$mainMod CTRL, minus, Shrink column, layoutmsg, colresize -0.1"
-      "$mainMod CTRL, equal, Expand column, layoutmsg, colresize +0.1"
+      # Resize current column
+      "$mainMod CTRL, h, Shrink column, layoutmsg, colresize -0.1"
+      "$mainMod CTRL, l, Expand column, layoutmsg, colresize +0.1"
 
       # Cycle column width presets
-      "$mainMod CTRL, C, Cycle column width, layoutmsg, colresize +conf"
-      "$mainMod CTRL, X, Cycle column width backward, layoutmsg, colresize -conf"
+      "$mainMod CTRL, k, Cycle column width forward, layoutmsg, colresize +conf"
+      "$mainMod CTRL, j, Cycle column width backward, layoutmsg, colresize -conf"
 
       # Column management
-      "$mainMod, A, Swap column right, layoutmsg, swapcol 1"
-      "$mainMod SHIFT, A, Swap column left, layoutmsg, swapcol -1"
+      "$mainMod, n, Promote window to new column, layoutmsg, promote"
+
+      # Toggle fit / left
+      "$mainMod, b, Toggle column fit/left, layoutmsg, togglefit"
+
+      # Swap columns
+      "$mainMod SHIFT, comma, Swap column right, layoutmsg, swapcol l"
+      "$mainMod SHIFT, period, Swap column left, layoutmsg, swapcol r"
+
+      # Move entire column to adjacent workspace
+      "$mainMod CTRL, comma, Move column to prev workspace, layoutmsg, movecoltoworkspace e-1"
+      "$mainMod CTRL, period, Move column to next workspace, layoutmsg, movecoltoworkspace e+1"
+
+      # Move windows between columns / directions (promotes to new column at right edge)
+      "$mainMod, RIGHT, Move window to the right, layoutmsg, movewindowto r"
+      "$mainMod, LEFT, Move window to te left, layoutmsg, movewindowto l"
+      "$mainMod, UP, Move window up, layoutmsg, movewindowto u"
+      "$mainMod, DOWN, Move window down, layoutmsg, movewindowto d"
     ];
 
     bindmd = [
