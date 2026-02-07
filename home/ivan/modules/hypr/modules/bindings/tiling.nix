@@ -15,10 +15,13 @@
       # $mainMod, O, Pop window out (float & pin), exec, omarchy-hyprland-window-pop
 
       # Move focus with $mainMod + arrow keys
-      # "$mainMod, LEFT, Move window focus left, movefocus, l"
-      # "$mainMod, RIGHT, Move window focus right, movefocus, r"
-      # "$mainMod, UP, Move window focus up, movefocus, u"
-      # "$mainMod, DOWN, Move window focus down, movefocus, d"
+      "$mainMod, LEFT, Move window focus left, movefocus, l"
+      "$mainMod, RIGHT, Move window focus right, movefocus, r"
+      "$mainMod, UP, Move window focus up, movefocus, u"
+      "$mainMod, DOWN, Move window focus down, movefocus, d"
+
+      "$mainMod, k, Move window focus up, movefocus, u"
+      "$mainMod, j, Move window focus down, movefocus, d"
 
       # Switch workspaces with $mainMod + [1-9]
       "$mainMod, code:10, Switch to workspace 1, workspace, 1"
@@ -72,8 +75,8 @@
       # Resize active window
       # "$mainMod, code:20, Expand window left, resizeactive, -100 0    # - key"
       # "$mainMod, code:21, Shrink window left, resizeactive, 100 0     # = key"
-      # "$mainMod SHIFT, code:20, Shrink window up, resizeactive, 0 -100"
-      # "$mainMod SHIFT, code:21, Expand window down, resizeactive, 0 100"
+      "$mainMod SHIFT, code:20, Shrink window up, resizeactive, 0 -100"
+      "$mainMod SHIFT, code:21, Expand window down, resizeactive, 0 100"
 
       # Scroll through existing workspaces with $mainMod + scroll
       "$mainMod, mouse_down, Scroll active workspace forward, workspace, e+1"
@@ -115,10 +118,10 @@
       "$mainMod, l, Column right, layoutmsg, move +col"
 
       # Move windows between columns
-      "$mainMod SHIFT, h, Move window left column, layoutmsg, movewindow l"
-      "$mainMod SHIFT, l, Move window right column, layoutmsg, movewindow r"
-      "$mainMod SHIFT, k, Move window up column, layoutmsg, movewindow u"
-      "$mainMod SHIFT, j, Move window down column, layoutmsg, movewindow d"
+      "$mainMod SHIFT, H, Move window left column, layoutmsg, movewindowto l"
+      "$mainMod SHIFT, L, Move window right column, layoutmsg, movewindowto r"
+      "$mainMod SHIFT, K, Move window up column, layoutmsg, movewindowto u"
+      "$mainMod SHIFT, J, Move window down column, layoutmsg, movewindowto d"
 
       # Resize current column
       "$mainMod CTRL, h, Shrink column, layoutmsg, colresize -0.1"
@@ -143,10 +146,10 @@
       "$mainMod CTRL, period, Move column to next workspace, layoutmsg, movecoltoworkspace e+1"
 
       # Move windows between columns / directions (promotes to new column at right edge)
-      "$mainMod, RIGHT, Move window to the right, layoutmsg, movewindowto r"
-      "$mainMod, LEFT, Move window to te left, layoutmsg, movewindowto l"
-      "$mainMod, UP, Move window up, layoutmsg, movewindowto u"
-      "$mainMod, DOWN, Move window down, layoutmsg, movewindowto d"
+      # "$mainMod SHIFT, RIGHT, Move window to the right, layoutmsg, movewindowto r"
+      # "$mainMod SHIFT, LEFT, Move window to te left, layoutmsg, movewindowto l"
+      # "$mainMod SHIFT, UP, Move window up, layoutmsg, movewindowto u"
+      # "$mainMod SHIFT, DOWN, Move window down, layoutmsg, movewindowto d"
     ];
 
     bindmd = [

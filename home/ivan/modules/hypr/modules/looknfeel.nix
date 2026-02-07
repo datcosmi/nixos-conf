@@ -155,7 +155,7 @@
       # Bind apps to workspaces
       "workspace 3, match:class zen"
       "workspace 2, match:class ^(discord|com.discordapp.Discord|spotify)$"
-      "workspace 1, match:class kitty"
+      # "workspace 1, match:class kitty"
       "workspace 5, match:class steam"
 
       # BROWSER TWEAKS
