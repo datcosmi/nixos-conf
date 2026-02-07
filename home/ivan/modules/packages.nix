@@ -24,6 +24,7 @@
     unzip
     loupe
     ristretto
+    rofimoji
 
     brightnessctl
 

@@ -29,7 +29,7 @@
       cursor_shape = "block";
       cursor_trail = 3;
       enable_audio_bell = "no";
-      background_opacity = 0.73;
+      background_opacity = 0.70;
 
       # Tab bar styling
       tab_bar_edge = "bottom";

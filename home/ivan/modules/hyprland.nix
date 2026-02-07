@@ -11,6 +11,8 @@
     ./hypr/modules/env.nix
     ./hypr/modules/autostart.nix
     ./hypr/modules/looknfeel.nix
+
+    ./hypr/modules/hyprscrolling.nix
   ];
 
   wayland.windowManager.hyprland = {

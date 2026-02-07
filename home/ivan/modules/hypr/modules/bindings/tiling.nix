@@ -3,12 +3,10 @@
     bindd = [
       # Close windows
       "$mainMod, W, Close window, killactive,"
-      # CTRL ALT, DELETE, Close all windows, exec, omarchy-hyprland-window-close-all
 
       # Control tiling
       "$mainMod, J, Toggle window split, layoutmsg, togglesplit, # dwindle"
       "$mainMod, P, Pseudo window, layoutmsg, pseudo, # dwindle"
-      # $mainMod, T, Toggle window floating/tiling, togglefloating,
       "$mainMod, T, Togggle floating window, togglefloating, centerwindow"
       "$mainMod, C, Center window, centerwindow"
       "$mainMod, F, Full screen, fullscreen, 0"
@@ -109,6 +107,28 @@
       "$mainMod ALT, code:12, Switch to group window 3, changegroupactive, 3"
       "$mainMod ALT, code:13, Switch to group window 4, changegroupactive, 4"
       "$mainMod ALT, code:14, Switch to group window 5, changegroupactive, 5"
+
+      # SCROLLING LAYOUT
+
+      # Column navigation
+      "$mainMod, comma, Scroll column left, layoutmsg, move -1"
+      "$mainMod, period, Scroll column right, layoutmsg, move +1"
+
+      # Move windows between columns
+      "$mainMod SHIFT, comma, Move window to left column, layoutmsg, movewindow -1"
+      "$mainMod SHIFT, period, Move window to right column, layoutmsg, movewindow +1"
+
+      # Column resizing
+      "$mainMod CTRL, minus, Shrink column, layoutmsg, colresize -0.1"
+      "$mainMod CTRL, equal, Expand column, layoutmsg, colresize +0.1"
+
+      # Cycle column width presets
+      "$mainMod CTRL, C, Cycle column width, layoutmsg, colresize +conf"
+      "$mainMod CTRL, X, Cycle column width backward, layoutmsg, colresize -conf"
+
+      # Column management
+      "$mainMod, A, Swap column right, layoutmsg, swapcol 1"
+      "$mainMod SHIFT, A, Swap column left, layoutmsg, swapcol -1"
     ];
 
     bindmd = [

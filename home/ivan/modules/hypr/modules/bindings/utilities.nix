@@ -7,6 +7,7 @@
       # Rofi
       "$mainMod, SPACE, exec, rofi -show drun"
       # bindd = $mainMod CTRL, E, Rofi emoji selector, exec, rofi -show emoji
+      "$mainMod CTRL, E, exec, rofimoji"
       "$mainMod CTRL, C, exec, rofi -show calc -modi calc -no-show-match -no-sort"
       "$mainMod, V, exec, cliphist list | rofi -dmenu | cliphist decode | wl-copy"
 
@@ -17,7 +18,7 @@
       "$mainMod SHIFT, SPACE, exec, pkill waybar && waybar &"
 
       # Screenshot of a region
-      ", Print, exec, grim -g '$(slurp)'' - | wl-copy && wl-paste > ~/Pictures/Screenshots/Screenshot-$(date +%F_%T).png | notify-send 'Screenshot of the region taken' -t 1000"
+      ", Print, exec, grim -g \"$(slurp)\" - | wl-copy && wl-paste > ~/Pictures/Screenshots/Screenshot-$(date +%F_%T).png | notify-send 'Screenshot of the region taken' -t 1000"
 
       # Screenshot of the whole screen
       "SHIFT, Print, exec, grim - | wl-copy && wl-paste > ~/Pictures/Screenshots/Screenshot-$(date +%F_%T).png | notify-send 'Screenshot of whole screen taken' -t 1000"

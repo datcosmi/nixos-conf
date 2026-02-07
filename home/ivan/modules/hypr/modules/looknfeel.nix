@@ -12,12 +12,12 @@
       "col.active_border" = "$activeBorderColor";
       "col.inactive_border" = "$inactiveBorderColor";
 
-      layout = "dwindle";
+      layout = "scrolling";
     };
 
     decoration = {
-      rounding = 10;
-      rounding_power = 20;
+      rounding = 13;
+      rounding_power = 13;
 
       shadow = {
         enabled = true;
@@ -146,6 +146,8 @@
 
       # Kitty
       "float on, center on, size 1500 860, match:class ^(kitty)$"
+      # "pseudo on, center on, match:class ^(kitty)$"
+      # "max_size 1500 860, min_size 300 150, match:class ^(kitty)$"
 
       # GNOME / utility dialogs
       "float on, center on, size 1280 800, match:class ^(org.gnome.Loupe|org.gnome.NautilusPreviewer|org.gnome.Nautilus|virt-manager|system-config-printer|Proton Pass)$"
@@ -156,24 +158,24 @@
       "workspace 1, match:class kitty"
       "workspace 5, match:class steam"
 
-      # Opacity tweaks
-      "opacity 0.9 0.83, match:class .*"
-
       # BROWSER TWEAKS
 
+      # Default opacity
+      "match:class negative:((google-)?[cC]hrom(e|ium)|[bB]rave-browser|[mM]icrosoft-edge|Vivaldi-stable|helium|[fF]irefox|zen|librewolf), opacity 0.9 0.83"
+
       # Browser types
-      "tag +chromium-based-browser, match:class ((google-)?[cC]hrom(e|ium)|[bB]rave-browser|[mM]icrosoft-edge|Vivaldi-stable|helium)"
-      "tag +firefox-based-browser, match:class ([fF]irefox|zen|librewolf)"
+      "match:class ((google-)?[cC]hrom(e|ium)|[bB]rave-browser|[mM]icrosoft-edge|Vivaldi-stable|helium), tag +chromium-based-browser"
+      "match:class ([fF]irefox|zen|librewolf), tag +firefox-based-browser"
+
+      # Only a subtle opacity change, but not for video sites
+      "match:tag chromium-based-browser, opacity 1 0.97"
+      "match:tag firefox-based-browser, opacity 1 0.97"
+
+      # Some video sites should never have opacity applied to them
+      "match:title ((?i)(?:[a-z0-9-]+\\.)*youtube\\.com_/|app\\.zoom\\.us_/wc/home), opacity 1 1"
 
       # Force chromium-based browsers into a tile to deal with --app bug
       "tile on, match:tag chromium-based-browser"
-
-      # Only a subtle opacity change, but not for video sites
-      "opacity 1 0.97, match:tag chromium-based-browser"
-      "opacity 1 0.97, match:tag firefox-based-browser"
-
-      # Some video sites should never have opacity applied to them
-      "opacity 1.0 1.0, match:title ((?i)(?:[a-z0-9-]+\.)*youtube\.com_/|app\.zoom\.us_/wc/home)"
 
       # Float and center Zen Browser history tab
       "float on, match:class zen, match:title Library"
