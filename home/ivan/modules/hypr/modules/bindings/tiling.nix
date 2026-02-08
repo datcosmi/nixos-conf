@@ -61,10 +61,10 @@
       "$mainMod SHIFT ALT, RIGHT, Move workspace to right monitor, movecurrentworkspacetomonitor, r"
 
       # Swap active window with the one next to it with $mainMod + SHIFT + arrow keys
-      # "$mainMod SHIFT, LEFT, Swap window to the left, swapwindow, l"
-      # "$mainMod SHIFT, RIGHT, Swap window to the right, swapwindow, r"
-      # "$mainMod SHIFT, UP, Swap window up, swapwindow, u"
-      # "$mainMod SHIFT, DOWN, Swap window down, swapwindow, d"
+      "$mainMod ALT, h, Swap window to the left, swapwindow, l"
+      "$mainMod ALT, l, Swap window to the right, swapwindow, r"
+      "$mainMod ALT, k, Swap window up, swapwindow, u"
+      "$mainMod ALT, j, Swap window down, swapwindow, d"
 
       # Cycle through applications on active workspace
       "ALT, TAB, Cycle to next window, cyclenext"

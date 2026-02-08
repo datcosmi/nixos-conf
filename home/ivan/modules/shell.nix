@@ -50,12 +50,12 @@
     };
 
     initContent = ''
-      bindkey -v
-      export KEYTIMEOUT=1
-        if [[ -o interactive ]]; then
-          clear
-          fastfetch
-        fi
+      if [[ -o interactive ]]; then
+        bindkey -v
+        export KEYTIMEOUT=1
+        clear
+        fastfetch
+      fi
     '';
   };
 
