@@ -67,7 +67,5 @@
     enable = true;
   };
 
-  # programs.bluetuith = {
-  #   enable = true;
-  # };
+  programs.zathura.enable = true;
 }

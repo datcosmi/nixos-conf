@@ -8,7 +8,6 @@
     wget
     vim
     kitty
-    tree
     stow
     tuigreet
 

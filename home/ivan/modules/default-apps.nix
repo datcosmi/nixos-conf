@@ -12,6 +12,8 @@
       "x-scheme-handler/https" = "zen.desktop";
       "x-scheme-handler/about" = "zen.desktop";
       "x-scheme-handler/unknown" = "zen.desktop";
+
+      "application/pdf" = "org.pwmt.zathura.desktop";
     };
   };
 }

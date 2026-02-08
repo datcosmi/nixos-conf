@@ -15,6 +15,7 @@
       ll = "ls -l";
       la = "eza --icons=always -a";
       ls = "eza --icons=always";
+      lst = "eza --icons=always --tree";
       cd = "z";
 
       inv = "nvim $(fzf -m --preview='bat --color=always {}')";
