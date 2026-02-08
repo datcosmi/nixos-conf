@@ -9,6 +9,7 @@
     ./modules/utils.nix
     ./modules/ssh.nix
     ./modules/default-apps.nix
+    ./modules/desktop-apps.nix
     ./modules/hyprland.nix
 
     ./modules/tmux.nix

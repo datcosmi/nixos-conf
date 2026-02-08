@@ -150,7 +150,8 @@
       # "max_size 1500 860, min_size 300 150, match:class ^(kitty)$"
 
       # GNOME / utility dialogs
-      "float on, center on, size 1280 800, match:class ^(org.gnome.Loupe|org.gnome.NautilusPreviewer|org.gnome.Nautilus|virt-manager|system-config-printer|Proton Pass)$"
+      "pseudo on, size 1280 800, match:class ^(org.gnome.Loupe|org.gnome.NautilusPreviewer|org.gnome.Nautilus|virt-manager|system-config-printer|Proton Pass)$"
+      # "float on, center on, size 1280 800, match:class ^(org.gnome.Loupe|org.gnome.NautilusPreviewer|org.gnome.Nautilus|virt-manager|system-config-printer|Proton Pass)$"
 
       # Bind apps to workspaces
       "workspace 3, match:class zen"

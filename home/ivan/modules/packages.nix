@@ -9,8 +9,8 @@
     nautilus
     localsend
     ente-auth
+    # discord-canary
     vlc
-    ffmpeg
 
     protonvpn-gui
     proton-pass

@@ -18,8 +18,8 @@
       "wl-paste --type image --watch cliphist store"
 
       # Programs
-      "protonvpn-app"
-      "steam -silent"
+      "uwsm-app -- protonvpn-app"
+      "uwsm-app -- steam -silent"
 
       # Wallpaper (awww)
       "awww-daemon"
