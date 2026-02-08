@@ -13,6 +13,10 @@
     ../hypr/modules/looknfeel.nix
 
     ../hypr/modules/hyprscrolling.nix
+
+    ../hypr/idle.nix
+    ../hypr/lock.nix
+    ../hypr/hypr-monitor-fix.nix
   ];
 
   wayland.windowManager.hyprland = {

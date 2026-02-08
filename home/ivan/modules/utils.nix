@@ -1,4 +1,12 @@
 {pkgs, ...}: {
+  imports = [
+    ./tmux.nix
+    ./rofi.nix
+    ./catppuccin.nix
+    ./fastfetch.nix
+    ./starship.nix
+  ];
+
   programs.wleave = {
     enable = true;
 

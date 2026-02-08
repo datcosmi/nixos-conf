@@ -7,23 +7,11 @@
     ./modules/session.nix
     ./modules/services.nix
     ./modules/utils.nix
+    ./modules/scripts.nix
     ./modules/ssh.nix
     ./modules/default-apps.nix
     ./modules/desktop-apps.nix
     ./modules/hyprland.nix
-
-    ./modules/tmux.nix
-    ./modules/rofi.nix
-    ./modules/catppuccin.nix
-    ./modules/fastfetch.nix
-    ./modules/starship.nix
-
-    ./scripts/waybar-media-player.nix
-    ./scripts/hyprland-audio-switcher.nix
-
-    ./modules/hypr/idle.nix
-    ./modules/hypr/lock.nix
-    ./modules/hypr/hypr-monitor-fix.nix
   ];
 
   home.username = "ivan";
