@@ -29,6 +29,8 @@
       "$mainMod SHIFT, A, Open authenticator, exec, enteauth"
       "$mainMod SHIFT, P, Open password manager, exec, proton-pass"
       # "$mainMod SHIFT, K, Open bakkesmod, exec, protontricks-launch --appid 252950 '/home/ivan/.steam/steam/steamapps/compatdata/252950/pfx/drive_c/Program Files/BakkesMod/BakkesMod.exe'"
+
+      "$mainMod, F12, Black screen revovery, exec, hyprctl dispatch dpms off && sleep 1 && hyprctl dispatch dpms on"
     ];
 
     bindel = [

@@ -16,7 +16,7 @@
           on-resume = "${pkgs.brightnessctl}/bin/brightnessctl -r";
         }
         {
-          timeout = 300;
+          timeout = 600;
           on-timeout = "hyprlock";
         }
         # {

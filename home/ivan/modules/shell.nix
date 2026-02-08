@@ -1,6 +1,8 @@
 {pkgs, ...}: {
   programs.zsh = {
     enable = true;
+
+    defaultKeymap = "viins";
     enableCompletion = true;
     autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
@@ -47,10 +49,12 @@
     };
 
     initContent = ''
-      if [[ -o interactive ]]; then
-        clear
-        fastfetch
-      fi
+      bindkey -v
+      export KEYTIMEOUT=1
+        if [[ -o interactive ]]; then
+          clear
+          fastfetch
+        fi
     '';
   };
 
