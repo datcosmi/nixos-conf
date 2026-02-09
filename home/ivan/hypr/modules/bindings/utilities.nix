@@ -12,13 +12,13 @@
       "$mainMod, V, exec, cliphist list | rofi -dmenu | cliphist decode | wl-copy"
 
       # Hypremoji
-      "$mainMod CTRL, E, exec, hypremoji"
+      # "$mainMod CTRL, E, exec, hypremoji"
 
       # Reload waybar
-      "$mainMod SHIFT, SPACE, exec, pkill waybar && uwsm-app -- waybar &"
+      "$mainMod SHIFT, SPACE, exec, pkill waybar && uwsm-app waybar"
 
       # Reload Proton VPN tray icon
-      "$mainMod CTRL, SPACE, exec, pkill -USR1 protonvpn && uwsm-app -- protonvpn-app &"
+      "$mainMod CTRL, SPACE, exec, pkill -USR1 protonvpn && uwsm-app -- protonvpn-app"
 
       # Screenshot of a region
       ", Print, exec, grim -g \"$(slurp)\" - | wl-copy && wl-paste > ~/Pictures/Screenshots/Screenshot-$(date +%F_%T).png | notify-send 'Screenshot of the region taken' -t 1000"

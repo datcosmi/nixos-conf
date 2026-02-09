@@ -142,22 +142,17 @@
       "float on, match:class ^(nvidia-settings)$"
 
       # TUIs
-      "float on, center on, size 1280 800, match:class ^(btop|wiremix|yazi|bluetui)$"
+      "float on, center on, size 1280 800, match:class ^(btop|wiremix|bluetui)$"
+      "pseudo on, size 1280 800, match:class yazi"
 
       # Kitty
-      "float on, center on, size 1500 860, match:class ^(kitty)$"
-      # "pseudo on, center on, match:class ^(kitty)$"
+      "pseudo on, size 1500 860, match:class kitty"
+      # "float on, center on, size 1500 860, match:class ^(kitty)$"
       # "max_size 1500 860, min_size 300 150, match:class ^(kitty)$"
 
       # GNOME / utility dialogs
-      "pseudo on, size 1280 800, match:class ^(org.gnome.Loupe|org.gnome.NautilusPreviewer|org.gnome.Nautilus|virt-manager|system-config-printer|Proton Pass)$"
-      # "float on, center on, size 1280 800, match:class ^(org.gnome.Loupe|org.gnome.NautilusPreviewer|org.gnome.Nautilus|virt-manager|system-config-printer|Proton Pass)$"
-
-      # Bind apps to workspaces
-      "workspace 3, match:class zen"
-      "workspace 2, match:class ^(discord|com.discordapp.Discord|spotify)$"
-      # "workspace 1, match:class kitty"
-      "workspace 5, match:class steam"
+      "float on, center on, size 1280 800, match:class ^(org.gnome.Loupe|org.gnome.NautilusPreviewer|org.gnome.Nautilus|virt-manager)$"
+      "pseudo on, size 1280 800, match:class ^(system-config-printer|Proton Pass)$"
 
       # BROWSER TWEAKS
 
@@ -194,6 +189,15 @@
 
       # Prevent idle when Steam is fullscreen
       "match:class ^(steam)$, idle_inhibit always"
+
+      # WORKSPACES
+
+      "workspace 3, match:tag chromium-based-browser"
+      "workspace 3, match:tag firefox-based-browser"
+      "workspace 2, match:class ^(discord|com.discordapp.Discord|spotify)$"
+      "workspace 4, match:class ^(org.pwmt.zathura|com.stremio.stremio)$"
+      # "workspace 1, match:class kitty"
+      "workspace 5, match:class steam"
     ];
   };
 }

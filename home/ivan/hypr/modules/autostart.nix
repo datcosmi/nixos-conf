@@ -1,7 +1,7 @@
 {config, ...}: {
   wayland.windowManager.hyprland.settings = {
     exec-once = [
-      "uwsm-app -- waybar"
+      "uwsm-app waybar"
       # "uwsm-app -- swayosd-server"
       # "uwsm-app -- swaync"
       "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
