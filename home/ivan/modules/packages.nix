@@ -26,7 +26,7 @@
     ristretto
     rofimoji
 
-    brightnessctl
+    # brightnessctl
 
     # LSP's
     lua-language-server

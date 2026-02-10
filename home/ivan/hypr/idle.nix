@@ -1,29 +1,34 @@
-{pkgs, ...}: {
+{
+  config,
+  pkgs,
+  ...
+}: {
   services.hypridle = {
     enable = true;
 
     settings = {
       general = {
-        lock_cmd = "hyprlock";
-        before_sleep_cmd = "hyprlock";
-        # after_sleep_cmd = "hyprctl dispatch dpms on";
+        lock_cmd = "pidof hyprlock || hyprlock";
+        before_sleep_cmd = "loginctl lock-session";
+        after_sleep_cmd = "hyprctl dispatch dpms on";
+        ignore_dbus_inhibit = false;
       };
 
       listener = [
-        {
-          timeout = 150;
-          on-timeout = "${pkgs.brightnessctl}/bin/brightnessctl -s set 10";
-          on-resume = "${pkgs.brightnessctl}/bin/brightnessctl -r";
-        }
+        # Lock screen after 10 minutes
         {
           timeout = 600;
-          on-timeout = "hyprlock";
+          on-timeout = "loginctl lock-session";
         }
-        # {
-        #   timeout = 330;
-        #   on-timeout = "hyprctl dispatch dpms off";
-        #   on-resume  = "hyprctl dispatch dpms on && ${pkgs.brightnessctl}/bin/brightnessctl -r";
-        # }
+
+        # Turn off displays after 10 minutes and 30 seconds
+        {
+          timeout = 630;
+          on-timeout = "hyprctl dispatch dpms off";
+          on-resume = "hyprctl dispatch dpms on";
+        }
+
+        # Suspend after 20 minutes
         {
           timeout = 1200;
           on-timeout = "systemctl suspend";
