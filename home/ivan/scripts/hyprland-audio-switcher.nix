@@ -1,6 +1,4 @@
-{ pkgs, ... }:
-
-let
+{pkgs, ...}: let
   toggle-audio-output = pkgs.writeShellApplication {
     name = "toggle-audio-output";
     runtimeInputs = [
@@ -12,7 +10,6 @@ let
       python3 ${./toggle-audio-output.py} "$@"
     '';
   };
-in
-{
-  home.packages = [ toggle-audio-output ];
+in {
+  home.packages = [toggle-audio-output];
 }

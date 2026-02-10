@@ -21,6 +21,9 @@
       "uwsm-app -- protonvpn-app"
       "uwsm-app -- steam -silent"
 
+      # Auto DND when fullscreen
+      "hypr-dnd-toggle"
+
       # Wallpaper (awww)
       "awww-daemon"
       "awww img ~/.local/share/themes/wallpapers/blue-landscape-cat.png --transition-type grow --transition-duration 1.2 --transition-fps 60"

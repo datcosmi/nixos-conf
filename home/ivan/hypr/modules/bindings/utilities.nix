@@ -34,9 +34,15 @@
       "$mainMod, P, pseudo, # dwindle"
       "$mainMod, J, togglesplit, # dwindle"
       "$mainMod, ESCAPE, exec, wleave"
+
+      # TUIs
       "$mainMod SHIFT, T, exec, $terminal --class btop -e btop"
       "$mainMod SHIFT, S, exec, $terminal --class wiremix -e wiremix"
       "$mainMod SHIFT, E, exec, $terminal --class bluetui -e bluetui"
+
+      # SwayNC
+      "$mainMod CTRL, D, exec, swaync-auto-dnd on"
+      "$mainMod CTRL, O, exec, swaync-auto-dnd off"
     ];
   };
 }
