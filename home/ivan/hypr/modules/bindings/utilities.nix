@@ -41,8 +41,7 @@
       "$mainMod SHIFT, E, exec, $terminal --class bluetui -e bluetui"
 
       # SwayNC
-      "$mainMod CTRL, D, exec, swaync-auto-dnd on"
-      "$mainMod CTRL, O, exec, swaync-auto-dnd off"
+      "$mainMod CTRL, D, exec, swaync-client -d"
     ];
   };
 }
