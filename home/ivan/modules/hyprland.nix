@@ -12,7 +12,7 @@
     ../hypr/modules/autostart.nix
     ../hypr/modules/looknfeel.nix
 
-    ../hypr/modules/hyprscrolling.nix
+    ../hypr/modules/plugins.nix
 
     ../hypr/idle.nix
     ../hypr/lock.nix

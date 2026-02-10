@@ -3,10 +3,7 @@
 
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
-
-    hyprland = {
-      url = "github:hyprwm/Hyprland";
-    };
+    hyprland.url = "github:hyprwm/Hyprland";
 
     hyprland-plugins = {
       url = "github:hyprwm/hyprland-plugins";
@@ -31,7 +28,6 @@
     rose-pine-hyprcursor = {
       url = "github:ndom91/rose-pine-hyprcursor";
       inputs.nixpkgs.follows = "nixpkgs";
-      # inputs.hyprlang.follows = "hyprland/hyprlang";
     };
 
     zen-browser = {
