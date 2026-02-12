@@ -4,7 +4,7 @@
   ...
 }: {
   home.packages = with pkgs; [
-    brave
+    # brave
     spotify
     nautilus
     localsend
@@ -23,7 +23,7 @@
     wl-clipboard
     unzip
     loupe
-    ristretto
+    # ristretto
     rofimoji
 
     # brightnessctl

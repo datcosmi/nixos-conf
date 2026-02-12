@@ -12,6 +12,14 @@
     openFirewall = true;
   };
 
+  systemd.services.avahi-daemon = {
+    serviceConfig = {
+      ExecStartPre = "${pkgs.coreutils}/bin/rm -f /run/avahi-daemon/pid";
+      RuntimeDirectory = "avahi-daemon";
+      RuntimeDirectoryMode = "0755";
+    };
+  };
+
   security.polkit.enable = true;
 
   services.gnome.gnome-keyring.enable = true;
