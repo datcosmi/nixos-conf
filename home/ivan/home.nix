@@ -8,7 +8,7 @@
     ./modules/ssh.nix
     ./modules/defaults.nix
     ./modules/desktop-apps.nix
-    ./modules/hyprland.nix
+    ./modules/graphics.nix
     ./modules/theme.nix
     ./modules/dev.nix
   ];

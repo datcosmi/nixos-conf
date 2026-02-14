@@ -1,6 +1,8 @@
 {
   inputs,
   pkgs,
+  config,
+  lib,
   ...
 }: {
   imports = [
@@ -36,10 +38,6 @@
     enable = true;
   };
 
-  programs.zathura = {
-    enable = true;
-  }
-
   services.swaync = {
     enable = true;
   };
@@ -63,9 +61,9 @@
     unzip
     rofimoji
 
-    ++ lib.optionals config.my.profile.laptop [
-      brightnessctl
-    ]
+    loupe
+
+    # brightnessctl
 
     inputs.awww.packages.${pkgs.stdenv.hostPlatform.system}.awww
     inputs.rose-pine-hyprcursor.packages.${pkgs.stdenv.hostPlatform.system}.default

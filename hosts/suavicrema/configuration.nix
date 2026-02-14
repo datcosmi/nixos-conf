@@ -10,7 +10,7 @@
     ./modules/users.nix
     ./modules/packages.nix
     ./modules/shell.nix
-    ./modules/greetd.nix
+    ./modules/greeter.nix
 
     ./modules/desktop-apps.nix
   ];

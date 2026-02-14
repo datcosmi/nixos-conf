@@ -45,6 +45,10 @@
     };
   };
 
+  programs.zathura = {
+    enable = true;
+  };
+
   home.packages = with pkgs; [
     spotify
     nautilus
@@ -54,9 +58,6 @@
 
     protonvpn-gui
     proton-pass
-
-    # overskride
-    loupe
 
     inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];
