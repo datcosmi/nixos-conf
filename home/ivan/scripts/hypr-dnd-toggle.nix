@@ -2,11 +2,12 @@
   home.packages = [
     (pkgs.writeShellScriptBin "hypr-dnd-toggle" ''
       handle() {
-        case $1 in
-          fullscreen*)
-            fullscreen_state=$(echo "$1" | cut -d',' -f2)
+        event=$(echo "$1" | cut -d'>' -f1)
+        data=$(echo "$1" | cut -d'>' -f3)
 
-            if [ "$fullscreen_state" = "1" ]; then
+        case $event in
+          fullscreen)
+            if [ "$data" = "1" ]; then
               ${pkgs.swaynotificationcenter}/bin/swaync-client -dn
             else
               ${pkgs.swaynotificationcenter}/bin/swaync-client -df

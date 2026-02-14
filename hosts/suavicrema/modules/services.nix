@@ -12,13 +12,15 @@
     openFirewall = true;
   };
 
-  systemd.services.avahi-daemon = {
-    serviceConfig = {
-      ExecStartPre = "${pkgs.coreutils}/bin/rm -f /run/avahi-daemon/pid";
-      RuntimeDirectory = "avahi-daemon";
-      RuntimeDirectoryMode = "0755";
-    };
-  };
+  # systemd.services.avahi-daemon = {
+  #   serviceConfig = {
+  #     RuntimeDirectory = "avahi-daemon";
+  #     RuntimeDirectoryMode = "0755";
+  #     ExecStartPre = [
+  #       "-/bin/rm -f /run/avahi-daemon/pid"
+  #     ];
+  #   };
+  # };
 
   security.polkit.enable = true;
 
