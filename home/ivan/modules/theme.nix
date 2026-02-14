@@ -1,6 +1,8 @@
-{ pkgs, inputs, ... }:
-
 {
+  pkgs,
+  inputs,
+  ...
+}: {
   catppuccin.bat = {
     enable = true;
     flavor = "mocha";
@@ -71,5 +73,24 @@
       set -g @catppuccin_window_current_text " #W"
       set -g @catppuccin_window_text " #W"
     '';
+  };
+
+  gtk = {
+    enable = true;
+
+    theme = {
+      name = "adw-gtk3-dark";
+      package = pkgs.adw-gtk3;
+    };
+
+    iconTheme = {
+      name = "Adwaita";
+      package = pkgs.adwaita-icon-theme;
+    };
+  };
+
+  dconf.settings."org/gnome/desktop/interface" = {
+    color-scheme = "prefer-dark";
+    icon-theme = "Adwaita";
   };
 }

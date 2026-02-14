@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  inputs,
+  pkgs,
+  ...
+}: {
   programs.discord = {
     enable = true;
     # package = pkgs.discord-canary;
@@ -40,4 +44,20 @@
       };
     };
   };
+
+  home.packages = with pkgs; [
+    spotify
+    nautilus
+    localsend
+    ente-auth
+    vlc
+
+    protonvpn-gui
+    proton-pass
+
+    # overskride
+    loupe
+
+    inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
+  ];
 }

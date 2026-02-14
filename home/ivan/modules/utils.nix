@@ -1,54 +1,15 @@
-{pkgs, ...}: {
+{
+  inputs,
+  pkgs,
+  ...
+}: {
   imports = [
-    ./tmux.nix
-    ./rofi.nix
-    ./catppuccin.nix
-    ./fastfetch.nix
-    ./starship.nix
+    ./utils/tmux.nix
+    ./utils/rofi.nix
+    ./utils/fastfetch.nix
+    ./utils/starship.nix
+    ./utils/wleave.nix
   ];
-
-  programs.wleave = {
-    enable = true;
-
-    settings = {
-      margin = 200;
-      buttons-per-row = "5";
-      delay-command-ms = 100;
-      close-on-lost-focus = true;
-      buttons = [
-        {
-          label = "lock";
-          action = "hyprlock";
-          text = "Lock";
-          keybind = "l";
-        }
-        {
-          label = "logout";
-          action = "loginctl terminate-user $USER";
-          text = "Logout";
-          keybind = "e";
-        }
-        {
-          label = "shutdown";
-          action = "systemctl poweroff";
-          text = "Shutdown";
-          keybind = "s";
-        }
-        {
-          label = "reboot";
-          action = "systemctl reboot";
-          text = "Reboot";
-          keybind = "r";
-        }
-        {
-          label = "suspend";
-          action = "systemctl suspend";
-          text = "Sleep";
-          keybind = "u";
-        }
-      ];
-    };
-  };
 
   programs.btop = {
     enable = true;
@@ -75,5 +36,38 @@
     enable = true;
   };
 
-  programs.zathura.enable = true;
+  programs.zathura = {
+    enable = true;
+  }
+
+  services.swaync = {
+    enable = true;
+  };
+
+  services.swayosd = {
+    enable = true;
+  };
+
+  services.cliphist = {
+    enable = true;
+    allowImages = true;
+    clipboardPackage = pkgs.wl-clipboard;
+  };
+
+  home.packages = with pkgs; [
+    wiremix
+    bluetui
+    grim
+    slurp
+    wl-clipboard
+    unzip
+    rofimoji
+
+    ++ lib.optionals config.my.profile.laptop [
+      brightnessctl
+    ]
+
+    inputs.awww.packages.${pkgs.stdenv.hostPlatform.system}.awww
+    inputs.rose-pine-hyprcursor.packages.${pkgs.stdenv.hostPlatform.system}.default
+  ];
 }

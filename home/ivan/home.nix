@@ -2,16 +2,15 @@
   imports = [
     ./modules/shell.nix
     ./modules/terminal.nix
-    ./modules/gtk.nix
-    ./modules/packages.nix
-    ./modules/session.nix
-    ./modules/services.nix
+    ./modules/env.nix
     ./modules/utils.nix
     ./modules/scripts.nix
     ./modules/ssh.nix
-    ./modules/default-apps.nix
+    ./modules/defaults.nix
     ./modules/desktop-apps.nix
     ./modules/hyprland.nix
+    ./modules/theme.nix
+    ./modules/dev.nix
   ];
 
   home.username = "ivan";

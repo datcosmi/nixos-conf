@@ -8,9 +8,6 @@
       bold_italic_font = "auto";
       font_size = 11.0;
 
-      # initial_window_width = "80c";
-      # initial_window_height = "24c";
-
       # Window
       window_padding_width = 13;
       hide_window_decorations = "yes";
