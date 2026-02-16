@@ -157,7 +157,7 @@
       # BROWSER TWEAKS
 
       # Default opacity
-      "match:class negative:((google-)?[cC]hrom(e|ium)|[bB]rave-browser|[mM]icrosoft-edge|Vivaldi-stable|helium|[fF]irefox|zen|librewolf), opacity 0.9 0.83"
+      "match:class negative:((google-)?[cC]hrom(e|ium)|[bB]rave-browser|[mM]icrosoft-edge|Vivaldi-stable|helium|[fF]irefox|zen|librewolf), opacity 0.93 0.9"
 
       # Browser types
       "match:class ((google-)?[cC]hrom(e|ium)|[bB]rave-browser|[mM]icrosoft-edge|Vivaldi-stable|helium), tag +chromium-based-browser"
