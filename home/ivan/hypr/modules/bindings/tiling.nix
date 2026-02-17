@@ -12,7 +12,6 @@
       "$mainMod, F, Full screen, fullscreen, 0"
       "$mainMod CTRL, F, Tiled full screen, fullscreenstate, 0 2"
       "$mainMod ALT, F, Full width, fullscreen, 1"
-      # $mainMod, O, Pop window out (float & pin), exec, omarchy-hyprland-window-pop
 
       # Move focus with $mainMod + arrow keys
       "$mainMod, LEFT, Move window focus left, movefocus, l"

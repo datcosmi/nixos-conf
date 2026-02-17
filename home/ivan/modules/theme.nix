@@ -58,6 +58,12 @@
     font = "CommitMono Nerd Font";
   };
 
+  catppuccin.librewolf = {
+    enable = true;
+    flavor = "mocha";
+    accent = "pink";
+  };
+
   catppuccin.tmux = {
     enable = true;
     flavor = "mocha";

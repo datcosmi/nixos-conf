@@ -64,7 +64,7 @@
           orange = "#cba6f7";
           red = "#f38ba8";
           maroon = "#eba0ac";
-          peach = "#FFB4A8";
+          peach = "#F0B9C0";
           yellow = "#f9e2af";
           green = "#a6e3a1";
           teal = "#94e2d5";
@@ -212,7 +212,7 @@
       time = {
         disabled = false;
         time_format = "%R";
-        style = "bg:peach";
+        style = "bg:pink";
         format = "[[  $time ](fg:pink bg:surface0)]($style)";
       };
 

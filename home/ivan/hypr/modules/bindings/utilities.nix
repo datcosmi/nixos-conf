@@ -2,7 +2,7 @@
   wayland.windowManager.hyprland.settings = {
     bind = [
       # Toggle control center
-      "$mainMod SHIFT, N, exec, swaync-client -t -sw"
+      "$mainMod, N, exec, swaync-client -t -sw"
 
       # Rofi
       "$mainMod, SPACE, exec, rofi -show drun"

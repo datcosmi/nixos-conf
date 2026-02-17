@@ -2,7 +2,7 @@
   wayland.windowManager.hyprland.settings = {
     plugin = {
       hyprscrolling = {
-        column_width = "0.6";
+        column_width = "0.8";
         fullscreen_on_one_column = true;
         follow_focus = true;
         focus_fit_method = 1;

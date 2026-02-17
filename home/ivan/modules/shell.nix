@@ -16,6 +16,8 @@
       la = "eza --icons=always -a";
       ls = "eza --icons=always";
       lst = "eza --icons=always --tree";
+      lsblk = "lsblk | bat -l conf -p";
+
       cd = "z";
 
       inv = "nvim $(fzf -m --preview='bat --color=always {}')";
@@ -25,7 +27,8 @@
       nix-rebuild = "sudo nixos-rebuild switch --flake $HOME/nixos-conf";
       # nix-rebuild = "sudo nixos-rebuild switch --flake $HOME/nixos-conf#suavicrema";
       flake-check = "nix flake check $HOME/nixos-conf";
-      upgrade-nix = "cd ~/nixos-conf; nix flake update; sudo nixos-rebuild switch --flake $HOME/nixos-conf";
+      flake-update = "cd ~/nixos-conf; nix flake update";
+      update-nix = "cd ~/nixos-conf; nix flake update; sudo nixos-rebuild switch --flake $HOME/nixos-conf";
       # upgrade-nix = "cd ~/nixos-conf; nix flake update; sudo nixos-rebuild switch --upgrade";
 
       list-gen = "nix profile history --profile /nix/var/nix/profiles/system";
