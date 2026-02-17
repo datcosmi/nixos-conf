@@ -1,6 +1,6 @@
 {lib, ...}: {
   imports = [
-    /etc/nixos/hardware-configuration.nix
+    ./hardware-configuration.nix
 
     ./modules/boot.nix
     ./modules/networking.nix
