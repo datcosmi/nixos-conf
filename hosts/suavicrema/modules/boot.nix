@@ -6,6 +6,7 @@
       enable = true;
       efiSupport = true;
       device = "nodev";
+      useOSProber = true;
       enableCryptodisk = true;
       # configurationLimit = 6;
     };
@@ -19,8 +20,5 @@
     "nvidia.NVreg_PreserveVideoMemoryAllocations=1"
   ];
 
-  boot.initrd.luks.devices.cryptroot = {
-    device = "/dev/disk/by-uuid/aeded548-2eba-44c8-ac4e-21e3f1e1f87c";
-    preLVM = true;
-  };
+  boot.initrd.luks.devices.cryptroot.allowDiscards = true;
 }

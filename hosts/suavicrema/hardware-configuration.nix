@@ -9,43 +9,45 @@
     ];
 
   boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "usb_storage" "usbhid" "sd_mod" ];
-  boot.initrd.kernelModules = [ "dm-snapshot" ];
+  boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
-    { device = "/dev/mapper/nixos-lv_root";
+    { device = "/dev/disk/by-label/nixos-root";
       fsType = "btrfs";
-      options = [ "subvol=@" ];
+      options = [ "subvol=root" "compress=zstd" ];
+    };
+
+  boot.initrd.luks.devices."cryptroot".device = "/dev/disk/by-uuid/338c8880-0b12-4800-bd8a-560a5e77e5d0";
+
+  fileSystems."/home" =
+    { device = "/dev/mapper/cryptroot";
+      fsType = "btrfs";
+      options = [ "subvol=home" "compress=zstd" ];
     };
 
   fileSystems."/nix" =
-    { device = "/dev/mapper/nixos-lv_root";
+    { device = "/dev/mapper/cryptroot";
       fsType = "btrfs";
-      options = [ "subvol=@nix" ];
+      options = [ "subvol=nix" "compress=zstd" "noatime" ];
     };
 
-  fileSystems."/home" =
-    { device = "/dev/mapper/nixos-lv_root";
+  fileSystems."/snapshots" =
+    { device = "/dev/mapper/cryptroot";
       fsType = "btrfs";
-      options = [ "subvol=@home" ];
-    };
-
-  fileSystems."/.snapshots" =
-    { device = "/dev/mapper/nixos-lv_root";
-      fsType = "btrfs";
-      options = [ "subvol=@snapshots" ];
+      options = [ "subvol=snapshots" "compress=zstd" ];
     };
 
   fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/5D17-1B7F";
+    { device = "/dev/disk/by-uuid/12CE-A600";
       fsType = "vfat";
       options = [ "fmask=0022" "dmask=0022" ];
     };
 
-  swapDevices =
-    [ { device = "/dev/mapper/nixos-lv_swap"; }
-    ];
+  swapDevices = [
+    { device = "/dev/disk/by-partuuid/cbdd490c-9520-44bd-95a9-5b4fe3dbfb9d"; randomEncryption.enable = true; }
+  ];
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
