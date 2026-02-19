@@ -19,7 +19,7 @@
       "$mainMod, W, Close window, killactive,"
       # "$mainMod, M, Kill session, exit,"
       "$mainMod SHIFT, F, Open file manager, exec, uwsm-app $fileManager"
-      "$mainMod SHIFT, B, Open browser, exec, uwsm-app $browser"
+      "$mainMod SHIFT, B, Open browser, exec, uwsm-app env MOZ_ENABLE_WAYLAND=1 $browser"
       "$mainMod SHIFT, Y, Open yazi file manager, exec, $terminal --class yazi -e yazi"
       "$mainMod SHIFT, D, Open discord, exec, uwsm-app discord"
       "$mainMod CTRL, D, Reset discord, exec, rm -rf $HOME/.config/discord"

@@ -16,7 +16,8 @@
       la = "eza --icons=always -a";
       ls = "eza --icons=always";
       lst = "eza --icons=always --tree";
-      lsblk = "lsblk | bat -l conf -p";
+      blk = "lsblk | bat -l conf -p";
+      blk-mod = "lsblk -o NAME,SIZE,TYPE,MOUNTPOINTS,MODEL | bat -l conf -p";
 
       cd = "z";
 

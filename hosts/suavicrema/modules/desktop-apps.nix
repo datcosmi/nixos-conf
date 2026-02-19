@@ -83,6 +83,7 @@
     (extension "ublock-origin" "uBlock0@raymondhill.net")
     (extension "canvasblocker" "CanvasBlocker@kkapsner.de")
     (extension "proton-pass" "78272b6fa58f4a1abaac99321d503a20@proton.me")
+    # (extension "enhanced-h264ify" "{9a41dee2-b924-4161-a971-7fb35c053a4a}")
   ];
 in {
   environment.systemPackages = [

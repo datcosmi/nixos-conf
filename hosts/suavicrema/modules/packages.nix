@@ -8,6 +8,10 @@
     tuigreet
 
     system-config-printer
+
+    cabextract
+    xrandr
+    vulkan-tools
   ];
 
   fonts.packages = with pkgs; [
