@@ -63,6 +63,8 @@
 
     loupe
 
+    protontricks
+
     # brightnessctl
 
     inputs.awww.packages.${pkgs.stdenv.hostPlatform.system}.awww

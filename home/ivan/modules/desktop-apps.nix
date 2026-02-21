@@ -86,5 +86,7 @@
 
     protonvpn-gui
     proton-pass
+
+    qbittorrent
   ];
 }

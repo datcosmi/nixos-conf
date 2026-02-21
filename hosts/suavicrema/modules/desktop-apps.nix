@@ -129,10 +129,16 @@ in {
 
   programs.steam = {
     enable = true;
-    protontricks.enable = true;
+    # protontricks.enable = true;
+    gamescopeSession.enable = true;
 
     extraCompatPackages = with pkgs; [
       proton-ge-bin
     ];
+
+    # fontPackages = with pkgs; [
+    #   freetype
+    #   fontconfig
+    # ];
   };
 }
