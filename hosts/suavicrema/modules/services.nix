@@ -12,16 +12,6 @@
     openFirewall = true;
   };
 
-  # systemd.services.avahi-daemon = {
-  #   serviceConfig = {
-  #     RuntimeDirectory = "avahi-daemon";
-  #     RuntimeDirectoryMode = "0755";
-  #     ExecStartPre = [
-  #       "-/bin/rm -f /run/avahi-daemon/pid"
-  #     ];
-  #   };
-  # };
-
   security.polkit.enable = true;
 
   services.gnome.gnome-keyring.enable = true;
@@ -45,7 +35,12 @@
 
   programs.seahorse.enable = true;
 
-  hardware.bluetooth.enable = true;
+  hardware.bluetooth = {
+    enable = true;
+    powerOnBoot = true;
+  };
 
   services.flatpak.enable = true;
+
+  services.fstrim.enable = true;
 }

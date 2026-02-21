@@ -2,6 +2,7 @@
   environment.systemPackages = with pkgs; [
     git
     wget
+    curl
     vim
     kitty
     stow
@@ -12,6 +13,14 @@
     cabextract
     xrandr
     vulkan-tools
+
+    btrfs-progs
+    lvm2
+    cryptsetup
+    pciutils
+    usbutils
+    networkmanagerapplet
+    nvtopPackages.nvidia
   ];
 
   fonts.packages = with pkgs; [

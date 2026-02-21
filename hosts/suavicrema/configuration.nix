@@ -17,6 +17,7 @@
 
   nix.settings = {
     experimental-features = "nix-command flakes";
+    auto-optimise-store = true;
 
     substituters = ["https://hyprland.cachix.org"];
     trusted-substituters = ["https://hyprland.cachix.org"];
@@ -33,8 +34,6 @@
     dates = "daily";
     options = "--delete-older-than-10d";
   };
-
-  nix.settings.auto-optimise-store = true;
 
   nix.optimise = {
     automatic = true;

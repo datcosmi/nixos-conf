@@ -3,6 +3,6 @@
     isNormalUser = true;
     description = "Ivan";
     shell = pkgs.zsh;
-    extraGroups = ["wheel" "video" "input" "networkmanager"];
+    extraGroups = ["wheel" "video" "audio" "input" "networkmanager" "bluetooth"];
   };
 }

@@ -1,24 +1,26 @@
 {pkgs, ...}: {
   boot.loader = {
     efi.canTouchEfiVariables = true;
+    efi.efiSysMountPoint = "/boot/efi";
 
     grub = {
       enable = true;
       efiSupport = true;
       device = "nodev";
-      useOSProber = true;
-      enableCryptodisk = true;
-      # configurationLimit = 6;
+      useOSProber = false;
+      enableCryptodisk = false;
+      copyKernels = true;
     };
   };
 
   boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernel.sysctl = {
+    "vm.swappiness" = 10;
+  };
 
   boot.kernelParams = [
     "nvidia_drm.modeset=1"
     "nvidia_drm.fbdev=1"
     "nvidia.NVreg_PreserveVideoMemoryAllocations=1"
   ];
-
-  boot.initrd.luks.devices.cryptroot.allowDiscards = true;
 }

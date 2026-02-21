@@ -9,45 +9,60 @@
     ];
 
   boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "usb_storage" "usbhid" "sd_mod" ];
-  boot.initrd.kernelModules = [ ];
+  boot.initrd.kernelModules = [ "dm-snapshot" ];
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
 
+  boot.initrd.luks.devices."cryptmain" = {
+    device = "/dev/disk/by-uuid/95822fbd-bcfb-47f2-91a6-ed3eef0d2651";
+    preLVM = true;
+    allowDiscards = true;
+  };
+
   fileSystems."/" =
-    { device = "/dev/disk/by-label/nixos-root";
+    { device = "/dev/mapper/vg_main-lv_nixos";
       fsType = "btrfs";
-      options = [ "subvol=root" "compress=zstd" ];
+      options = [ "subvol=@" "noatime" "compress=zstd:3" "space_cache=v2" "autodefrag" ];
     };
 
-  boot.initrd.luks.devices."cryptroot".device = "/dev/disk/by-uuid/338c8880-0b12-4800-bd8a-560a5e77e5d0";
-
   fileSystems."/home" =
-    { device = "/dev/mapper/cryptroot";
+    { device = "/dev/mapper/vg_main-lv_nixos";
       fsType = "btrfs";
-      options = [ "subvol=home" "compress=zstd" ];
+      options = [ "subvol=@home" "noatime" "compress=zstd:3" "space_cache=v2" "autodefrag" ];
     };
 
   fileSystems."/nix" =
-    { device = "/dev/mapper/cryptroot";
+    { device = "/dev/mapper/vg_main-lv_nixos";
       fsType = "btrfs";
-      options = [ "subvol=nix" "compress=zstd" "noatime" ];
+      options = [ "subvol=@nix" "noatime" "compress=zstd:3" "space_cache=v2" "autodefrag" ];
     };
 
-  fileSystems."/snapshots" =
-    { device = "/dev/mapper/cryptroot";
+  fileSystems."/var/log" =
+    { device = "/dev/mapper/vg_main-lv_nixos";
       fsType = "btrfs";
-      options = [ "subvol=snapshots" "compress=zstd" ];
+      options = [ "subvol=@log" "noatime" "compress=zstd:3" "space_cache=v2" "autodefrag" ];
+    };
+
+  fileSystems."/.snapshots" =
+    { device = "/dev/mapper/vg_main-lv_nixos";
+      fsType = "btrfs";
+      options = [ "subvol=@snapshots" "noatime" "compress=zstd:3" "space_cache=v2" "autodefrag" ];
     };
 
   fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/12CE-A600";
+    { device = "/dev/disk/by-uuid/a1f1e1c0-66f1-47d0-9d53-290e43ecbc78";
+      fsType = "ext4";
+    };
+
+  fileSystems."/boot/efi" =
+    { device = "/dev/disk/by-uuid/513E-346B";
       fsType = "vfat";
       options = [ "fmask=0022" "dmask=0022" ];
     };
 
-  swapDevices = [
-    { device = "/dev/disk/by-partuuid/cbdd490c-9520-44bd-95a9-5b4fe3dbfb9d"; randomEncryption.enable = true; }
-  ];
+  swapDevices =
+    [ { device = "/dev/disk/by-partuuid/7c768661-c4ce-4c8d-bca5-6aa93b3e1a94"; randomEncryption = { enable = true; allowDiscards = true; }; }
+    ];
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;

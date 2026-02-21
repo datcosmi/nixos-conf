@@ -30,7 +30,7 @@
     videoAcceleration = true;
 
     nvidiaSettings = true;
-    # package = config.boot.kernelPackages.nvidiaPackages.stable;
+    package = config.boot.kernelPackages.nvidiaPackages.stable;
   };
 
   xdg.portal = {
