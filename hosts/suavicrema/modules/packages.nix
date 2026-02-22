@@ -14,11 +14,11 @@
     xrandr
     vulkan-tools
 
-    btrfs-progs
-    lvm2
-    cryptsetup
-    pciutils
-    usbutils
+    # btrfs-progs
+    # lvm2
+    # cryptsetup
+    # pciutils
+    # usbutils
     networkmanagerapplet
     nvtopPackages.nvidia
   ];
@@ -28,6 +28,7 @@
     nerd-fonts.jetbrains-mono
     nerd-fonts.commit-mono
 
+    noto-fonts
     noto-fonts-color-emoji
   ];
 

@@ -14,6 +14,16 @@
 
   security.polkit.enable = true;
 
+  systemd.user.services.hyprpolkitagent = {
+    description = "Hyprland Polkit Authentication Agent";
+    wantedBy = ["graphical-session.target"];
+    after = ["graphical-session.target"];
+    serviceConfig = {
+      ExecStart = "${pkgs.hyprpolkitagent}/libexec/hyprpolkitagent";
+      Restart = "on-failure";
+    };
+  };
+
   services.gnome.gnome-keyring.enable = true;
 
   services.dbus = {
@@ -42,5 +52,13 @@
 
   services.flatpak.enable = true;
 
-  services.fstrim.enable = true;
+  services.fstrim = {
+    enable = true;
+    interval = "weekly";
+  };
+
+  services.udev.extraRules = ''
+    ACTION=="add|change", KERNEL=="sda", ATTR{queue/rotational}=="0", \
+      ATTR{queue/scheduler}="mq-deadline"
+  '';
 }
