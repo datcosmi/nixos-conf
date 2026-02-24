@@ -11,7 +11,10 @@
       device = "nodev";
       useOSProber = false;
       enableCryptodisk = false;
-      copyKernels = true;
+      default = 0;
+      timeout = 10;
+      saveDefault = true;
+      # copyKernels = true;
 
       #   extraEntries = ''
       #   menuentry "Arch Linux" --class arch --class gnu-linux --class os {
@@ -49,6 +52,12 @@
 
   boot.initrd.kernelModules = ["nvidia" "nvidia_modeset" "nvidia_uvm" "nvidia_drm"];
 
+  boot.initrd.luks.devices."cryptnixos" = {
+    device = "/dev/disk/by-label/nixos-luks";
+    allowDiscards = true;
+    bypassWorkqueues = true;
+  };
+
   boot.kernel.sysctl = {
     "vm.swappiness" = 10;
     "vm.vfs_cache_pressure" = 50;
@@ -60,7 +69,19 @@
     "nvidia_drm.modeset=1"
     "nvidia_drm.fbdev=1"
     "nvidia.NVreg_PreserveVideoMemoryAllocations=1"
+    "elevator=mq-deadline"
+    "nvidia.NVreg_OpenRmEnableUnsupportedGpus=1"
   ];
+
+  boot.blacklistedKernelModules = [ "nouveau" ];
+
+  swapDevices = [{
+    device = "/dev/disk/by-label/swap";
+    randomEncryption = {
+      enable        = true;
+      allowDiscards = true;
+    };
+  }];
 
   zramSwap = {
     enable = true;
@@ -68,4 +89,7 @@
     algorithm = "zstd";
     priority = 100;
   };
+
+  fileSystems."/var/log".neededForBoot    = true;
+  fileSystems."/.snapshots".neededForBoot = false;
 }
