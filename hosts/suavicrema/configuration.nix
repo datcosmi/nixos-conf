@@ -1,7 +1,5 @@
 {lib, ...}: {
   imports = [
-    ./hardware-configuration.nix
-
     ./modules/boot.nix
     ./modules/networking.nix
     ./modules/graphics.nix
