@@ -1,111 +1,121 @@
 {
   disko.devices = {
-    disk.main = {
-      type = "disk";
-      device = "/dev/sda";
+    disk = {
+      sda = {
+        type = "disk";
+        device = "/dev/sda";
+        content = {
+          type = "gpt";
+          partitions = {
 
-      content = {
-        type = "gpt";
-        partitions = {
-          EFI = {
-            size = "512M";
-            type = "EF00";
-            content = {
-              type = "filesystem";
-              format = "vfat";
-              mountpoint = "/boot/efi";
-            };
-          };
-
-          BOOT = {
-            size = "1G";
-            content = {
-              type = "filesystem";
-              format = "ext4";
-              mountpoint = "/boot";
-            };
-          };
-
-          SWAP = {
-            size = "8G";
-            content = {
-              type = "swap";
-              randomEncryption = true;
-            };
-          };
-
-          nixos = {
-            size = "730G";
-            content = {
-              type = "luks";
-              name = "cryptnix";
-
-              settings.allowDiscards = true;
-
-              extraFormatArgs = [
-                "--type"
-                "luks2"
-                "--cipher"
-                "aes-xts-plain64"
-                "--key-size"
-                "512"
-                "--hash"
-                "sha512"
-                "--pbkdf"
-                "argon2id"
-              ];
-
+            ESP = {
+              label = "boot";
+              name  = "ESP";
+              size  = "1G";
+              type  = "EF00";   # EFI System
               content = {
-                type = "btrfs";
-                extraArgs = ["-L" "nixos"];
+                type       = "filesystem";
+                format     = "vfat";
+                mountpoint = "/boot";
+                mountOptions = [ "defaults" "umask=0077" ];
+              };
+            };
 
-                subvolumes = {
-                  "@" = {
-                    mountpoint = "/";
-                    mountOptions = [
-                      "noatime"
-                      "compress=zstd"
-                      "ssd"
-                      "space_cache=v2"
-                      "discard=async"
-                    ];
+            swap = {
+              label = "swap";
+              size  = "8G";
+              # No content block — disko creates the partition but does not
+              # format it. NixOS manages it declaratively via swapDevices.
+            };
+
+            nixos = {
+              label = "nixos-luks";
+              size  = "730G";
+              content = {
+                type = "luks";
+                name = "cryptnixos";
+                extraOpenArgs = [
+                  "--allow-discards"
+                  "--perf-no_read_workqueue"
+                  "--perf-no_write_workqueue"
+                ];
+                settings = {
+                  crypttabExtraOpts = [ "discard" ];
+                };
+                content = {
+                  type = "btrfs";
+                  extraArgs = [ "-L" "nixos" "-f" ];
+
+                  subvolumes = {
+                    "@" = {
+                      mountpoint    = "/";
+                      mountOptions  = [
+                        "subvol=@"
+                        "compress=zstd:3"
+                        "noatime"
+                        "ssd"
+                        "space_cache=v2"
+                        "discard=async"
+                      ];
+                    };
+
+                    "@home" = {
+                      mountpoint    = "/home";
+                      mountOptions  = [
+                        "subvol=@home"
+                        "compress=zstd:3"
+                        "noatime"
+                        "ssd"
+                        "space_cache=v2"
+                        "discard=async"
+                      ];
+                    };
+
+                    "@nix" = {
+                      mountpoint    = "/nix";
+                      mountOptions  = [
+                        "subvol=@nix"
+                        "compress=zstd:3"
+                        "noatime"
+                        "ssd"
+                        "space_cache=v2"
+                        "discard=async"
+                      ];
+                    };
+
+                    "@log" = {
+                      mountpoint    = "/var/log";
+                      mountOptions  = [
+                        "subvol=@log"
+                        "compress=zstd:3"
+                        "noatime"
+                        "ssd"
+                        "space_cache=v2"
+                        "discard=async"
+                      ];
+                    };
+
+                    "@snapshots" = {
+                      mountpoint    = "/.snapshots";
+                      mountOptions  = [
+                        "subvol=@snapshots"
+                        "compress=zstd:3"
+                        "noatime"
+                        "ssd"
+                        "space_cache=v2"
+                        "discard=async"
+                      ];
+                    };
                   };
-
-                  "@home" = {mountpoint = "/home";};
-                  "@nix" = {mountpoint = "/nix";};
-                  "@log" = {mountpoint = "/var/log";};
-                  "@snapshots" = {mountpoint = "/.snapshots";};
                 };
               };
             };
-          };
 
-          arch = {
-            size = "100%";
-            content = {
-              type = "luks";
-              name = "cryptarch";
-
-              settings.allowDiscards = true;
-
-              extraFormatArgs = [
-                "--type"
-                "luks2"
-                "--cipher"
-                "aes-xts-plain64"
-                "--key-size"
-                "512"
-                "--hash"
-                "sha512"
-                "--pbkdf"
-                "argon2id"
-              ];
-
-              content = {
-                type = "btrfs";
-                extraArgs = ["-L" "arch"];
-              };
+            arch = {
+              label = "arch-luks";
+              size  = "100%";   # All remaining space (~192.5 GiB)
             };
+
           };
         };
       };
