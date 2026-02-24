@@ -4,6 +4,7 @@
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
     hyprland.url = "github:hyprwm/Hyprland";
+    disko.url = "github:nix-community/disko";
 
     hyprland-plugins = {
       url = "github:hyprwm/hyprland-plugins";
@@ -39,6 +40,7 @@
   outputs = {
     self,
     nixpkgs,
+    disko,
     catppuccin,
     home-manager,
     ...
@@ -51,8 +53,10 @@
       specialArgs = {inherit inputs;};
       modules = [
         ./hosts/suavicrema/configuration.nix
+        ./hosts/suavicrema/disko.nix
         catppuccin.nixosModules.catppuccin
         home-manager.nixosModules.home-manager
+        disko.nixosModules.disko
         {
           home-manager = {
             useGlobalPkgs = true;
