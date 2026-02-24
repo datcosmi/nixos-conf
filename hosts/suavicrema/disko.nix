@@ -12,7 +12,7 @@
               label = "boot";
               name  = "ESP";
               size  = "1G";
-              type  = "EF00";   # EFI System
+              type  = "EF00";
               content = {
                 type       = "filesystem";
                 format     = "vfat";
@@ -24,8 +24,6 @@
             swap = {
               label = "swap";
               size  = "8G";
-              # No content block — disko creates the partition but does not
-              # format it. NixOS manages it declaratively via swapDevices.
             };
 
             nixos = {
@@ -113,7 +111,7 @@
 
             arch = {
               label = "arch-luks";
-              size  = "100%";   # All remaining space (~192.5 GiB)
+              size  = "100%";
             };
 
           };
