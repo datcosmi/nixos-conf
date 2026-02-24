@@ -7,20 +7,20 @@
     kitty
     stow
     tuigreet
+    networkmanagerapplet
 
     system-config-printer
 
-    cabextract
-    xrandr
-    vulkan-tools
+    # cabextract
+    # xrandr
+    # vulkan-tools
 
     # btrfs-progs
     # lvm2
     # cryptsetup
     # pciutils
     # usbutils
-    networkmanagerapplet
-    nvtopPackages.nvidia
+    # nvtopPackages.nvidia
   ];
 
   fonts.packages = with pkgs; [
