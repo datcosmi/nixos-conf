@@ -13,7 +13,6 @@
       enableCryptodisk = false;
       default = 0;
       timeout = 10;
-      saveDefault = true;
       # copyKernels = true;
 
       #   extraEntries = ''
@@ -75,13 +74,13 @@
 
   boot.blacklistedKernelModules = [ "nouveau" ];
 
-  swapDevices = [{
-    device = "/dev/disk/by-label/swap";
-    randomEncryption = {
-      enable        = true;
-      allowDiscards = true;
-    };
-  }];
+  #swapDevices = [{
+  #  device = "/dev/disk/by-label/swap";
+  #  randomEncryption = {
+  #    enable        = true;
+  #    allowDiscards = true;
+  #  };
+  #}];
 
   zramSwap = {
     enable = true;
