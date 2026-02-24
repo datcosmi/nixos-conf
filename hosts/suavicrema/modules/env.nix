@@ -14,7 +14,7 @@
   security.sudo.enable = true;
   security.sudo.wheelNeedsPassword = true;
 
-  systemd.sleep.extraConfig = ''
-    HibernateDelaySec=1h
-  '';
+  # systemd.sleep.extraConfig = ''
+  #   HibernateDelaySec=1h
+  # '';
 }

@@ -52,30 +52,32 @@
     system = "x86_64-linux";
     pkgs = nixpkgs.legacyPackages.${system};
   in {
-    nixosConfigurations.suavicrema = nixpkgs.lib.nixosSystem {
-      inherit system;
-      specialArgs = {inherit inputs;};
-      modules = [
-        catppuccin.nixosModules.catppuccin
-        home-manager.nixosModules.home-manager
-        disko.nixosModules.disko
+    nixosConfigurations = {
+      suavicrema = nixpkgs.lib.nixosSystem {
+        inherit system;
+        specialArgs = {inherit inputs;};
+        modules = [
+          disko.nixosModules.disko
+          home-manager.nixosModules.home-manager
+          catppuccin.nixosModules.catppuccin
 
-        ./hosts/suavicrema/disko.nix
-        ./hosts/suavicrema/configuration.nix
-        ./hosts/suavicrema/hardware-configuration.nix
-        {
-          home-manager = {
-            useGlobalPkgs = true;
-            useUserPackages = true;
-            backupFileExtension = "backup";
-            extraSpecialArgs = {inherit inputs;};
-            users.ivan = import ./home/ivan/home.nix;
-            sharedModules = [
-              catppuccin.homeModules.catppuccin
-            ];
-          };
-        }
-      ];
+          ./hosts/suavicrema/disko.nix
+          ./hosts/suavicrema/configuration.nix
+          ./hosts/suavicrema/hardware-configuration.nix
+          {
+            home-manager = {
+              useGlobalPkgs = true;
+              useUserPackages = true;
+              backupFileExtension = "backup";
+              extraSpecialArgs = {inherit inputs;};
+              users.ivan = import ./home/ivan/home.nix;
+              sharedModules = [
+                catppuccin.homeModules.catppuccin
+              ];
+            };
+          }
+        ];
+      };
     };
   };
 }

@@ -66,8 +66,8 @@
     interval = "weekly";
   };
 
-  services.udev.extraRules = ''
-    ACTION=="add|change", KERNEL=="sda", ATTR{queue/rotational}=="0", \
-      ATTR{queue/scheduler}="mq-deadline"
-  '';
+  # services.udev.extraRules = ''
+  #   ACTION=="add|change", KERNEL=="sda", ATTR{queue/rotational}=="0", \
+  #     ATTR{queue/scheduler}="mq-deadline"
+  # '';
 }
