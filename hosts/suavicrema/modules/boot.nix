@@ -11,51 +11,12 @@
       device = "nodev";
       useOSProber = false;
       enableCryptodisk = false;
-      # default = 0;
-      # timeout = 10;
-      # copyKernels = true;
-
-      #   extraEntries = ''
-      #   menuentry "Arch Linux" --class arch --class gnu-linux --class os {
-      #     insmod ext2
-      #     insmod lvm
-      #     insmod btrfs
-      #     search --no-floppy --label --set=root BOOT
-      #     linux /vmlinuz-linux \
-      #       cryptdevice=UUID=YOUR_LUKS_UUID:crypt:allow-discards \
-      #       root=/dev/vg/arch \
-      #       rootflags=subvol=@ \
-      #       rw quiet loglevel=3 \
-      #       nvidia_drm.modeset=1 \
-      #       nvidia.NVreg_PreserveVideoMemoryAllocations=1
-      #     initrd /amd-ucode.img /initramfs-linux.img
-      #   }
-      #
-      #   menuentry "Arch Linux (fallback initramfs)" --class arch --class gnu-linux {
-      #     insmod ext2
-      #     insmod lvm
-      #     insmod btrfs
-      #     search --no-floppy --label --set=root BOOT
-      #     linux /vmlinuz-linux \
-      #       cryptdevice=UUID=YOUR_LUKS_UUID:crypt:allow-discards \
-      #       root=/dev/vg/arch \
-      #       rootflags=subvol=@ \
-      #       rw
-      #     initrd /amd-ucode.img /initramfs-linux-fallback.img
-      #   }
-      # '';
     };
   };
 
   boot.kernelPackages = pkgs.linuxPackages_6_12;
 
   boot.initrd.kernelModules = ["nvidia" "nvidia_modeset" "nvidia_uvm" "nvidia_drm"];
-
-  #boot.initrd.luks.devices."cryptnixos" = {
-  #  device = "/dev/disk/by-label/nixos-luks";
-  #  allowDiscards = true;
-  #  bypassWorkqueues = true;
-  #};
 
   boot.kernel.sysctl = {
     "vm.swappiness" = 10;
@@ -72,15 +33,7 @@
     "nvidia.NVreg_OpenRmEnableUnsupportedGpus=1"
   ];
 
-  boot.blacklistedKernelModules = [ "nouveau" ];
-
-  #swapDevices = [{
-  #  device = "/dev/disk/by-label/swap";
-  #  randomEncryption = {
-  #    enable        = true;
-  #    allowDiscards = true;
-  #  };
-  #}];
+  boot.blacklistedKernelModules = ["nouveau"];
 
   zramSwap = {
     enable = true;
@@ -89,6 +42,6 @@
     priority = 100;
   };
 
-  fileSystems."/var/log".neededForBoot    = true;
+  fileSystems."/var/log".neededForBoot = true;
   fileSystems."/.snapshots".neededForBoot = false;
 }

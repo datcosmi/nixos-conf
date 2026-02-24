@@ -62,7 +62,7 @@
 
         ./hosts/suavicrema/disko.nix
         ./hosts/suavicrema/configuration.nix
-        # ./hosts/suavicrema/hardware-configuration.nix
+        ./hosts/suavicrema/hardware-configuration.nix
         {
           home-manager = {
             useGlobalPkgs = true;

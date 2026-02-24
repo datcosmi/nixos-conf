@@ -16,13 +16,13 @@
 
   systemd.user.services.polkit-gnome-authentication-agent-1 = {
     description = "polkit-gnome-authentication-agent-1";
-    wantedBy    = [ "graphical-session.target" ];
-    wants       = [ "graphical-session.target" ];
-    after       = [ "graphical-session.target" ];
+    wantedBy = ["graphical-session.target"];
+    wants = ["graphical-session.target"];
+    after = ["graphical-session.target"];
     serviceConfig = {
-      Type      = "simple";
+      Type = "simple";
       ExecStart = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
-      Restart   = "on-failure";
+      Restart = "on-failure";
     };
   };
 
@@ -30,8 +30,8 @@
 
   programs.dconf.enable = true;
   programs.gnupg.agent = {
-      enable           = true;
-      enableSSHSupport = true;
+    enable = true;
+    enableSSHSupport = true;
   };
 
   services.dbus = {
@@ -48,8 +48,6 @@
   services.upower.enable = true;
 
   security.pam.services = {
-    # sddm.enableGnomeKeyring = true;
-    # sddm-greeter.enableGnomeKeyring = true;
     greetd.enableGnomeKeyring = true;
     login.enableGnomeKeyring = true;
   };

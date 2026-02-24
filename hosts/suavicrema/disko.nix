@@ -7,28 +7,22 @@
         content = {
           type = "gpt";
           partitions = {
-
             ESP = {
               label = "boot";
-              name  = "ESP";
-              size  = "1G";
-              type  = "EF00";
+              name = "ESP";
+              size = "1G";
+              type = "EF00";
               content = {
-                type       = "filesystem";
-                format     = "vfat";
+                type = "filesystem";
+                format = "vfat";
                 mountpoint = "/boot";
-                mountOptions = [ "defaults" "umask=0077" ];
+                mountOptions = ["defaults" "umask=0077"];
               };
             };
 
-            # swap = {
-            #   label = "swap";
-            #   size  = "8G";
-            # };
-
             nixos = {
               label = "nixos-luks";
-              size  = "730G";
+              size = "730G";
               content = {
                 type = "luks";
                 name = "cryptnixos";
@@ -38,16 +32,16 @@
                   "--perf-no_write_workqueue"
                 ];
                 settings = {
-                  crypttabExtraOpts = [ "discard" ];
+                  crypttabExtraOpts = ["discard"];
                 };
                 content = {
                   type = "btrfs";
-                  extraArgs = [ "-L" "nixos" "-f" ];
+                  extraArgs = ["-L" "nixos" "-f"];
 
                   subvolumes = {
                     "@" = {
-                      mountpoint    = "/";
-                      mountOptions  = [
+                      mountpoint = "/";
+                      mountOptions = [
                         "subvol=@"
                         "compress=zstd:3"
                         "noatime"
@@ -58,8 +52,8 @@
                     };
 
                     "@home" = {
-                      mountpoint    = "/home";
-                      mountOptions  = [
+                      mountpoint = "/home";
+                      mountOptions = [
                         "subvol=@home"
                         "compress=zstd:3"
                         "noatime"
@@ -70,8 +64,8 @@
                     };
 
                     "@nix" = {
-                      mountpoint    = "/nix";
-                      mountOptions  = [
+                      mountpoint = "/nix";
+                      mountOptions = [
                         "subvol=@nix"
                         "compress=zstd:3"
                         "noatime"
@@ -82,8 +76,8 @@
                     };
 
                     "@log" = {
-                      mountpoint    = "/var/log";
-                      mountOptions  = [
+                      mountpoint = "/var/log";
+                      mountOptions = [
                         "subvol=@log"
                         "compress=zstd:3"
                         "noatime"
@@ -94,8 +88,8 @@
                     };
 
                     "@snapshots" = {
-                      mountpoint    = "/.snapshots";
-                      mountOptions  = [
+                      mountpoint = "/.snapshots";
+                      mountOptions = [
                         "subvol=@snapshots"
                         "compress=zstd:3"
                         "noatime"
@@ -111,9 +105,8 @@
 
             arch = {
               label = "arch-luks";
-              size  = "100%";
+              size = "100%";
             };
-
           };
         };
       };
