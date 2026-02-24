@@ -2,7 +2,7 @@
   boot.loader = {
     efi = {
       canTouchEfiVariables = true;
-      efiSysMountPoint = "/boot/efi";
+      efiSysMountPoint = "/boot";
     };
 
     grub = {
@@ -11,8 +11,8 @@
       device = "nodev";
       useOSProber = false;
       enableCryptodisk = false;
-      default = 0;
-      timeout = 10;
+      " default = 0;
+      # timeout = 10;
       # copyKernels = true;
 
       #   extraEntries = ''
@@ -51,11 +51,11 @@
 
   boot.initrd.kernelModules = ["nvidia" "nvidia_modeset" "nvidia_uvm" "nvidia_drm"];
 
-  boot.initrd.luks.devices."cryptnixos" = {
-    device = "/dev/disk/by-label/nixos-luks";
-    allowDiscards = true;
-    bypassWorkqueues = true;
-  };
+  #boot.initrd.luks.devices."cryptnixos" = {
+  #  device = "/dev/disk/by-label/nixos-luks";
+  #  allowDiscards = true;
+  #  bypassWorkqueues = true;
+  #};
 
   boot.kernel.sysctl = {
     "vm.swappiness" = 10;
