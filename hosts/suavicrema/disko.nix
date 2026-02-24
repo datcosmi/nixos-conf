@@ -21,10 +21,10 @@
               };
             };
 
-            swap = {
-              label = "swap";
-              size  = "8G";
-            };
+            # swap = {
+            #   label = "swap";
+            #   size  = "8G";
+            # };
 
             nixos = {
               label = "nixos-luks";
