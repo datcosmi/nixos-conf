@@ -29,7 +29,7 @@
   services.gnome.gnome-keyring.enable = true;
 
   programs.dconf.enable = true;
-  programts.gnupg.agent = {
+  programs.gnupg.agent = {
       enable           = true;
       enableSSHSupport = true;
   };
@@ -45,7 +45,6 @@
     ];
   };
 
-  services.udisks2.enable = true;
   services.upower.enable = true;
 
   security.pam.services = {
