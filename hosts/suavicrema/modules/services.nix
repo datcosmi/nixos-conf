@@ -28,6 +28,12 @@
 
   services.gnome.gnome-keyring.enable = true;
 
+  programs.dconf.enable = true;
+  programts.gnupg.agent = {
+      enable           = true;
+      enableSSHSupport = true;
+  };
+
   services.dbus = {
     enable = true;
     implementation = "broker";
@@ -35,8 +41,12 @@
     packages = [
       pkgs.gnome-keyring
       pkgs.gcr
+      pkgs.dconf
     ];
   };
+
+  services.udisks2.enable = true;
+  services.upower.enable = true;
 
   security.pam.services = {
     # sddm.enableGnomeKeyring = true;
