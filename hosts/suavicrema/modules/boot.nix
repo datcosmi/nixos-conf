@@ -11,7 +11,7 @@
       device = "nodev";
       useOSProber = false;
       enableCryptodisk = false;
-      " default = 0;
+      # default = 0;
       # timeout = 10;
       # copyKernels = true;
 
