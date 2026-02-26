@@ -11,9 +11,9 @@
       "QT_STYLE_OVERRIDE,kvantum"
       "SDL_VIDEODRIVER,wayland"
       "MOZ_ENABLE_WAYLAND,1"
-      "ELECTRON_OZONE_PLATFORM_HINT,wayland"
+      # "ELECTRON_OZONE_PLATFORM_HINT,wayland"
       "OZONE_PLATFORM,wayland"
-      "XDG_SESSION_TYPE,wayland"
+      # "XDG_SESSION_TYPE,wayland"
 
       # Allow better support for screen sharing (Google Meet, Discord, etc)
       "XDG_CURRENT_DESKTOP,Hyprland"
@@ -25,11 +25,11 @@
       "HYPRCURSOR_THEME,rose-pine-hyprcursor"
 
       # NVIDIA environment variables
-      "NVD_BACKEND,direct"
-      "LIBVA_DRIVER_NAME,nvidia"
-      "__GLX_VENDOR_LIBRARY_NAME,nvidia"
-      "GBM_BACKEND,nvidia-drm"
-      "WLR_NO_HARDWARE_CURSORS,1"
+      # "NVD_BACKEND,direct"
+      # "LIBVA_DRIVER_NAME,nvidia"
+      # "__GLX_VENDOR_LIBRARY_NAME,nvidia"
+      # "GBM_BACKEND,nvidia-drm"
+      # "WLR_NO_HARDWARE_CURSORS,1"
 
       # Cursor
       "HYPRCURSOR_THEME,rose-pine-hyprcursor"

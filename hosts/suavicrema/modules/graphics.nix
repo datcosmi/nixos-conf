@@ -1,4 +1,5 @@
 {
+  inputs,
   config,
   pkgs,
   ...
@@ -34,9 +35,11 @@
 
   xdg.portal = {
     enable = true;
-    extraPortals = [
-      pkgs.xdg-desktop-portal-gtk
-    ];
+    wlr.enable = true;
+    # extraPortals = [
+    #   pkgs.xdg-desktop-portal-gtk
+    #   pkgs.xdg-desktop-portal-hyprland
+    # ];
     config.common.default = "gtk";
   };
 
@@ -44,5 +47,8 @@
     enable = true;
     withUWSM = true;
     xwayland.enable = true;
+
+    package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
+    portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
   };
 }

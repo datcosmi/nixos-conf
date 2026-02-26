@@ -11,6 +11,8 @@
 
     system-config-printer
 
+    xdg-desktop-portal-hyprland
+
     # cabextract
     # xrandr
     # vulkan-tools
