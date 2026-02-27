@@ -13,6 +13,8 @@
 
     xdg-desktop-portal-hyprland
 
+    cachix
+
     # cabextract
     # xrandr
     # vulkan-tools
