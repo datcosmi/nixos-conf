@@ -10,6 +10,11 @@
       inputs.hyprland.follows = "hyprland";
     };
 
+    niri = {
+      url = "github:sodiboo/niri-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     disko = {
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -47,6 +52,7 @@
     disko,
     catppuccin,
     home-manager,
+    niri,
     ...
   } @ inputs: let
     system = "x86_64-linux";
@@ -60,6 +66,7 @@
           disko.nixosModules.disko
           home-manager.nixosModules.home-manager
           catppuccin.nixosModules.catppuccin
+          niri.nixosModules.niri
 
           ./hosts/suavicrema/disko.nix
           ./hosts/suavicrema/configuration.nix
@@ -73,6 +80,7 @@
               users.ivan = import ./home/ivan/home.nix;
               sharedModules = [
                 catppuccin.homeModules.catppuccin
+                # niri.homeModules.config
               ];
             };
           }

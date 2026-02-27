@@ -1,5 +1,4 @@
 {
-  inputs,
   config,
   pkgs,
   ...
@@ -23,8 +22,8 @@
     enable = true;
 
     plugins = [
-      # pkgs.hyprlandPlugins.hyprscrolling
-      inputs.hyprland-plugins.packages.${pkgs.stdenv.hostPlatform.system}.hyprscrolling
+      pkgs.hyprlandPlugins.hyprscrolling
+      # inputs.hyprland-plugins.packages.${pkgs.stdenv.hostPlatform.system}.hyprscrolling
     ];
   };
 }
