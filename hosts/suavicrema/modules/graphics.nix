@@ -42,6 +42,11 @@
     config.common.default = "gtk";
   };
 
+  programs.niri = {
+    enable = true;
+    package = pkgs.niri;
+  };
+
   programs.hyprland = {
     enable = true;
     withUWSM = true;

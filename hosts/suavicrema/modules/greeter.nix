@@ -4,14 +4,14 @@
   ...
 }: let
   tuigreet = "${pkgs.tuigreet}/bin/tuigreet";
-  hyprland-session = "${pkgs.hyprland}/share/wayland-sessions";
-  # waylandSessions = "/run/current-system/sw/share/wayland-sessions";
+  # hyprland-session = "${pkgs.hyprland}/share/wayland-sessions";
+  waylandSessions = "/run/current-system/sw/share/wayland-sessions";
 in {
   services.greetd = {
     enable = true;
     settings = {
       default_session = {
-        command = "${tuigreet} --time --remember --remember-session --sessions ${hyprland-session}";
+        command = "${tuigreet} --time --remember --remember-session --sessions ${waylandSessions}";
         user = "greeter";
       };
     };
