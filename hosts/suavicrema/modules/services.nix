@@ -34,6 +34,14 @@
     enableSSHSupport = true;
   };
 
+  security.pam.services.swaylock = {};
+
+  services.logind = {
+    lidSwitch = "ignore";
+  };
+
+  powerManagement.enable = true;
+
   services.dbus = {
     enable = true;
     implementation = "broker";

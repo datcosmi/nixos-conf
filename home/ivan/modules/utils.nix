@@ -11,6 +11,7 @@
     ./utils/fastfetch.nix
     ./utils/starship.nix
     ./utils/wleave.nix
+    ./utils/lock.nix
   ];
 
   programs.btop = {
