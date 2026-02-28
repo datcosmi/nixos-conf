@@ -14,6 +14,26 @@
   security.sudo.enable = true;
   security.sudo.wheelNeedsPassword = true;
 
+  environment.etc."xdg/wayland-sessions/niri.desktop".text = ''
+    [Desktop Entry]
+    Name=Niri
+    Exec=${config.programs.niri.package}/bin/niri-session
+    Type=Application
+  '';
+
+  environment.systemPackages = [
+    (pkgs.writeTextFile {
+      name = "niri-wayland-session";
+      destination = "/share/wayland-sessions/niri.desktop";
+      text = ''
+        [Desktop Entry]
+        Name=Niri
+        Exec=${config.programs.niri.package}/bin/niri-session
+        Type=Application
+      '';
+    })
+  ];
+
   # systemd.sleep.extraConfig = ''
   #   HibernateDelaySec=1h
   # '';

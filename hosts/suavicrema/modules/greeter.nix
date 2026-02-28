@@ -11,7 +11,8 @@ in {
     enable = true;
     settings = {
       default_session = {
-        command = "${tuigreet} --time --remember --remember-session --sessions ${waylandSessions}";
+        command = "${tuigreet} --time --remember --remember-session";
+        # command = "${tuigreet} --time --remember --remember-session --sessions ${waylandSessions}";
         user = "greeter";
       };
     };

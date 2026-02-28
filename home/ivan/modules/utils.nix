@@ -71,6 +71,5 @@
     # brightnessctl
 
     inputs.awww.packages.${pkgs.stdenv.hostPlatform.system}.awww
-    inputs.rose-pine-hyprcursor.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];
 }

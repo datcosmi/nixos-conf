@@ -99,4 +99,19 @@
     color-scheme = "prefer-dark";
     icon-theme = "Adwaita";
   };
+
+  home.pointerCursor = {
+    gtk.enable = true;
+    name = "Bibata-Modern-Classic";
+    package = pkgs.bibata-cursors;
+    size = 24;
+  };
+
+  # home.pointerCursor = {
+  #   gtk.enable = true;
+  #   x11.enable = true;
+  #   name = "Nordzy-cursors";
+  #   package = pkgs.nordzy-cursor-theme;
+  #   size = 24;
+  # };
 }
