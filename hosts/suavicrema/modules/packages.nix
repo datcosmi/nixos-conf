@@ -12,7 +12,6 @@
     system-config-printer
 
     xdg-desktop-portal-hyprland
-
     cachix
 
     # cabextract

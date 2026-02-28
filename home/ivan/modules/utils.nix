@@ -24,6 +24,9 @@
 
   programs.waybar = {
     enable = true;
+    # systemd.enable = true;
+    # systemd.target = "niri.service";
+    # settings.mainBar.layer = "top";
   };
 
   programs.yazi = {

@@ -1,18 +1,18 @@
 {
-  description = "Suavicrema Hyprland";
+  description = "Suavicrema";
 
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
     hyprland.url = "github:hyprwm/Hyprland";
 
+    niri = {
+      url = "github:sodiboo/niri-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     hyprland-plugins = {
       url = "github:hyprwm/hyprland-plugins";
       inputs.hyprland.follows = "hyprland";
-    };
-
-    niri = {
-      url = "github:YaLTeR/niri";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     disko = {
@@ -50,6 +50,7 @@
     self,
     nixpkgs,
     disko,
+    niri,
     catppuccin,
     home-manager,
     ...
@@ -65,11 +66,13 @@
           disko.nixosModules.disko
           home-manager.nixosModules.home-manager
           catppuccin.nixosModules.catppuccin
+          niri.nixosModules.niri
 
           ./hosts/suavicrema/disko.nix
           ./hosts/suavicrema/configuration.nix
           ./hosts/suavicrema/hardware-configuration.nix
           {
+            nixpkgs.overlays = [niri.overlays.niri];
             home-manager = {
               useGlobalPkgs = true;
               useUserPackages = true;
@@ -78,6 +81,7 @@
               users.ivan = import ./home/ivan/home.nix;
               sharedModules = [
                 catppuccin.homeModules.catppuccin
+                inputs.hyprland.homeManagerModules.default
               ];
             };
           }

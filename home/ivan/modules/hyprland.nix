@@ -21,9 +21,9 @@
   wayland.windowManager.hyprland = {
     enable = true;
 
-    plugins = [
-      pkgs.hyprlandPlugins.hyprscrolling
-      # inputs.hyprland-plugins.packages.${pkgs.stdenv.hostPlatform.system}.hyprscrolling
-    ];
+    # plugins = [
+    #   pkgs.hyprlandPlugins.hyprscrolling
+    #   # inputs.hyprland-plugins.packages.${pkgs.stdenv.hostPlatform.system}.hyprscrolling
+    # ];
   };
 }
