@@ -1,17 +1,17 @@
 {lib, ...}: {
   imports = [
-    ./modules/boot.nix
-    ./modules/networking.nix
-    ./modules/graphics.nix
-    ./modules/sound.nix
-    ./modules/services.nix
-    ./modules/users.nix
-    ./modules/packages.nix
-    ./modules/shell.nix
-    ./modules/greeter.nix
+    ../../modules/system/boot.nix
+    ../../modules/system/networking.nix
+    ../../modules/system/graphics.nix
+    ../../modules/system/sound.nix
+    ../../modules/system/services.nix
+    ../../modules/system/users.nix
+    ../../modules/system/packages.nix
+    ../../modules/system/shell.nix
+    ../../modules/system/greeter.nix
 
-    ./modules/desktop-apps.nix
-    ./cachix.nix
+    ../../modules/system/desktop-apps.nix
+    ../../modules/system/cachix.nix
   ];
 
   nix.settings = {

@@ -18,5 +18,6 @@
     prettierd
     nodePackages.prettier
     alejandra
+    kdlfmt
   ];
 }

@@ -1,4 +1,8 @@
-{...}: {
+{
+  config,
+  pkgs,
+  ...
+}: {
   environment.sessionVariables = {
     WLR_NO_HARDWARE_CURSORS = "1";
     XDG_SESSION_TYPE = "wayland";
@@ -17,22 +21,11 @@
   environment.etc."xdg/wayland-sessions/niri.desktop".text = ''
     [Desktop Entry]
     Name=Niri
-    Exec=${config.programs.niri.package}/bin/niri-session
+    Comment=Scrollable-tiling Wayland compositor
+    Exec=${config.programs.niri.package}/bin/niri
     Type=Application
+    DesktopNames=Niri
   '';
-
-  environment.systemPackages = [
-    (pkgs.writeTextFile {
-      name = "niri-wayland-session";
-      destination = "/share/wayland-sessions/niri.desktop";
-      text = ''
-        [Desktop Entry]
-        Name=Niri
-        Exec=${config.programs.niri.package}/bin/niri-session
-        Type=Application
-      '';
-    })
-  ];
 
   # systemd.sleep.extraConfig = ''
   #   HibernateDelaySec=1h
