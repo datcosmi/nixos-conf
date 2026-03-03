@@ -38,6 +38,20 @@
     enable = true;
   };
 
+  programs.tealdeer = {
+    enable = true;
+
+    settings = {
+      settings = {
+        auto_update = true;
+      };
+    };
+  };
+
+  programs.jq = {
+    enable = true;
+  };
+
   programs.fd = {
     enable = true;
   };

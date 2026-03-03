@@ -40,7 +40,6 @@
     self,
     nixpkgs,
     disko,
-    niri,
     catppuccin,
     home-manager,
     ...
