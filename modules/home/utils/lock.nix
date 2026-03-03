@@ -35,7 +35,7 @@ in {
     ];
 
     events = {
-      before-sleep = lockCmd;
+      before-sleep = "hyprlock";
     };
   };
 }

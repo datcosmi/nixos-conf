@@ -1,15 +1,15 @@
 {...}: {
   imports = [
-    ./modules/shell.nix
-    ./modules/terminal.nix
-    ./modules/env.nix
-    ./modules/utils.nix
-    ./modules/scripts.nix
-    ./modules/ssh.nix
-    ./modules/defaults.nix
-    ./modules/desktop-apps.nix
-    ./modules/theme.nix
-    ./modules/dev.nix
+    ../../modules/home/shell.nix
+    ../../modules/home/terminal.nix
+    ../../modules/home/env.nix
+    ../../modules/home/utils.nix
+    ../../modules/home/scripts.nix
+    ../../modules/home/ssh.nix
+    ../../modules/home/defaults.nix
+    ../../modules/home/desktop-apps.nix
+    ../../modules/home/theme.nix
+    ../../modules/home/dev.nix
   ];
 
   home.username = "ivan";

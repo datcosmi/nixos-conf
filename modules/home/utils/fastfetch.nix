@@ -1,5 +1,5 @@
 {pkgs, ...}: {
-  home.file. ".config/fastfetch/luna.txt".source = ../../assets/fastfetch/luna.txt;
+  home.file. ".config/fastfetch/luna.txt".source = ../../../assets/fastfetch/luna.txt;
 
   programs.fastfetch = {
     enable = true;

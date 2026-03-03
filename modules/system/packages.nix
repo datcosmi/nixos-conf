@@ -14,6 +14,8 @@
     xdg-desktop-portal-hyprland
     cachix
 
+    exfatprogs
+
     # cabextract
     # xrandr
     # vulkan-tools
