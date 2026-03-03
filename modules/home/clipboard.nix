@@ -1,4 +1,4 @@
-{
+{pkgs, ...}: {
   systemd.user.services.cliphist-clean = {
     Unit = {
       Description = "Clear cliphist history";

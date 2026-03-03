@@ -10,6 +10,7 @@
     ../../modules/home/desktop-apps.nix
     ../../modules/home/theme.nix
     ../../modules/home/dev.nix
+    ../../modules/home/clipboard.nix
   ];
 
   home.username = "ivan";
