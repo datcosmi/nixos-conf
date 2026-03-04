@@ -79,6 +79,7 @@
 
   home.packages = with pkgs; [
     spotify
+    vivaldi
     nautilus
     localsend
     ente-auth

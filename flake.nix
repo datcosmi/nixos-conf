@@ -44,30 +44,19 @@
     home-manager,
     ...
   } @ inputs: let
-    system = "x86_64-linux";
+    mkHost = import ./lib/mkHost.nix {
+      inherit inputs nixpkgs;
+    };
   in {
     nixosConfigurations = {
-      suavicrema = nixpkgs.lib.nixosSystem {
-        inherit system;
-        specialArgs = {inherit inputs;};
-        modules = [
-          disko.nixosModules.disko
-          home-manager.nixosModules.home-manager
-          catppuccin.nixosModules.catppuccin
+      suavicrema = mkHost {
+        hostname = "suavicrema";
+        system = "x86_64-linux";
+      };
 
-          ./hosts/suavicrema
-          {
-            home-manager = {
-              useGlobalPkgs = true;
-              useUserPackages = true;
-              backupFileExtension = "backup";
-              extraSpecialArgs = {inherit inputs;};
-              sharedModules = [
-                catppuccin.homeModules.catppuccin
-              ];
-            };
-          }
-        ];
+      mandarina = mkHost {
+        hostname = "mandarina";
+        system = "x86_64-linux";
       };
     };
   };

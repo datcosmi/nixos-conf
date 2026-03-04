@@ -6,5 +6,22 @@ with lib; {
       default = "none";
       description = "GPU vendor";
     };
+
+    hybrid = mkOption {
+      type = types.bool;
+      default = false;
+    };
+
+    prime = {
+      intelBusId = mkOption {
+        type = types.nullOr types.str;
+        default = null;
+      };
+
+      nvidiaBusId = mkOption {
+        type = types.nullOr types.str;
+        default = null;
+      };
+    };
   };
 }

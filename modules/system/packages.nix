@@ -8,23 +8,14 @@
     stow
     tuigreet
     networkmanagerapplet
-
     system-config-printer
-
-    xdg-desktop-portal-hyprland
     cachix
-
     exfatprogs
 
     # cabextract
     # xrandr
     # vulkan-tools
 
-    # btrfs-progs
-    # lvm2
-    # cryptsetup
-    # pciutils
-    # usbutils
     # nvtopPackages.nvidia
   ];
 
@@ -38,8 +29,4 @@
   ];
 
   nixpkgs.config.allowUnfree = true;
-
-  # programs.nix-ld.enable = true;
-  # fonts.fontDir.enable = true;
-  # fonts.enableDefaultPackages = true;
 }

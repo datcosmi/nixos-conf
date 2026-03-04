@@ -14,7 +14,7 @@
 
   prefs = {
     # Privacy & Fingerprinting Resistance
-    "privacy.resistFingerprinting" = false;
+    "privacy.resistFingerprinting" = true;
     "privacy.trackingprotection.enabled" = true;
     "privacy.trackingprotection.socialtracking.enabled" = true;
     "privacy.trackingprotection.fingerprinting.enabled" = true;
@@ -83,6 +83,7 @@
     (extension "ublock-origin" "uBlock0@raymondhill.net")
     (extension "canvasblocker" "CanvasBlocker@kkapsner.de")
     (extension "proton-pass" "78272b6fa58f4a1abaac99321d503a20@proton.me")
+    (extension "darkreader" "addon@darkreader.org")
     # (extension "enhanced-h264ify" "{9a41dee2-b924-4161-a971-7fb35c053a4a}")
   ];
 in {
@@ -129,16 +130,11 @@ in {
 
   programs.steam = {
     enable = true;
-    # protontricks.enable = true;
+    protontricks.enable = true;
     gamescopeSession.enable = true;
 
     extraCompatPackages = with pkgs; [
       proton-ge-bin
     ];
-
-    # fontPackages = with pkgs; [
-    #   freetype
-    #   fontconfig
-    # ];
   };
 }
