@@ -39,9 +39,6 @@
   outputs = {
     self,
     nixpkgs,
-    disko,
-    catppuccin,
-    home-manager,
     ...
   } @ inputs: let
     mkHost = import ./lib/mkHost.nix {

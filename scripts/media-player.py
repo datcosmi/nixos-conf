@@ -14,7 +14,7 @@ import gi
 from gi.repository import GLib, Playerctl
 from gi.repository.Playerctl import Player
 
-MAX_LEN = 20
+MAX_LEN = 16
 
 
 def truncate(text, max_len=MAX_LEN):
