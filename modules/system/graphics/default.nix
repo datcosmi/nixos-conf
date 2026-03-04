@@ -3,6 +3,10 @@
   config,
   ...
 }: {
+  imports = [
+    ./nvidia.nix
+  ];
+
   services.xserver = {
     enable = true;
 

@@ -1,4 +1,8 @@
 {pkgs, ...}: {
+  imports = [
+    ./nvidia.nix
+  ];
+
   boot = {
     loader = {
       efi = {

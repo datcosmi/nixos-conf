@@ -2,11 +2,10 @@
   imports = [
     ../modules/system/hardware
     ../modules/system/boot
-    ../modules/system/boot/nvidia.nix
     ../modules/system/graphics
-    ../modules/system/graphics/nvidia.nix
     ../modules/system/wm/niri.nix
 
+    ../modules/system/core/nix.nix
     ../modules/system/networking.nix
     ../modules/system/sound.nix
     ../modules/system/services.nix
