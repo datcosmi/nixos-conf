@@ -45,7 +45,6 @@
     ...
   } @ inputs: let
     system = "x86_64-linux";
-    pkgs = nixpkgs.legacyPackages.${system};
   in {
     nixosConfigurations = {
       suavicrema = nixpkgs.lib.nixosSystem {
@@ -55,13 +54,9 @@
           disko.nixosModules.disko
           home-manager.nixosModules.home-manager
           catppuccin.nixosModules.catppuccin
-          # niri.nixosModules.niri
 
-          ./hosts/suavicrema/disko.nix
-          ./hosts/suavicrema/configuration.nix
-          ./hosts/suavicrema/hardware-configuration.nix
+          ./hosts/suavicrema
           {
-            # nixpkgs.overlays = [niri.overlays.niri];
             home-manager = {
               useGlobalPkgs = true;
               useUserPackages = true;

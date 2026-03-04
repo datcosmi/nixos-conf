@@ -1,18 +1,13 @@
 {lib, ...}: {
   imports = [
-    ../../modules/system/boot.nix
-    ../../modules/system/networking.nix
-    ../../modules/system/graphics.nix
-    ../../modules/system/sound.nix
-    ../../modules/system/services.nix
-    ../../modules/system/users.nix
-    ../../modules/system/packages.nix
-    ../../modules/system/shell.nix
-    ../../modules/system/greeter.nix
-
-    ../../modules/system/desktop-apps.nix
-    ../../modules/system/cachix.nix
+    ../../profiles/desktop.nix
+    ./hardware-configuration.nix
+    ./disko.nix
   ];
+
+  networking.hostName = "suavicrema";
+
+  my.hardware.gpu = "nvidia-turing";
 
   nix.settings = {
     experimental-features = "nix-command flakes";

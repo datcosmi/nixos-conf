@@ -1,8 +1,5 @@
-{ ... }:
-
-{
+{...}: {
   networking = {
-    hostName = "suavicrema";
     networkmanager.enable = true;
     enableIPv6 = true;
 
@@ -10,7 +7,7 @@
       enable = true;
       allowPing = true;
       checkReversePath = false;
-      trustedInterfaces = [ "enp5s0" ];
+      trustedInterfaces = ["enp5s0"];
     };
   };
 

@@ -17,7 +17,7 @@
   boot.kernelModules = ["kvm-amd"];
   boot.extraModulePackages = [];
 
-  fileSystems."/home/tulio/.local/share/cliphist" = {
+  fileSystems."/home/ivan/.local/share/cliphist" = {
     device = "tmpfs";
     fsType = "tmpfs";
     options = [
@@ -29,6 +29,11 @@
       "uid=1000"
       "gid=100"
     ];
+  };
+
+  fileSystems = {
+    "/var/log".neededForBoot = true;
+    "/.snapshots".neededForBoot = false;
   };
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";

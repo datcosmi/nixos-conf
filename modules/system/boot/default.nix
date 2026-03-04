@@ -11,13 +11,10 @@
         efiSupport = true;
         device = "nodev";
         useOSProber = false;
-        enableCryptodisk = false;
       };
     };
 
     kernelPackages = pkgs.linuxPackages_6_12;
-
-    initrd.kernelModules = ["nvidia" "nvidia_modeset" "nvidia_uvm" "nvidia_drm"];
 
     kernel.sysctl = {
       "vm.swappiness" = 10;
@@ -27,16 +24,9 @@
     };
 
     kernelParams = [
-      "nvidia_drm.modeset=1"
-      "nvidia_drm.fbdev=1"
-      "nvidia.NVreg_PreserveVideoMemoryAllocations=1"
-      "nvidia.NVreg_TemporaryFilePath=/var/tmp"
       "mem_sleep_default=deep"
       "elevator=mq-deadline"
-      "nvidia.NVreg_OpenRmEnableUnsupportedGpus=1"
     ];
-
-    blacklistedKernelModules = ["nouveau"];
   };
 
   zramSwap = {
