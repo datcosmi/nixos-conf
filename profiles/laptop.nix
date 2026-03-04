@@ -3,7 +3,7 @@
     ../modules/system/hardware
     ../modules/system/boot
     ../modules/system/graphics
-    ../modules/system/wm/niri.nix
+    ../modules/system/wm/niri
 
     ../modules/system/core/nix.nix
     ../modules/system/networking.nix
