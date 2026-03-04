@@ -6,7 +6,7 @@
     ../../modules/system/users/ivan.nix
   ];
 
-  networking.hostName = "laptop";
+  networking.hostName = "mandarina";
 
   my.hardware = {
     gpu = "nvidia";
