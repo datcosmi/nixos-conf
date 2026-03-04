@@ -67,7 +67,7 @@
               useUserPackages = true;
               backupFileExtension = "backup";
               extraSpecialArgs = {inherit inputs;};
-              users.ivan = import ./home/ivan/home.nix;
+              users.ivan = import ./home/ivan;
               sharedModules = [
                 catppuccin.homeModules.catppuccin
               ];
