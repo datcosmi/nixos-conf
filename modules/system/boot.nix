@@ -30,6 +30,8 @@
       "nvidia_drm.modeset=1"
       "nvidia_drm.fbdev=1"
       "nvidia.NVreg_PreserveVideoMemoryAllocations=1"
+      "nvidia.NVreg_TemporaryFilePath=/var/tmp"
+      "mem_sleep_default=deep"
       "elevator=mq-deadline"
       "nvidia.NVreg_OpenRmEnableUnsupportedGpus=1"
     ];
