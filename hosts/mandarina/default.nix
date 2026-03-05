@@ -10,10 +10,10 @@
 
   my.hardware = {
     gpu = "nvidia";
-    hybrid = true;
-
-    prime.intelBusId = "PCI:0:2:0";
-    prime.nvidiaBusId = "PCI:1:0:0";
+    # hybrid = true;
+    #
+    # prime.intelBusId = "PCI:0:2:0";
+    # prime.nvidiaBusId = "PCI:1:0:0";
   };
 
   home-manager.users.ivan = import ../../home/ivan;
