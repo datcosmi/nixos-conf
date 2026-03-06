@@ -1,7 +1,7 @@
 {...}: {
   imports = [
     ../../profiles/laptop.nix
-    # ./hardware-configuration.nix
+    ./hardware-configuration.nix
     ./disko.nix
     ../../modules/system/users/ivan.nix
   ];
