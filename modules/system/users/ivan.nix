@@ -10,6 +10,8 @@
     text = ''
       mkdir -p /nix/var/nix/profiles/per-user/ivan
       chown ivan:users /nix/var/nix/profiles/per-user/ivan
+      mkdir -p /nix/var/nix/gcroots/per-user/ivan
+      chown ivan:users /nix/var/nix/gcroots/per-user/ivan
     '';
     deps = ["users"];
   };
