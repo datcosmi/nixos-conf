@@ -30,6 +30,7 @@
     kernelParams = [
       "mem_sleep_default=deep"
       "elevator=mq-deadline"
+      "lru-gen=1"
     ];
   };
 

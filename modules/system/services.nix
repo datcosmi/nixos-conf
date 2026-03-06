@@ -28,6 +28,10 @@
 
   systemd.oomd.enable = true;
 
+  systemd.user.extraConfig = ''
+    DefaultMemoryHigh=12G
+  '';
+
   services.gnome.gnome-keyring.enable = true;
 
   programs.dconf.enable = true;
