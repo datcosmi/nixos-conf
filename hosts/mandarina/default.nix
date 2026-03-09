@@ -16,7 +16,7 @@
     # prime.nvidiaBusId = "PCI:1:0:0";
   };
 
-  home-manager.users.ivan = import ../../home/ivan;
+  # home-manager.users.ivan = import ../../home/ivan;
 
   system.stateVersion = "26.05";
 }

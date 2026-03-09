@@ -1,32 +1,39 @@
 {
-  inputs,
   nixpkgs,
+  disko,
+  catppuccin,
+  home-manager,
+  inputs,
 }: {
   hostname,
-  system,
+  users,
+  system ? "x86_64-linux",
+  extraModules ? [],
 }:
 nixpkgs.lib.nixosSystem {
   inherit system;
 
   specialArgs = {inherit inputs;};
 
-  modules = [
-    inputs.disko.nixosModules.disko
-    inputs.home-manager.nixosModules.home-manager
-    inputs.catppuccin.nixosModules.catppuccin
+  modules =
+    [
+      disko.nixosModules.disko
+      home-manager.nixosModules.home-manager
+      catppuccin.nixosModules.catppuccin
+      ../hosts/${hostname}
 
-    {
-      home-manager = {
-        useGlobalPkgs = true;
-        useUserPackages = true;
-        backupFileExtension = "backup";
-        extraSpecialArgs = {inherit inputs;};
-        sharedModules = [
-          inputs.catppuccin.homeModules.catppuccin
-        ];
-      };
-    }
-
-    ../hosts/${hostname}
-  ];
+      {
+        home-manager = {
+          useGlobalPkgs = true;
+          useUserPackages = true;
+          backupFileExtension = "backup";
+          extraSpecialArgs = {inherit inputs;};
+          inherit users;
+          sharedModules = [
+            inputs.catppuccin.homeModules.catppuccin
+          ];
+        };
+      }
+    ]
+    ++ extraModules;
 }

@@ -39,21 +39,26 @@
   outputs = {
     self,
     nixpkgs,
+    disko,
+    catppuccin,
+    home-manager,
     ...
   } @ inputs: let
     mkHost = import ./lib/mkHost.nix {
-      inherit inputs nixpkgs;
+      inherit inputs nixpkgs disko catppuccin home-manager;
     };
   in {
     nixosConfigurations = {
       suavicrema = mkHost {
         hostname = "suavicrema";
         system = "x86_64-linux";
+        users = {ivan = import ./home/ivan;};
       };
 
       mandarina = mkHost {
         hostname = "mandarina";
         system = "x86_64-linux";
+        users = {ivan = import ./home/ivan;};
       };
     };
   };

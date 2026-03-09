@@ -15,12 +15,10 @@
     # };
 
     settings = {
-      # "privacy.resistFingerprinting" = false;
-
       # Do NOT clear cookies or sessions on shutdown
       "privacy.clearOnShutdown.cookies" = false;
-      "privacy.clearOnShutdown.sessions" = false;
-      "privacy.clearOnShutdown.cache" = false;
+      "privacy.clearOnShutdown.sessions" = true;
+      "privacy.clearOnShutdown.cache" = true;
       "privacy.clearOnShutdown.history" = false;
 
       # Allow persistent cookies
