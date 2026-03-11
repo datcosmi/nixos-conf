@@ -14,6 +14,7 @@
     ../modules/system/greeter.nix
 
     ../modules/system/desktop-apps.nix
+    ../modules/system/gaming.nix
     ../modules/system/cachix.nix
   ];
 }
