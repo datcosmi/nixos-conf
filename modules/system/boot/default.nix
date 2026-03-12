@@ -15,8 +15,13 @@
         efiSupport = true;
         device = "nodev";
         useOSProber = false;
+        configurationLimit = 6;
       };
+
+      timeout = 3;
     };
+
+    initrd.systemd.enable = true;
 
     kernelPackages = pkgs.linuxPackages_6_12;
 

@@ -9,7 +9,6 @@
 
   networking.hostName = "suavicrema";
   my.hardware.gpu = "nvidia";
-  # home-manager.users.ivan = import ../../home/ivan;
 
   system.stateVersion = "26.05";
 }
