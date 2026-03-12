@@ -9,6 +9,7 @@
     ../modules/system/networking.nix
     ../modules/system/sound.nix
     ../modules/system/services.nix
+    ../modules/system/memory.nix
     ../modules/system/packages.nix
     ../modules/system/shell.nix
     ../modules/system/greeter.nix

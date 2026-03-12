@@ -26,8 +26,6 @@
     };
   };
 
-  systemd.oomd.enable = true;
-
   systemd.user.extraConfig = ''
     DefaultMemoryHigh=12G
   '';

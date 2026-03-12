@@ -36,14 +36,6 @@
     "/.snapshots".neededForBoot = false;
   };
 
-  swapDevices = [
-    {
-      device = "/swapfile";
-      size = 4096;
-      priority = 0;
-    }
-  ];
-
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 }
