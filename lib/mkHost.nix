@@ -13,7 +13,7 @@
 nixpkgs.lib.nixosSystem {
   inherit system;
 
-  specialArgs = {inherit inputs self;};
+  specialArgs = {inherit inputs;};
 
   modules =
     [
