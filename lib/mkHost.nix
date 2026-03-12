@@ -9,31 +9,35 @@
   users,
   system ? "x86_64-linux",
   extraModules ? [],
-}:
-nixpkgs.lib.nixosSystem {
-  inherit system;
+}: let
+  lib = nixpkgs.lib;
+in
+  nixpkgs.lib.nixosSystem {
+    inherit system;
+    specialArgs = {inherit inputs;};
+    modules =
+      [
+        disko.nixosModules.disko
+        home-manager.nixosModules.home-manager
+        catppuccin.nixosModules.catppuccin
+        ../hosts/${hostname}
+        {
+          systemd.tmpfiles.rules = lib.concatMap (user: [
+            "d /nix/var/nix/profiles/per-user/${user} 0755 ${user} users -"
+            "d /nix/var/nix/gcroots/per-user/${user} 0755 ${user} users -"
+          ]) (lib.attrNames users);
 
-  specialArgs = {inherit inputs;};
-
-  modules =
-    [
-      disko.nixosModules.disko
-      home-manager.nixosModules.home-manager
-      catppuccin.nixosModules.catppuccin
-      ../hosts/${hostname}
-
-      {
-        home-manager = {
-          useGlobalPkgs = true;
-          useUserPackages = true;
-          backupFileExtension = "backup";
-          extraSpecialArgs = {inherit inputs;};
-          inherit users;
-          sharedModules = [
-            inputs.catppuccin.homeModules.catppuccin
-          ];
-        };
-      }
-    ]
-    ++ extraModules;
-}
+          home-manager = {
+            useGlobalPkgs = true;
+            useUserPackages = true;
+            backupFileExtension = "backup";
+            extraSpecialArgs = {inherit inputs;};
+            inherit users;
+            sharedModules = [
+              inputs.catppuccin.homeModules.catppuccin
+            ];
+          };
+        }
+      ]
+      ++ extraModules;
+  }
