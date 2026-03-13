@@ -10,19 +10,19 @@
     settings = {
       "$schema" = "https://starship.rs/config-schema.json";
 
-      # add_newline = false;
+      palette = "dream_lavender";
 
       format = lib.concatStrings [
-        "[](pink)"
+        "[](lilac_mist)"
         "$os"
-        "[](bg:surface0 fg:pink)"
+        "[](fg:lilac_mist bg:soft_lavender)"
         "$time"
-        "[](fg:surface0 bg:peach)"
+        "[](fg:soft_lavender bg:violet_whisper)"
         "$directory"
-        "[](fg:peach bg:teal)"
+        "[](fg:violet_whisper bg:orchid_haze)"
         "$git_branch"
         "$git_status"
-        "[](fg:teal bg:blue)"
+        "[](fg:orchid_haze bg:dream_fog)"
         "$c"
         "$rust"
         "$golang"
@@ -32,65 +32,30 @@
         "$kotlin"
         "$haskell"
         "$python"
-        "[](fg:blue bg:mauve)"
+        "[](fg:dream_fog bg:amethyst_glow)"
         "$docker_context"
-        "[](fg:mauve)"
+        "[](fg:amethyst_glow)"
         "$line_break"
         "$character"
       ];
 
-      palette = "catppuccin_mocha";
-
       palettes = {
-        gruvbox_dark = {
-          color_fg0 = "#fbf1c7";
-          color_bg1 = "#3c3836";
-          color_bg3 = "#665c54";
-          color_blue = "#458588";
-          color_aqua = "#689d6a";
-          color_green = "#98971a";
-          color_orange = "#d65d0e";
-          color_purple = "#b16286";
-          color_red = "#cc241d";
-          color_yellow = "#d79921";
-        };
+        dream_lavender = {
+          lilac_mist = "#cac7ff";
+          soft_lavender = "#d7cdfe";
+          violet_whisper = "#e4d3fc";
+          orchid_haze = "#f1dafb";
+          petal_light = "#fee0f9";
 
-        catppuccin_mocha = {
-          white = "#ffffff";
-          rosewater = "#f5e0dc";
-          flamingo = "#f2cdcd";
-          pink = "#f5c2e7";
-          mauve = "#DBA6F7";
-          orange = "#cba6f7";
-          red = "#f38ba8";
-          maroon = "#eba0ac";
-          peach = "#F0B9C0";
-          yellow = "#f9e2af";
-          green = "#a6e3a1";
-          teal = "#94e2d5";
-          sky = "#89dceb";
-          sapphire = "#74c7ec";
-          blue = "#89b4fa";
-          lapis = "#575BCF";
-          lavender = "#b4befe";
-          text = "#cdd6f4";
-          subtext1 = "#bac2de";
-          subtext0 = "#a6adc8";
-          overlay2 = "#9399b2";
-          overlay1 = "#7f849c";
-          overlay0 = "#6c7086";
-          surface2 = "#585b70";
-          surface1 = "#45475a";
-          surface0 = "#313244";
-          base = "#1e1e2e";
-          mantle = "#181825";
-          crust = "#11111b";
+          amethyst_glow = "#a79cff";
+          plum_ink = "#3f365f";
+          dream_fog = "#f7e9fd";
         };
       };
 
       os = {
         disabled = false;
-        style = "bg:pink fg:crust";
+        style = "bg:lilac_mist fg:plum_ink";
 
         symbols = {
           Windows = "󰍲";
@@ -106,8 +71,8 @@
           Alpine = "";
           Amazon = "";
           Android = "";
-          Arch = " 󰣇  ";
-          NixOS = " 󱄅  ";
+          Arch = "󰣇";
+          NixOS = "󱄅 ";
           Artix = "󰣇";
           CentOS = "";
           Debian = "󰣚";
@@ -116,117 +81,101 @@
         };
       };
 
-      username = {
-        show_always = true;
-        style_user = "bg:pink fg:crust";
-        style_root = "bg:pink fg:crust";
-        format = "[ $user ]($style)";
-      };
-
       directory = {
-        style = "fg:surface0 bg:peach bold";
+        style = "fg:plum_ink bg:violet_whisper bold";
         format = "[  $path ]($style)";
         truncation_length = 3;
         truncation_symbol = "…/";
-
-        substitutions = {
-          Documents = "󰈙 ";
-          Downloads = " ";
-          Music = "󰝚 ";
-          Pictures = " ";
-          Developer = "󰲋 ";
-        };
       };
 
       git_branch = {
         symbol = " ";
-        style = "bg:blue bold";
-        format = "[[ $symbol $branch ](fg:surface0 bg:teal bold)]($style)";
+        style = "bg:orchid_haze bold";
+        format = "[[ $symbol $branch ](fg:plum_ink bg:orchid_haze bold)]($style)";
       };
 
       git_status = {
-        style = "bg:blue bold";
-        format = "[[($all_status$ahead_behind )](fg:surface0 bg:teal)]($style)";
-      };
-
-      nodejs = {
-        symbol = "";
-        style = "bg:blue bold";
-        format = "[[ $symbol( $version) ](fg:surface0 bg:blue bold)]($style)";
-      };
-
-      c = {
-        symbol = " ";
-        style = "bg:blue bold";
-        format = "[[ $symbol( $version) ](fg:surface0 bg:blue bold)]($style)";
-      };
-
-      rust = {
-        symbol = "";
-        style = "bg:blue bold";
-        format = "[[ $symbol( $version) ](fg:surface0 bg:blue bold)]($style)";
-      };
-
-      golang = {
-        symbol = "";
-        style = "bg:blue bold";
-        format = "[[ $symbol( $version) ](fg:surface0 bg:blue bold)]($style)";
-      };
-
-      php = {
-        symbol = "";
-        style = "bg:blue bold";
-        format = "[[ $symbol( $version) ](fg:surface0 bg:blue bold)]($style)";
-      };
-
-      java = {
-        symbol = " ";
-        style = "bg:blue bold";
-        format = "[[ $symbol( $version) ](fg:surface0 bg:blue bold)]($style)";
-      };
-
-      kotlin = {
-        symbol = "";
-        style = "bg:blue bold";
-        format = "[[ $symbol( $version) ](fg:surface0 bg:blue bold)]($style)";
-      };
-
-      haskell = {
-        symbol = "";
-        style = "bg:blue bold";
-        format = "[[ $symbol( $version) ](fg:surface0 bg:blue bold)]($style)";
-      };
-
-      python = {
-        symbol = "";
-        style = "bg:blue bold";
-        format = "[[ $symbol( $version) ](fg:surface0 bg:blue bold)]($style)";
+        style = "bg:orchid_haze bold";
+        format = "[[($all_status$ahead_behind )](fg:plum_ink bg:orchid_haze)]($style)";
       };
 
       docker_context = {
         symbol = "";
-        style = "bg:mantle";
-        format = "[[ $symbol( $context) ](fg:surface bg:mauve)]($style)";
+        style = "bg:amethyst_glow";
+        format = "[[ $symbol( $context) ](fg:petal_light bg:amethyst_glow)]($style)";
       };
 
       time = {
         disabled = false;
         time_format = "%R";
-        style = "bg:pink";
-        format = "[[  $time ](fg:pink bg:surface0)]($style)";
+        style = "bg:lilac_mist";
+        format = "[[  $time ](fg:plum_ink bg:soft_lavender)]($style)";
+      };
+
+      c = {
+        symbol = " ";
+        style = "bg:dream_fog";
+        format = "[[ $symbol($version) ](fg:amethyst_glow bg:dream_fog bold)]($style)";
+      };
+
+      rust = {
+        symbol = "";
+        style = "bg:dream_fog";
+        format = "[[ $symbol($version) ](fg:amethyst_glow bg:dream_fog bold)]($style)";
+      };
+
+      golang = {
+        symbol = "";
+        style = "bg:dream_fog";
+        format = "[[ $symbol($version) ](fg:amethyst_glow bg:dream_fog bold)]($style)";
+      };
+
+      nodejs = {
+        symbol = "";
+        style = "bg:dream_fog";
+        format = "[[ $symbol($version) ](fg:amethyst_glow bg:dream_fog bold)]($style)";
+      };
+
+      php = {
+        symbol = "";
+        style = "bg:dream_fog";
+        format = "[[ $symbol($version) ](fg:amethyst_glow bg:dream_fog bold)]($style)";
+      };
+
+      java = {
+        symbol = " ";
+        style = "bg:dream_fog";
+        format = "[[ $symbol($version) ](fg:amethyst_glow bg:dream_fog bold)]($style)";
+      };
+
+      kotlin = {
+        symbol = "";
+        style = "bg:dream_fog";
+        format = "[[ $symbol($version) ](fg:amethyst_glow bg:dream_fog bold)]($style)";
+      };
+
+      haskell = {
+        symbol = "";
+        style = "bg:dream_fog";
+        format = "[[ $symbol($version) ](fg:amethyst_glow bg:dream_fog bold)]($style)";
+      };
+
+      python = {
+        symbol = "";
+        style = "bg:dream_fog";
+        format = "[[ $symbol($version) ](fg:amethyst_glow bg:dream_fog bold)]($style)";
+      };
+
+      character = {
+        success_symbol = "[](bold fg:amethyst_glow)";
+        error_symbol = "[](bold fg:#ff6b81)";
+        vimcmd_symbol = "[](bold fg:amethyst_glow)";
+        vimcmd_replace_one_symbol = "[](bold fg:lilac_mist)";
+        vimcmd_replace_symbol = "[](bold fg:lilac_mist)";
+        vimcmd_visual_symbol = "[](bold fg:soft_lavender)";
       };
 
       line_break.disabled = false;
-
-      character = {
-        disabled = false;
-        success_symbol = "[](bold fg:green)";
-        error_symbol = "[](bold fg:red)";
-        vimcmd_symbol = "[](bold fg:green)";
-        vimcmd_replace_one_symbol = "[](bold fg:purple)";
-        vimcmd_replace_symbol = "[](bold fg:purple)";
-        vimcmd_visual_symbol = "[](bold fg:lavender)";
-      };
     };
   };
 }

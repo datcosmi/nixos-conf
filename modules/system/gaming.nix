@@ -15,7 +15,7 @@
     pkgs.protontricks
     pkgs.winetricks
     pkgs.protonup-qt
-    pkgs.mangohud
+    # pkgs.mangohud
     pkgs.gamemode
 
     (pkgs.writeShellScriptBin "protontricks" ''
@@ -27,7 +27,7 @@
 
   services.udev.packages = [pkgs.gamemode];
 
-  environment.variables = {
-    MANGOHUD = "1";
-  };
+  # environment.variables = {
+  #   MANGOHUD = "1";
+  # };
 }
