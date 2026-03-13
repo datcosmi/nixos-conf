@@ -31,6 +31,9 @@ in
               mkdir -p /nix/var/nix/gcroots/per-user/$user
               chown $user:users /nix/var/nix/gcroots/per-user/$user
               mkdir -p $home/.local/state/nix/profiles
+              mkdir -p $home/.local/share
+              mkdir -p $home/.config
+              mkdir -p $home/.cache
               chown -R $user:users $home
             done
           '';
