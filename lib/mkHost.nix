@@ -11,6 +11,7 @@
   extraModules ? [],
 }: let
   lib = nixpkgs.lib;
+  userNames = lib.attrNames users;
 in
   nixpkgs.lib.nixosSystem {
     inherit system;
@@ -22,10 +23,17 @@ in
         catppuccin.nixosModules.catppuccin
         ../hosts/${hostname}
         {
-          systemd.tmpfiles.rules = lib.concatMap (user: [
-            "d /nix/var/nix/profiles/per-user/${user} 0755 ${user} users -"
-            "d /nix/var/nix/gcroots/per-user/${user} 0755 ${user} users -"
-          ]) (lib.attrNames users);
+          system.activationScripts.createNixUserProfiles = lib.stringAfter ["users"] ''
+            for user in ${lib.concatStringsSep " " userNames}; do
+              home=$(getent passwd $user | cut -d: -f6)
+              mkdir -p /nix/var/nix/profiles/per-user/$user
+              chown $user:users /nix/var/nix/profiles/per-user/$user
+              mkdir -p /nix/var/nix/gcroots/per-user/$user
+              chown $user:users /nix/var/nix/gcroots/per-user/$user
+              mkdir -p $home/.local/state/nix/profiles
+              chown -R $user:users $home
+            done
+          '';
 
           home-manager = {
             useGlobalPkgs = true;
