@@ -1,9 +1,13 @@
-{pkgs, ...}: let
+{
+  lib,
+  config,
+  pkgs,
+  ...
+}: let
   cfg = config.my.theme;
 in
   with lib;
-    mkIf (cfg.gtk == "nordzy")
-    {
+    mkIf (cfg.gtk == "nordzy") {
       home.pointerCursor = {
         gtk.enable = true;
         x11.enable = true;

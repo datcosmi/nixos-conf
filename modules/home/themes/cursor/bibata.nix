@@ -7,8 +7,7 @@
   cfg = config.my.theme;
 in
   with lib;
-    mkIf (cfg.gtk == "bibata-modern")
-    {
+    mkIf (cfg.cursor == "bibata-modern") {
       home.pointerCursor = {
         gtk.enable = true;
         name = "Bibata-Modern-Classic";

@@ -6,7 +6,7 @@
   cfg = config.my.theme;
 in
   with lib;
-    mkIf (cfg.palette == "catppuccin_mocha")
+    mkIf (cfg.palette == "catppuccin-mocha")
     {
       catppuccin.bat = {
         enable = true;
