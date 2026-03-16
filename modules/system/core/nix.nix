@@ -21,4 +21,6 @@
     dates = ["daily"];
     persistent = true;
   };
+
+  nixpkgs.config.allowUnfree = true;
 }

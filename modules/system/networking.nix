@@ -21,4 +21,9 @@
     nssmdns4 = true;
     openFirewall = true;
   };
+
+  environment.systemPackages = with packages; [
+    networkmanagerapplet
+    system-config-printer
+  ];
 }

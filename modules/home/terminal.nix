@@ -50,8 +50,4 @@
       mouse-scroll-multiplier = 1.0;
     };
   };
-
-  programs.alacritty = {
-    enable = true;
-  };
 }

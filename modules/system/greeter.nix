@@ -32,4 +32,8 @@ in {
     TTYVHangup = true;
     TTYVTDisallocate = true;
   };
+
+  environment.systemPackages = with pkgs; [
+    tuigreet
+  ];
 }
