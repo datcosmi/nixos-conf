@@ -3,16 +3,20 @@
   inputs,
   ...
 }: let
-  tuigreet = "${pkgs.tuigreet}/bin/tuigreet";
+  # tuigreet = "${pkgs.tuigreet}/bin/tuigreet";
   # hyprland-session = "${pkgs.hyprland}/share/wayland-sessions";
   waylandSessions = "/run/current-system/sw/share/wayland-sessions";
 in {
+  environment.systemPackages = with pkgs; [
+    tuigreet
+  ];
+
   services.greetd = {
     enable = true;
     settings = {
       default_session = {
         # command = "${tuigreet} --time --remember --remember-session";
-        command = "${tuigreet} --time --remember --remember-session --sessions ${waylandSessions}";
+        command = "${pkgs.tuigreet}/bin/tuigreet --time --remember --remember-session --sessions ${waylandSessions}";
         user = "greeter";
       };
     };
@@ -32,8 +36,4 @@ in {
     TTYVHangup = true;
     TTYVTDisallocate = true;
   };
-
-  environment.systemPackages = with pkgs; [
-    tuigreet
-  ];
 }

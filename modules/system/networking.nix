@@ -1,4 +1,4 @@
-{...}: {
+{pkgs, ...}: {
   networking = {
     networkmanager.enable = true;
     enableIPv6 = true;
@@ -22,7 +22,7 @@
     openFirewall = true;
   };
 
-  environment.systemPackages = with packages; [
+  environment.systemPackages = with pkgs; [
     networkmanagerapplet
     system-config-printer
   ];
