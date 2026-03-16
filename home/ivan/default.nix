@@ -6,12 +6,18 @@
     ../../modules/home/utils.nix
     ../../modules/home/scripts.nix
     ../../modules/home/ssh.nix
-    ../../modules/home/defaults.nix
+    ../../modules/home/default-apps.nix
     ../../modules/home/desktop-apps.nix
-    ../../modules/home/theme.nix
+    ../../modules/home/themes
     ../../modules/home/dev.nix
     ../../modules/home/clipboard.nix
   ];
+
+  my.theme = {
+    palette = "catppuccin-mocha";
+    gtk = "adwaita-dark";
+    cursor = "bibata-modern";
+  };
 
   home.username = "ivan";
   home.homeDirectory = "/home/ivan";
