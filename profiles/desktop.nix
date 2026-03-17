@@ -6,7 +6,7 @@
     ../modules/system/wm/niri
 
     ../modules/system/core/nix.nix
-    ../modules/system/networking.nix
+    ../modules/system/networking
     ../modules/system/sound.nix
     ../modules/system/services.nix
     ../modules/system/memory.nix
