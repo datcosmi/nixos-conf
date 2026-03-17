@@ -33,6 +33,7 @@ in
       catppuccin.wleave = {
         enable = true;
         flavor = "mocha";
+        accent = "pink";
         iconStyle = "wleave";
       };
 
