@@ -1,7 +1,8 @@
-{...}: {
+{pkgs, ...}: {
   services.avahi = {
     enable = true;
-    nssmdns4and6 = true;
+    nssmdns4 = true;
+    nssmdns6 = true;
     openFirewall = true;
 
     publish = {
