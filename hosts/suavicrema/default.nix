@@ -11,6 +11,10 @@
   my.hardware = {
     gpu = "nvidia";
     host = "desktop";
+    display = {
+      internalBacklight = false;
+      ddc = true;
+    };
   };
 
   system.stateVersion = "26.05";

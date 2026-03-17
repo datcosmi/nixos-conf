@@ -7,6 +7,20 @@ with lib; {
       description = "Host type";
     };
 
+    display = {
+      internalBacklight = mkOption {
+        type = types.bool;
+        default = false;
+        description = "Has an internal display with controllable backlight";
+      };
+
+      ddc = mkOption {
+        type = types.bool;
+        default = false;
+        description = "Supports DDC/CI for external monitors";
+      };
+    };
+
     gpu = mkOption {
       type = types.enum ["nvidia" "amd" "intel" "none"];
       default = "none";
