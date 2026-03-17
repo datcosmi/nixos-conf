@@ -8,7 +8,10 @@
   ];
 
   networking.hostName = "suavicrema";
-  my.hardware.gpu = "nvidia";
+  my.hardware = {
+    gpu = "nvidia";
+    host = "desktop";
+  };
 
   system.stateVersion = "26.05";
 }

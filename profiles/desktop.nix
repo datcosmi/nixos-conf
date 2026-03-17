@@ -11,6 +11,7 @@
     ../modules/system/services.nix
     ../modules/system/memory.nix
     ../modules/system/utils.nix
+    ../modules/system/brightness.nix
     ../modules/system/fonts.nix
     ../modules/system/shell.nix
     ../modules/system/login/tuigreet.nix
