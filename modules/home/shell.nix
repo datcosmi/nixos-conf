@@ -54,7 +54,6 @@
 
     initContent = ''
       if [[ -o interactive ]]; then
-        export KEYTIMEOUT=1
         clear
         fastfetch
       fi

@@ -15,6 +15,10 @@
     cursor = "bibata-modern";
   };
 
+  my.desktop = {
+    wms = ["niri"];
+  };
+
   home.username = "ivan";
   home.homeDirectory = "/home/ivan";
   home.stateVersion = "26.05";

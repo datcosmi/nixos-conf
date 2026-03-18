@@ -27,5 +27,9 @@
     gaming.enable = true;
   };
 
+  my.desktop = {
+    wms = ["niri"];
+  };
+
   system.stateVersion = "26.05";
 }
