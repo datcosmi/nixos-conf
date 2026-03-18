@@ -15,7 +15,7 @@
 in
   nixpkgs.lib.nixosSystem {
     inherit system;
-    specialArgs = {inherit inputs;};
+    specialArgs = {inherit inputs users;};
     modules =
       [
         disko.nixosModules.disko

@@ -6,13 +6,6 @@
 
   programs.librewolf = {
     enable = true;
-    # package = pkgs.librewolf.override {
-    #   extraPrefs = ''
-    #     lockPref("privacy.clearHistory.cache", false);
-    #     lockPref("privacy.clearHistory.cookiesAndStorage", true);
-    #     lockPref("privacy.clearHistory.browsingHistoryAndDownloads", true);
-    #   '';
-    # };
 
     settings = {
       # Do NOT clear cookies or sessions on shutdown
@@ -43,17 +36,6 @@
     policies = {
       DisableTelemetry = true;
       DisableFirefoxStudies = true;
-      # Preferences = {
-      #   "cookiebanners.service.mode.privateBrowsing" = 2;
-      #   "cookiebanners.service.mode" = 2;
-      #   "privacy.donottrackheader.enabled" = true;
-      #   "privacy.fingerprintingProtection" = true;
-      #   "privacy.resistFingerprinting" = false;
-      #   "privacy.trackingprotection.emailtracking.enabled" = true;
-      #   "privacy.trackingprotection.enabled" = true;
-      #   "privacy.trackingprotection.fingerprinting.enabled" = true;
-      #   "privacy.trackingprotection.socialtracking.enabled" = true;
-      # };
       ExtensionSettings = {
         "78272b6fa58f4a1abaac99321d503a20@proton.me" = {
           installation_mode = "force_installed";

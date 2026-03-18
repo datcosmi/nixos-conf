@@ -17,20 +17,6 @@
   boot.kernelModules = ["kvm-intel"];
   boot.extraModulePackages = [];
 
-  fileSystems."/home/ivan/.local/share/cliphist" = {
-    device = "tmpfs";
-    fsType = "tmpfs";
-    options = [
-      "size=50M"
-      "nodev"
-      "nosuid"
-      "noexec"
-      "mode=700"
-      "uid=1000"
-      "gid=100"
-    ];
-  };
-
   fileSystems = {
     "/var/log".neededForBoot = true;
     "/.snapshots".neededForBoot = false;

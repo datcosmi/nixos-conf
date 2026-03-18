@@ -1,0 +1,5 @@
+{
+  imports = [
+    ./lock.nix
+  ];
+}

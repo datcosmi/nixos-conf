@@ -1,4 +1,14 @@
 {pkgs, ...}: {
+  home.packages = with pkgs; [
+    wl-clipboard
+  ];
+
+  services.cliphist = {
+    enable = true;
+    allowImages = true;
+    clipboardPackage = pkgs.wl-clipboard;
+  };
+
   systemd.user.services.cliphist-clean = {
     Unit = {
       Description = "Clear cliphist history";

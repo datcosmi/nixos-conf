@@ -6,7 +6,7 @@
     ../modules/system/sound.nix
     ../modules/system/services.nix
     ../modules/system/memory.nix
-    ../modules/system/utils.nix
+    ../modules/system/utils
     ../modules/system/display.nix
     ../modules/system/fonts.nix
     ../modules/system/shell.nix

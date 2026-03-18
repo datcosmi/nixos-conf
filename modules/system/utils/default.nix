@@ -1,4 +1,8 @@
 {pkgs, ...}: {
+  imports = [
+    ./cliphist.nix
+  ];
+
   environment.systemPackages = with pkgs; [
     git
     wget

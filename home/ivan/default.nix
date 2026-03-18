@@ -3,14 +3,10 @@
     ../../modules/home/shell.nix
     ../../modules/home/terminal.nix
     ../../modules/home/env.nix
-    ../../modules/home/utils.nix
-    ../../modules/home/scripts.nix
-    ../../modules/home/ssh.nix
-    ../../modules/home/default-apps.nix
-    ../../modules/home/desktop-apps.nix
+    ../../modules/home/scripts
+    ../../modules/home/desktop
     ../../modules/home/themes
-    ../../modules/home/dev.nix
-    ../../modules/home/clipboard.nix
+    ../../modules/home/dev
   ];
 
   my.theme = {

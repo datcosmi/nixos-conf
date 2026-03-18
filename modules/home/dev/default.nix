@@ -1,4 +1,9 @@
 {pkgs, ...}: {
+  imports = [
+    ./tmux.nix
+    ./git.nix
+  ];
+
   home.packages = with pkgs; [
     # LSP's
     lua-language-server
@@ -20,4 +25,16 @@
     alejandra
     kdlfmt
   ];
+
+  programs.neovim = {
+    enable = true;
+    defaultEditor = true;
+  };
+
+  programs.ssh = {
+    enable = true;
+    enableDefaultConfig = false;
+  };
+
+  services.gpg-agent.enable = true;
 }

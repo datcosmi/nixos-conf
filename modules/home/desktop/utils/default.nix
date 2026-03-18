@@ -6,12 +6,12 @@
   ...
 }: {
   imports = [
-    ./utils/tmux.nix
-    ./utils/rofi.nix
-    ./utils/fastfetch.nix
-    ./utils/starship.nix
-    ./utils/wleave.nix
-    ./utils/lock.nix
+    ./rofi.nix
+    ./fastfetch.nix
+    ./starship.nix
+    ./wleave.nix
+    ./lock.nix
+    ./clipboard.nix
   ];
 
   programs.btop = {
@@ -34,28 +34,6 @@
     enable = true;
   };
 
-  programs.ripgrep = {
-    enable = true;
-  };
-
-  programs.tealdeer = {
-    enable = true;
-
-    settings = {
-      settings = {
-        auto_update = true;
-      };
-    };
-  };
-
-  programs.jq = {
-    enable = true;
-  };
-
-  programs.fd = {
-    enable = true;
-  };
-
   services.swaync = {
     enable = true;
   };
@@ -64,26 +42,13 @@
     enable = true;
   };
 
-  services.cliphist = {
-    enable = true;
-    allowImages = true;
-    clipboardPackage = pkgs.wl-clipboard;
-  };
-
   home.packages = with pkgs; [
     wiremix
     bluetui
-    grim
-    slurp
-    wl-clipboard
     unzip
     rofimoji
 
     loupe
-
-    protontricks
-
-    # brightnessctl
 
     inputs.awww.packages.${pkgs.stdenv.hostPlatform.system}.awww
   ];

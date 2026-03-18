@@ -74,7 +74,6 @@ in
         enable = true;
         flavor = "mocha";
         extraConfig = ''
-          set -g @catppuccin_flavor "mocha"
           set -g @catppuccin_window_status_style "rounded"
           set -g status-right-length 100
           set -g status-left-length 100
