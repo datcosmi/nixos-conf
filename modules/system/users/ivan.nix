@@ -16,4 +16,6 @@
       "bluetooth"
     ];
   };
+
+  programs.zsh.enable = true;
 }

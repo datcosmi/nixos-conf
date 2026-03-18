@@ -14,4 +14,13 @@ in {
     xwayland-satellite
     alacritty
   ];
+
+  environment.etc."xdg/wayland-sessions/niri.desktop".text = ''
+    [Desktop Entry]
+    Name=Niri
+    Comment=Scrollable-tiling Wayland compositor
+    Exec=${config.programs.niri.package}/bin/niri
+    Type=Application
+    DesktopNames=Niri
+  '';
 }

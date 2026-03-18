@@ -8,7 +8,6 @@
 
   mkFs = user: let
     u = config.users.users.${user};
-    gid = config.users.groups.${u.group}.gid;
   in {
     "/home/${user}/.local/share/cliphist" = {
       device = "tmpfs";
@@ -19,8 +18,6 @@
         "nosuid"
         "noexec"
         "mode=700"
-        "uid=${toString u.uid}"
-        "gid=${toString gid}"
       ];
     };
   };
