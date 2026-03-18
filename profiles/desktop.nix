@@ -1,7 +1,5 @@
 {...}: {
   imports = [
-    ../modules/system/wm/niri
-
     ../modules/system/networking
     ../modules/system/audio.nix
     ../modules/system/services.nix
