@@ -24,7 +24,7 @@
   };
 
   my.desktop = {
-    wms = "niri";
+    wms = ["niri"];
   };
 
   system.stateVersion = "26.05";

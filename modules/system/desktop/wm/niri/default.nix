@@ -8,7 +8,7 @@
   system = pkgs.stdenv.hostPlatform.system;
   cfg = config.my.desktop;
 in {
-  config = lib.mkIf (lib.elem "niri" cfg.wms)) {
+  config = lib.mkIf (lib.elem "niri" cfg.wms) {
     programs.niri = {
       enable = true;
       package = inputs.niri.packages.${system}.niri;
