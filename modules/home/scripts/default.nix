@@ -1,8 +1,8 @@
 {...}: {
   imports = [
-    ./scripts/waybar-media-player.nix
-    ./scripts/audio-switcher.nix
-    # ./scripts/hypr-dnd-toggle.nix
-    ./scripts/niri-dnd-toggle.nix
+    ./waybar-media-player.nix
+    ./audio-switcher.nix
+    #./hypr-dnd-toggle.nix
+    ./niri-dnd-toggle.nix
   ];
 }

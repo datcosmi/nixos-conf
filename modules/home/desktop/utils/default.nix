@@ -7,10 +7,9 @@
 }: {
   imports = [
     ./rofi.nix
-    ./fastfetch.nix
+    ./fastfetch
     ./starship.nix
     ./wleave.nix
-    ./lock.nix
     ./clipboard.nix
   ];
 
