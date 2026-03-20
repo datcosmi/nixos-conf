@@ -54,6 +54,7 @@
 
     initContent = ''
       if [[ -o interactive ]]; then
+        bindkey -v
         clear
         fastfetch
       fi

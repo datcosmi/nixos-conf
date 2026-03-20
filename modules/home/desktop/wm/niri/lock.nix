@@ -5,9 +5,9 @@
   ...
 }: let
   lockCmd = "${pkgs.swaylock-effects}/bin/swaylock --screenshots --clock --indicator --effect-blur 7x5";
-  cfg = config.my.desktop;
+  cfg = config.my.wm;
 in {
-  config = lib.mkIf (lib.elem "niri" cfg.wms) {
+  config = lib.mkIf cfg.niri {
     home.packages = with pkgs; [
       # swaylock-effects
       hyprlock

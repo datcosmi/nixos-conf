@@ -8,11 +8,17 @@ with lib; {
     ./wm
   ];
 
-  options.my.desktop = {
-    wms = lib.mkOption {
-      type = lib.types.listOf (lib.types.enum ["niri" "hyprland"]);
-      default = [];
-      description = "Window managers to enable on home manager";
+  options.my.wm = {
+    niri = mkOption {
+      type = types.bool;
+      default = false;
+      description = "Whether to use niri with home manager or not";
+    };
+
+    hyprland = mkOption {
+      type = types.bool;
+      default = false;
+      description = "Whether to use hyprland with home manager or not";
     };
   };
 }

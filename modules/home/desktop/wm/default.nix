@@ -1,6 +1,6 @@
 {
   imports = [
     ./niri
-    ./hypr
-  ]
+    # ./hypr
+  ];
 }

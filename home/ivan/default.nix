@@ -15,8 +15,8 @@
     cursor = "bibata-modern";
   };
 
-  my.desktop = {
-    wms = ["niri"];
+  my.wm = {
+    niri = true;
   };
 
   home.username = "ivan";
