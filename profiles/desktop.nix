@@ -2,7 +2,7 @@
   imports = [
     ../modules/system/networking
     ../modules/system/audio.nix
-    ../modules/system/services.nix
+    ../modules/system/services
     ../modules/system/memory.nix
     ../modules/system/utils
     ../modules/system/display.nix
