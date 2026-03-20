@@ -2,8 +2,11 @@
   inputs,
   pkgs,
   lib,
+  config,
   ...
 }: let
+  cfg = config.my.features.desktop.apps.zen-browser;
+
   extension = shortId: guid: {
     name = guid;
     value = {
@@ -87,44 +90,49 @@
     # (extension "enhanced-h264ify" "{9a41dee2-b924-4161-a971-7fb35c053a4a}")
   ];
 in {
-  environment.systemPackages = [
-    (
-      pkgs.wrapFirefox
-      inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.zen-browser-unwrapped
-      {
-        extraPrefs = lib.concatLines (
-          lib.mapAttrsToList (
-            name: value: ''lockPref(${lib.strings.toJSON name}, ${lib.strings.toJSON value});''
-          )
-          prefs
-        );
+  options.my.features.desktop.apps.zen-browser.enable =
+    lib.mkEnableOption "Zen Browser";
 
-        extraPolicies = {
-          DisableTelemetry = true;
-          DisablePocket = true;
-          DisableFirefoxStudies = true;
+  config = lib.mkIf cfg.enable {
+    environment.systemPackages = [
+      (
+        pkgs.wrapFirefox
+        inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.zen-browser-unwrapped
+        {
+          extraPrefs = lib.concatLines (
+            lib.mapAttrsToList (
+              name: value: ''lockPref(${lib.strings.toJSON name}, ${lib.strings.toJSON value});''
+            )
+            prefs
+          );
 
-          ExtensionSettings = builtins.listToAttrs extensions;
+          extraPolicies = {
+            DisableTelemetry = true;
+            DisablePocket = true;
+            DisableFirefoxStudies = true;
 
-          EnableTrackingProtection = {
-            Value = true;
-            Cryptomining = true;
-            Fingerprinting = true;
+            ExtensionSettings = builtins.listToAttrs extensions;
+
+            EnableTrackingProtection = {
+              Value = true;
+              Cryptomining = true;
+              Fingerprinting = true;
+            };
+
+            SearchEngines = {
+              Default = "DuckDuckGo";
+              Add = [
+                {
+                  Name = "DuckDuckGo";
+                  URLTemplate = "https://duckduckgo.com/?q={searchTerms}";
+                  IconURL = "https://duckduckgo.com/favicon.ico";
+                  Alias = "@ddg";
+                }
+              ];
+            };
           };
-
-          SearchEngines = {
-            Default = "DuckDuckGo";
-            Add = [
-              {
-                Name = "DuckDuckGo";
-                URLTemplate = "https://duckduckgo.com/?q={searchTerms}";
-                IconURL = "https://duckduckgo.com/favicon.ico";
-                Alias = "@ddg";
-              }
-            ];
-          };
-        };
-      }
-    )
-  ];
+        }
+      )
+    ];
+  };
 }

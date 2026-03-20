@@ -6,9 +6,12 @@
   ...
 }: let
   system = pkgs.stdenv.hostPlatform.system;
-  cfg = config.my.wm;
+  cfg = config.my.features.desktop.niri;
 in {
-  config = lib.mkIf cfg.niri {
+  options.my.features.desktop.niri.enable =
+    lib.mkEnableOption "Niri window manager";
+
+  config = lib.mkIf cfg.enable {
     programs.niri = {
       enable = true;
       package = inputs.niri.packages.${system}.niri;
