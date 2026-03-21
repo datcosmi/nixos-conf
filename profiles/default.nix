@@ -41,9 +41,9 @@ in {
   config = lib.mkMerge [
     (lib.mkIf (has "base") {
       my.features = {
-        system = {
-          avahi.enable = lib.mkDefault true;
-        };
+        # system = {
+        #   avahi.enable = lib.mkDefault true;
+        # };
 
         security = {
           polkitAgent.enable = lib.mkDefault true;
