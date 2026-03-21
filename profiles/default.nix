@@ -19,6 +19,7 @@ in {
     ../modules/system/memory.nix
     ../modules/system/env.nix
     ../modules/system/utils
+    ../modules/system/gaming.nix
     ../modules/system/display.nix
     ../modules/system/login/tuigreet.nix
 
@@ -58,7 +59,9 @@ in {
           fonts.enable = lib.mkDefault true;
           apps = {
             enable = lib.mkDefault true;
-            zen-browser = lib.mkDefault true;
+            zen-browser = {
+              enable = lib.mkDefault true;
+            };
           };
         };
 

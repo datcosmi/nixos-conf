@@ -1,7 +1,6 @@
 {lib, ...}: {
   imports = [
-    ../../profiles/base.nix
-    ../../profiles/desktop.nix
+    ../../profiles
     ./hardware-configuration.nix
     ./disko.nix
 
@@ -19,13 +18,7 @@
     };
   };
 
-  my.features = {
-    gaming.enable = true;
-  };
-
-  my.wm = {
-    niri = true;
-  };
+  my.profiles = ["base" "desktop" "gaming"];
 
   system.stateVersion = "26.05";
 }
