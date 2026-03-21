@@ -7,6 +7,7 @@
   ];
 
   networking.hostName = "suavicrema";
+
   my.hardware = {
     gpu = "nvidia";
     host = "desktop";

@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  lib,
+  pkgs,
+  ...
+}: {
   users.users.ivan = {
     isNormalUser = true;
     description = "Ivan";
@@ -18,4 +22,6 @@
   };
 
   programs.zsh.enable = true;
+
+  nix.settings.trusted-users = lib.mkAfter ["ivan"];
 }
