@@ -1,20 +1,5 @@
-// niri configuration — migrated from Hyprland
-// niri unstable 2026-02-27 (e708f546153f74acf33eb183b3b2992587a701e5)
-//
-// Migration notes:
-//   - Scrolling layout is niri's NATIVE paradigm — no plugin needed (was hyprscrolling)
-//   - "Columns" replace Hyprland's tiling windows; H/L navigates columns, J/K navigates within columns
-//   - Groups (Mod+G) become tabbed columns — windows stack as tabs instead of side-by-side
-//   - Workspaces are per-output in niri; named workspaces are assigned to specific monitors
-//   - Blur is not supported natively in niri; configure per-app (e.g. kitty's background_opacity)
-//   - Active/inactive opacity distinction is a single value in niri window rules
-//   - HYPRCURSOR variables removed; set XCURSOR_THEME in your shell/uwsm environment instead
-//   - Screenshot copies to clipboard AND saves to disk automatically (no grim/slurp needed)
-//   - Key muscle memory preserved: W=close, T=float, F=maximize, H/J/K/L=focus, 1-9=workspaces
 // ─────────────────────────────────────────────────────────────────────────────
 // ENVIRONMENT
-// Sets env vars for all processes spawned by niri.
-// Wayland/XDG vars are set automatically by niri or uwsm; these fill the gaps.
 // ─────────────────────────────────────────────────────────────────────────────
 environment {
     QT_QPA_PLATFORM "wayland"
@@ -33,29 +18,16 @@ environment {
 // ─────────────────────────────────────────────────────────────────────────────
 // INPUT
 // ─────────────────────────────────────────────────────────────────────────────
-// Cursor — hide while typing (matches Hyprland cursor.hide_on_key_press)
 cursor {
     hide-when-typing
 }
 // ─────────────────────────────────────────────────────────────────────────────
-// WORKSPACES
-// Named workspaces pinned to specific outputs, mirroring Hyprland workspace= rules.
-// Use Mod+1-9 to focus by index, or reference by name in window rules below.
-// ─────────────────────────────────────────────────────────────────────────────
-// ─────────────────────────────────────────────────────────────────────────────
 // LAYOUT
-// Column widths match hyprscrolling explicit_column_widths=0.5,0.7,0.8,1.0
-// Gaps: gaps_in=6 → gaps 6; gaps_out=11 → gaps 6 + struts 5 = 11px from screen edge
-// Border colors: active gradient matches $activeBorderColor = rgb(ffbae5) → rgb(cabaff) 45deg
 // ─────────────────────────────────────────────────────────────────────────────
 layout {
     gaps 6
-    // Center column when it wouldn't fit alongside the previous one.
-    // "on-overflow" mirrors the natural feel of hyprscrolling's follow_focus behavior.
     center-focused-column "never"
     always-center-single-column
-    // Matches hyprscrolling explicit_column_widths=0.5,0.7,0.8,1.0
-    // Mod+R cycles through these (same as Hyprland's layoutmsg colresize)
     preset-column-widths {
         proportion 0.5
         proportion 0.7
@@ -68,11 +40,9 @@ layout {
         proportion 0.8
         proportion 1.0
     }
-    // Default width matches hyprscrolling column_width=0.7
     default-column-width {
         proportion 0.7
     }
-    // Focus ring — gradient matches $activeBorderColor from Hyprland, width=2 (border_size=2)
     focus-ring {
         off
         // active-color      "#ffbae544"
@@ -82,7 +52,6 @@ layout {
  // active-gradient from="#ffbae51f" to="#cabaff1f" angle=45
         // inactive-color "#5959591a"
     }
-    // Border off — using focus ring only (mirrors Hyprland which draws border selectively)
     border {
         // off
         on
@@ -93,8 +62,6 @@ layout {
         // active-gradient from="#ffbae544" to="#cabaff44" angle=45
         // inactive-color    "#595959aa"
     }
-    // Shadows — tuned to approximate Hyprland's shadow config
-    // Hyprland: range=25, render_power=3, color=rgba(1a1b2699)
     shadow {
         on
         softness 25
@@ -102,7 +69,6 @@ layout {
         offset x=0 y=5
         color "#1a1b2699"
     }
-    // Outer gaps to match Hyprland gaps_out=11: niri gaps(6) + struts(5) = 11
     struts {
         left 5
         right 5
@@ -112,23 +78,16 @@ layout {
 }
 // ─────────────────────────────────────────────────────────────────────────────
 // CSD / ROUNDED CORNERS
-// prefer-no-csd lets niri draw borders/rings *around* windows correctly.
-// geometry-corner-radius 13 matches Hyprland rounding=13 and rounding_power=13.
 // ─────────────────────────────────────────────────────────────────────────────
 prefer-no-csd
 // ─────────────────────────────────────────────────────────────────────────────
 // SCREENSHOTS
-// Niri's screenshot action: selects region interactively, copies to clipboard,
-// and saves to this path — replaces the grim+slurp+wl-copy pipeline.
 // ─────────────────────────────────────────────────────────────────────────────
 screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 // ─────────────────────────────────────────────────────────────────────────────
 // ANIMATIONS
-// Tuned to approximate Hyprland's animation feel.
-// niri uses spring physics; these settings give a snappy, slightly bouncy feel.
 // ─────────────────────────────────────────────────────────────────────────────
 animations {
-    // Window open/close — approximates Hyprland's overshot bezier + popin 80%
     window-open {
         duration-ms 250
         curve "ease-out-expo"
@@ -138,27 +97,21 @@ animations {
         duration-ms 180
         curve "ease-out-quad"
     }
-    // Workspace switch — approximates Hyprland's slidefade 30%
     workspace-switch {
         spring damping-ratio=1.0 stiffness=1000 epsilon=0.0001
     }
-    // Column/window movement
     window-movement {
         spring damping-ratio=1.0 stiffness=800 epsilon=0.0001
     }
     window-resize {
         spring damping-ratio=1.0 stiffness=800 epsilon=0.0001
     }
-    // Horizontal scrolling between columns
     horizontal-view-movement {
         spring damping-ratio=1.0 stiffness=800 epsilon=0.0001
     }
 }
 // ─────────────────────────────────────────────────────────────────────────────
 // AUTOSTART
-// Mirrors Hyprland exec-once= lines.
-// Note: if running niri via uwsm as a full session, some of these may already
-// start via systemd user targets or xdg-desktop-autostart. Adjust as needed.
 // ─────────────────────────────────────────────────────────────────────────────
 spawn-at-startup "waybar"
 spawn-at-startup "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
@@ -172,11 +125,9 @@ spawn-sh-at-startup "steam -silent"
 spawn-at-startup "swaync"
 // Wallpaper daemon + wallpaper
 spawn-at-startup "awww-daemon"
-spawn-sh-at-startup "awww img ~/.local/share/themes/wallpapers/blue-landscape-cat.png --transition-type grow --transition-duration 1.2 --transition-fps 60"
+spawn-sh-at-startup "awww-wallpaper"
 // ─────────────────────────────────────────────────────────────────────────────
 // HOTKEY OVERLAY
-// Skip on startup since you're already familiar with the binds.
-// Remove skip-at-startup to re-enable it temporarily while learning niri.
 // ─────────────────────────────────────────────────────────────────────────────
 hotkey-overlay {
     skip-at-startup
@@ -184,7 +135,6 @@ hotkey-overlay {
 // ─────────────────────────────────────────────────────────────────────────────
 // WINDOW RULES
 // ─────────────────────────────────────────────────────────────────────────────
-// Rounded corners for all windows (matches Hyprland rounding=13)
 window-rule {
     geometry-corner-radius 11
     clip-to-geometry true
@@ -195,7 +145,6 @@ window-rule {
         noise 0.05
     }
 }
-// WezTerm initial configure workaround (kept from default config)
 window-rule {
     match app-id="^org\\.wezfurlong\\.wezterm$"
     default-column-width {
@@ -208,7 +157,6 @@ window-rule {
     open-floating true
 }
 // ── Floating utility windows (btop, wiremix, bluetui) ──────────────────────
-// Matches Hyprland: float on, center on, size 1280 800
 window-rule {
     match app-id="^(btop|wiremix|bluetui)$"
     open-floating true
@@ -221,7 +169,6 @@ window-rule {
     }
 }
 // ── Kitty default size ──────────────────────────────────────────────────────
-// Matches Hyprland windowrule=pseudo on, size 1500 860, match:class kitty
 window-rule {
     match app-id="kitty"
     // default-column-width {
@@ -283,28 +230,10 @@ match app-id=r#"^org\.keepassxc\.KeePassXC$"#
 match app-id=r#"^org\.gnome\.World\.Secrets$"#
 block-out-from "screen-capture"
 }
-// Suppress maximize requests from apps (matches Hyprland suppress_event maximize)
-// niri doesn't have this concept since windows don't control their own maximize state
 // ─────────────────────────────────────────────────────────────────────────────
 // KEYBINDINGS
 //
-// Mod = Super when running on TTY (your case).
-//
-// Muscle memory preserved from Hyprland:
-//   W = close window               T = toggle float
-//   F = maximize column            Shift+F = true fullscreen
-//   H/J/K/L = focus navigation     Ctrl+H/J/K/L = move windows/columns
-//   1-9 = workspaces               Shift+1-9 = move to workspace
-//   Return = terminal              Space = launcher
-//   V = clipboard picker           Shift+N = notification center
-//
-// New niri binds worth learning:
-//   O = Overview (zoomed-out workspace/window view)
-//   G = Tabbed column (replaces Hyprland groups)
-//   , / . = pull window into column / push window out of column
-//   [ / ] = consume or expel window left/right
-//   Ctrl+F = expand column to fill remaining space
-//   Shift+V = switch focus between floating and tiling layers
+// Mod = Super when running on TTY
 // ─────────────────────────────────────────────────────────────────────────────
 binds {
     // ── Help ─────────────────────────────────────────────────────────────────
@@ -330,7 +259,7 @@ binds {
     Mod+V hotkey-overlay-title="Clipboard History: cliphist" {
         spawn-sh "cliphist list | rofi -dmenu | cliphist decode | wl-copy"
     }
-    // ── Applications (muscle memory from Hyprland) ───────────────────────────
+    // ── Applications ───────────────────────────
     Mod+Shift+B hotkey-overlay-title="Open Browser: Zen" {
         spawn-sh "zen"
     }
@@ -391,7 +320,7 @@ binds {
     Super+Alt+L allow-when-locked=true hotkey-overlay-title="Lock Screen: hyprlock" {
         spawn "hyprlock"
     }
-    // Logout menu (replaces Hyprland Mod+Escape → wleave)
+    // Logout menu
     Mod+Escape allow-inhibiting=false hotkey-overlay-title="Logout Menu: wleave" {
         spawn "wleave"
     }
@@ -406,32 +335,32 @@ binds {
     Ctrl+Alt+Delete {
         quit
     }
-    // Power off monitors (new in niri — no Hyprland equivalent)
+    // Power off monitors
     Mod+Ctrl+P hotkey-overlay-title="Power Off Monitors" {
         power-off-monitors
     }
     // ── Window Management ─────────────────────────────────────────────────────
-    // Close — Mod+W (matches Hyprland killactive)
+    // Close
     Mod+W repeat=false hotkey-overlay-title="Close Window" {
         close-window
     }
-    // Maximize column (fills viewport width, keeps gaps) — Mod+F (matches Hyprland)
+    // Maximize column
     Mod+F hotkey-overlay-title="Maximize Column" {
         maximize-column
     }
-    // True fullscreen — Mod+Shift+F (matches Hyprland)
+    // True fullscreen
     Mod+Shift+F hotkey-overlay-title="Fullscreen Window" {
         fullscreen-window
     }
-    // Expand column to fill leftover space (like Hyprland Ctrl+F fullscreenstate 0 2)
+    // Expand column to fill leftover space
     Mod+Ctrl+F hotkey-overlay-title="Expand Column to Available Width" {
         expand-column-to-available-width
     }
-    // Maximize to edges (no gaps/borders — double-click titlebar equivalent)
+    // Maximize to edges
     Mod+M hotkey-overlay-title="Maximize Window to Edges" {
         maximize-window-to-edges
     }
-    // Float toggle — Mod+T (matches Hyprland togglefloating)
+    // Float toggle
     Mod+T repeat=false hotkey-overlay-title="Toggle Floating" {
         toggle-window-floating
     }
@@ -439,18 +368,18 @@ binds {
     Mod+Shift+V repeat=false hotkey-overlay-title="Switch Floating↔Tiling Focus" {
         switch-focus-between-floating-and-tiling
     }
-    // Center column — Mod+C (matches Hyprland centerwindow)
+    // Center column
     Mod+C hotkey-overlay-title="Center Column" {
         center-column
     }
     Mod+Ctrl+C hotkey-overlay-title="Center All Visible Columns" {
         center-visible-columns
     }
-    // Overview — niri exclusive, great for spatial orientation
+    // Overview
     Mod+O repeat=false hotkey-overlay-title="Toggle Overview" {
         toggle-overview
     }
-    // Tabbed display — replaces Hyprland groups (Mod+G was togglegroup)
+    // Tabbed display
     Mod+G repeat=false hotkey-overlay-title="Toggle Tabbed Column (was: Group)" {
         toggle-column-tabbed-display
     }
@@ -465,7 +394,7 @@ binds {
     Mod+Ctrl+R hotkey-overlay-title="Reset Window Height" {
         reset-window-height
     }
-    // Fine-grained resize — matches Hyprland Mod+Minus/Equal
+    // Fine-grained resize
     Mod+Minus {
         set-column-width "-10%"
     }
@@ -478,7 +407,7 @@ binds {
     Mod+Shift+Equal {
         set-window-height "+10%"
     }
-    // ── Column Stacking (niri-native, no Hyprland direct equivalent) ──────────
+    // ── Column Stacking ──────────
     // Pull the next window into the current column (stack below)
     Mod+Comma hotkey-overlay-title="Pull Window into Column" {
         consume-window-into-column
@@ -496,7 +425,6 @@ binds {
     }
     // ── Focus Navigation ─────────────────────────────────────────────────────
     // H/L = left/right columns; J/K = up/down within a column
-    // Matches Hyprland movefocus l/r/u/d
     Mod+H {
         focus-column-left
     }
@@ -529,7 +457,6 @@ binds {
         focus-column-last
     }
     // ── Move Windows & Columns ────────────────────────────────────────────────
-    // Matches Hyprland layoutmsg movewindowto / move col
     Mod+Ctrl+H {
         move-column-left
     }
@@ -587,7 +514,6 @@ binds {
         focus-monitor-up
     }
     // Mod+Ctrl+Shift: move column to adjacent monitor
-    // (matches Hyprland Mod+Shift+Alt+Left/Right → movecurrentworkspacetomonitor)
     Mod+Ctrl+Shift+H {
         move-column-to-monitor-left
     }
@@ -613,7 +539,6 @@ binds {
         move-column-to-monitor-up
     }
     // ── Workspace Navigation ─────────────────────────────────────────────────
-    // Mod+Tab / U/I: cycle workspaces (matches Hyprland Mod+TAB = workspace e+1)
     Mod+Tab cooldown-ms=100 {
         focus-workspace-down
     }
@@ -652,7 +577,7 @@ binds {
     Mod+Shift+I {
         move-workspace-up
     }
-    // Numbered workspace access — matches Hyprland Mod+1-9
+    // Numbered workspace access
     Mod+1 {
         focus-workspace 1
     }
@@ -680,7 +605,7 @@ binds {
     Mod+9 {
         focus-workspace 9
     }
-    // Move column to numbered workspace — matches Hyprland Mod+Shift+1-9
+    // Move column to numbered workspace
     Mod+Shift+1 {
         move-column-to-workspace 1
     }
@@ -734,7 +659,7 @@ binds {
     Mod+Ctrl+WheelScrollLeft {
         move-column-left
     }
-    // Shift+Scroll = horizontal (mirrors app behavior convention)
+    // Shift+Scroll = horizontal
     Mod+Shift+WheelScrollDown {
         focus-column-right
     }
