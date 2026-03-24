@@ -3,6 +3,7 @@
   i18n.defaultLocale = "en_US.UTF-8";
 
   services.gvfs.enable = true;
+  services.tumbler.enable = true;
   services.udisks2.enable = true;
 
   security.polkit.enable = true;

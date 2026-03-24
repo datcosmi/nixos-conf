@@ -11,8 +11,8 @@ with lib; {
     };
 
     gtk = mkOption {
-      type = types.enum ["adwaita-dark"];
-      default = "adwaita-dark";
+      type = types.enum ["adwaita"];
+      default = "adwaita";
     };
 
     cursor = mkOption {

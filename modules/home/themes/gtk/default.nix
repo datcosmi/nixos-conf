@@ -1,5 +1,5 @@
 {
   imports = [
-    ./adwaita-dark.nix
+    ./adwaita.nix
   ];
 }

@@ -18,5 +18,7 @@ in {
       noto-fonts
       noto-fonts-color-emoji
     ];
+
+    fonts.fontconfig.enable = true;
   };
 }

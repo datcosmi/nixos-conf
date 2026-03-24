@@ -29,7 +29,7 @@ in {
 
   xdg.portal = {
     enable = true;
-    wlr.enable = false;
+    # wlr.enable = false;
     extraPortals = [
       pkgs.xdg-desktop-portal-gtk
     ];

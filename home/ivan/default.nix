@@ -11,7 +11,7 @@
 
   my.theme = {
     palette = "catppuccin-mocha";
-    gtk = "adwaita-dark";
+    gtk = "adwaita";
     cursor = "bibata-modern";
   };
 
