@@ -1,8 +1,19 @@
-{...}: {
-  networking.enableIPv6 = true;
+{
+  lib,
+  config,
+  ...
+}: let
+  cfg = config.my.features.system.ipv6;
+in {
+  options.my.features.system.ipv6.enable =
+    lib.mkEnableOption "ipv6";
 
-  boot.kernel.sysctl = {
-    "net.ipv6.conf.all.disable_ipv6" = 0;
-    "net.ipv6.conf.default.disable_ipv6" = 0;
+  config = lib.mkIf cfg.enable {
+    networking.enableIPv6 = true;
+
+    boot.kernel.sysctl = {
+      "net.ipv6.conf.all.disable_ipv6" = 0;
+      "net.ipv6.conf.default.disable_ipv6" = 0;
+    };
   };
 }

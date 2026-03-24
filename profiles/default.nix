@@ -7,26 +7,6 @@
 
   has = profile: builtins.elem profile cfg;
 in {
-  imports = [
-    ../modules/system/hardware
-    ../modules/system/boot
-    ../modules/system/graphics
-    ../modules/system/core/nix.nix
-
-    ../modules/system/networking
-    ../modules/system/audio.nix
-    ../modules/system/services
-    ../modules/system/memory.nix
-    ../modules/system/env.nix
-    ../modules/system/utils
-    ../modules/system/gaming.nix
-    ../modules/system/display.nix
-    ../modules/system/login/tuigreet.nix
-
-    ../modules/system/desktop
-    ../modules/system/cachix.nix
-  ];
-
   options.my.profiles = lib.mkOption {
     type = lib.types.listOf (lib.types.enum [
       "base"
@@ -41,9 +21,9 @@ in {
   config = lib.mkMerge [
     (lib.mkIf (has "base") {
       my.features = {
-        # system = {
-        #   avahi.enable = lib.mkDefault true;
-        # };
+        system = {
+          avahi.enable = lib.mkDefault true;
+        };
 
         security = {
           polkitAgent.enable = lib.mkDefault true;
@@ -69,6 +49,11 @@ in {
           bluetooth.enable = lib.mkDefault true;
           flatpak.enable = lib.mkDefault true;
           printing.enable = lib.mkDefault true;
+
+          dns.enable = lib.mkDefault true;
+          firewall.enable = lib.mkDefault true;
+          ipv6.enable = lib.mkDefault true;
+          networkManager.enable = lib.mkDefault true;
         };
 
         security = {
