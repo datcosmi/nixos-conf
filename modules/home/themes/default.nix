@@ -24,6 +24,10 @@ with lib; {
       type = types.path;
     };
 
+    rofi-bg = mkOption {
+      type = types.path;
+    };
+
     colors = mkOption {
       type = types.attrsOf types.str;
       default = {};

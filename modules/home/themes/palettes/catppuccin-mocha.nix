@@ -36,4 +36,5 @@ in
     };
 
     my.theme.wallpaper = ../wallpapers/blue-landscape-cat.png;
+    my.theme.rofi-bg = ../wallpapers/rofi-bg.jpg;
   }
