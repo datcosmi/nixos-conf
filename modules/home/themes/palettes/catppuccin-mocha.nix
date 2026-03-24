@@ -5,84 +5,35 @@
 }: let
   cfg = config.my.theme;
 in
-  with lib;
-    mkIf (cfg.palette == "catppuccin-mocha")
-    {
-      catppuccin.bat = {
-        enable = true;
-        flavor = "mocha";
-      };
+  lib.mkIf (cfg.palette == "catppuccin-mocha") {
+    my.theme.colors = {
+      rosewater = "#f5e0dc";
+      flamingo = "#f2cdcd";
+      pink = "#f5c2e7";
+      mauve = "#cba6f7";
+      red = "#f38ba8";
+      maroon = "#eba0ac";
+      peach = "#fab387";
+      yellow = "#f9e2af";
+      green = "#a6e3a1";
+      teal = "#94e2d5";
+      sky = "#89dceb";
+      sapphire = "#74c7ec";
+      blue = "#89b4fa";
+      lavender = "#b4befe";
+      text = "#cdd6f4";
+      subtext1 = "#bac2de";
+      subtext0 = "#a6adc8";
+      overlay2 = "#9399b2";
+      overlay1 = "#7f849c";
+      overlay0 = "#6c7086";
+      surface2 = "#585b70";
+      surface1 = "#45475a";
+      surface0 = "#313244";
+      base = "#1e1e2e";
+      mantle = "#181825";
+      crust = "#11111b";
+    };
 
-      catppuccin.lazygit = {
-        enable = true;
-        flavor = "mocha";
-        accent = "pink";
-      };
-
-      catppuccin.fzf = {
-        enable = true;
-        flavor = "mocha";
-      };
-
-      catppuccin.eza = {
-        enable = true;
-        flavor = "mocha";
-        accent = "mauve";
-      };
-
-      catppuccin.wleave = {
-        enable = true;
-        flavor = "mocha";
-        accent = "pink";
-        iconStyle = "wleave";
-      };
-
-      catppuccin.btop = {
-        enable = true;
-        flavor = "mocha";
-      };
-
-      catppuccin.yazi = {
-        enable = true;
-        flavor = "mocha";
-        accent = "pink";
-      };
-
-      catppuccin.kitty = {
-        enable = true;
-        flavor = "mocha";
-      };
-
-      catppuccin.ghostty = {
-        enable = true;
-        flavor = "mocha";
-      };
-
-      catppuccin.swaync = {
-        enable = true;
-        flavor = "mocha";
-        font = "CommitMono Nerd Font";
-      };
-
-      catppuccin.librewolf = {
-        enable = true;
-        flavor = "mocha";
-        accent = "pink";
-      };
-
-      catppuccin.tmux = {
-        enable = true;
-        flavor = "mocha";
-        extraConfig = ''
-          set -g @catppuccin_window_status_style "rounded"
-          set -g status-right-length 100
-          set -g status-left-length 100
-          set -g status-left ""
-          set -g status-right "#{E:@catppuccin_status_application}"
-          set -ag status-right "#{E:@catppuccin_status_session}"
-          set -g @catppuccin_window_default_text " #W"
-          set -g @catppuccin_window_current_text " #W"
-          set -g @catppuccin_window_text " #W"
-        '';
-      };
-    }
+    my.theme.wallpaper = ../wallpapers/blue-landscape-cat.png;
+  }

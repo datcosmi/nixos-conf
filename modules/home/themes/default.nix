@@ -19,14 +19,21 @@ with lib; {
       type = types.enum ["bibata-modern" "nordzy"];
       default = "bibata-modern";
     };
+
+    wallpaper = mkOption {
+      type = types.path;
+    };
+
+    colors = mkOption {
+      type = types.attrsOf types.str;
+      default = {};
+    };
   };
 
   imports = [
-    ./palettes/catppuccin-mocha.nix
-
-    ./gtk/adwaita-dark.nix
-
-    ./cursor/bibata.nix
-    ./cursor/nordzy.nix
+    ./palettes
+    ./gtk
+    ./cursor
+    ./apps
   ];
 }
