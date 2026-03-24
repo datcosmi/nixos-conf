@@ -1,20 +1,26 @@
 {
   pkgs,
   config,
+  lib,
   ...
-}: {
+}: let
+  host = config.my.hardware.host;
+in {
   imports = [
     ./nvidia.nix
   ];
 
-  services.xserver = {
-    enable = true;
+  services.xserver.enable = true;
 
-    xkb = {
+  services.xserver.xkb =
+    if host == "desktop"
+    then {
       layout = "us";
       variant = "altgr-intl";
+    }
+    else {
+      layout = "latam";
     };
-  };
 
   hardware.graphics = {
     enable = true;
