@@ -3,9 +3,9 @@
   config,
   ...
 }: let
-  cfg = config.my.features.system.firewall;
+  cfg = config.my.features.system.networking.firewall;
 in {
-  options.my.features.system.firewall.enable =
+  options.my.features.system.networking.firewall.enable =
     lib.mkEnableOption "firewall";
 
   config = lib.mkIf cfg.enable {

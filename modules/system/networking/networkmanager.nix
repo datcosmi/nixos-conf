@@ -4,9 +4,9 @@
   pkgs,
   ...
 }: let
-  cfg = config.my.features.system.networkManager;
+  cfg = config.my.features.system.networking.networkManager;
 in {
-  options.my.features.system.networkManager.enable =
+  options.my.features.system.networking.networkManager.enable =
     lib.mkEnableOption "networkManager";
 
   config = lib.mkIf cfg.enable {

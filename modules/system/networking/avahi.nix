@@ -4,9 +4,9 @@
   pkgs,
   ...
 }: let
-  cfg = config.my.features.system.avahi;
+  cfg = config.my.features.system.networking.avahi;
 in {
-  options.my.features.system.avahi.enable =
+  options.my.features.system.networking.avahi.enable =
     lib.mkEnableOption "avahi";
 
   config = lib.mkIf cfg.enable {

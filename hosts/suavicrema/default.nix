@@ -19,7 +19,7 @@
     };
   };
 
-  my.profiles = ["base" "desktop" "gaming"];
+  my.profiles = ["base" "personal" "gaming"];
 
   system.stateVersion = "26.05";
 }

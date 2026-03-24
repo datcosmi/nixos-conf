@@ -3,9 +3,9 @@
   config,
   ...
 }: let
-  cfg = config.my.features.system.dns;
+  cfg = config.my.features.system.networking.dns;
 in {
-  options.my.features.system.dns.enable =
+  options.my.features.system.networking.dns.enable =
     lib.mkEnableOption "dns";
 
   config = lib.mkIf cfg.enable {

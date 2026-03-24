@@ -3,9 +3,9 @@
   config,
   ...
 }: let
-  cfg = config.my.features.system.ipv6;
+  cfg = config.my.features.system.networking.ipv6;
 in {
-  options.my.features.system.ipv6.enable =
+  options.my.features.system.networking.ipv6.enable =
     lib.mkEnableOption "ipv6";
 
   config = lib.mkIf cfg.enable {
