@@ -5,5 +5,6 @@
     ./audio-switcher.nix
     #./hypr-dnd-toggle.nix
     ./niri-dnd-toggle.nix
+    ./awww-wallpaper.nix
   ];
 }
