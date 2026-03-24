@@ -12,6 +12,6 @@ in
         gtk.enable = true;
         name = "Bibata-Modern-Classic";
         package = pkgs.bibata-cursors;
-        size = 17;
+        size = 20;
       };
     }

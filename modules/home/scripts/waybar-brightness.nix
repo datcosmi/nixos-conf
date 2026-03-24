@@ -31,7 +31,7 @@
       *)
         cur=$(get_brightness "$BUS1")
         cur=''${cur:-"?"}
-        printf '{"text": "󰃠 %s%%", "tooltip": "G24F / GS25F2: %s%%"}\n' "$cur" "$cur"
+        printf '{"text": "󰃠 ", "tooltip": "G24F / GS25F2: %s%%"}\n' "$cur" "$cur"
         ;;
     esac
   '';
