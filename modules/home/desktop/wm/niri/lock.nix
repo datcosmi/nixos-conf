@@ -25,7 +25,7 @@ in {
         }
         {
           timeout = 1200;
-          command = "${pkgs.hyprlock}/bin/hyprlock && systemctl suspend";
+          command = "systemctl suspend";
         }
       ];
       events = {
