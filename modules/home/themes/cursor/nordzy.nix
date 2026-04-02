@@ -7,7 +7,7 @@
   cfg = config.my.theme;
 in
   with lib;
-    mkIf (cfg.gtk == "nordzy") {
+    mkIf (cfg.cursor == "nordzy") {
       home.pointerCursor = {
         gtk.enable = true;
         x11.enable = true;

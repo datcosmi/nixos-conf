@@ -16,7 +16,7 @@ with lib; {
     };
 
     cursor = mkOption {
-      type = types.enum ["bibata-modern" "nordzy"];
+      type = types.enum ["bibata-classic" "bibata-ice" "nordzy"];
       default = "bibata-modern";
     };
 
