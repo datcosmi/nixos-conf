@@ -59,13 +59,14 @@
 
   home.packages = with pkgs; [
     spotify
+    tidal-hifi
     vivaldi
     nautilus
     localsend
     ente-auth
     vlc
 
-    protonvpn-gui
+    proton-vpn
     proton-pass
 
     qbittorrent
