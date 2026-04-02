@@ -23,7 +23,8 @@
 
     initrd.systemd.enable = true;
 
-    kernelPackages = pkgs.linuxPackages_6_12;
+    kernelPackages = pkgs.linuxPackages_latest;
+    # kernelPackages = pkgs.linuxPackages_6_12;
 
     kernelParams = [
       "mem_sleep_default=deep"
