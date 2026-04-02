@@ -12,7 +12,7 @@
   my.theme = {
     palette = "catppuccin-mocha";
     gtk = "adwaita";
-    cursor = "bibata-modern";
+    cursor = "bibata-ice";
   };
 
   my.wm = {
