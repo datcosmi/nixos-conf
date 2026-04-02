@@ -9,9 +9,9 @@
     lua-language-server
     rust-analyzer
     tailwindcss-language-server
-    nodePackages.typescript-language-server
-    nodePackages.vscode-langservers-extracted
-    nodePackages.svelte-language-server
+    typescript-language-server
+    vscode-langservers-extracted
+    svelte-language-server
     pyright
     astro-language-server
 
@@ -21,7 +21,7 @@
     black
     rustc
     prettierd
-    nodePackages.prettier
+    prettier
     alejandra
     kdlfmt
   ];
