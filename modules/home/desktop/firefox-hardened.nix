@@ -1,9 +1,4 @@
-{
-  config,
-  lib,
-  pkgs,
-  ...
-}: {
+{pkgs, ...}: {
   programs.firefox = {
     enable = true;
 
@@ -93,17 +88,11 @@
         "browser.urlbar.suggest.searches" = false;
         "browser.urlbar.suggest.topsites" = false;
       };
-
-      extensions = with pkgs.nur.repos.rycee.firefox-addons; [
-        ublock-origin
-        privacy-badger
-        clearurls
-      ];
     };
   };
 
   # Ensure Widevine works
-  environment.systemPackages = with pkgs; [
+  home.packages = with pkgs; [
     firefox
   ];
 }

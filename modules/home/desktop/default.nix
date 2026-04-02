@@ -2,7 +2,7 @@
 with lib; {
   imports = [
     ./apps.nix
-    ./firefox-hardened.nix
+    # ./firefox-hardened.nix
     ./default-apps.nix
     ./utils
 
