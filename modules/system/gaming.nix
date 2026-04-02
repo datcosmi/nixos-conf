@@ -39,6 +39,8 @@ in {
 
     services.udev.packages = [pkgs.gamemode];
 
+    boot.kernelModules = lib.mkAfter ["ntsync"];
+
     # environment.variables.MANGOHUD = "1";
 
     environment.sessionVariables = {

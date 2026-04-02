@@ -22,7 +22,7 @@ in {
     (lib.mkIf cfg.ddc {
       hardware.i2c.enable = true;
 
-      boot.kernelModules = ["i2c-dev"];
+      boot.kernelModules = lib.mkAfter ["i2c-dev"];
 
       environment.systemPackages = with pkgs; [
         ddcutil

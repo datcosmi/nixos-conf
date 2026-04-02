@@ -27,7 +27,7 @@
   };
 
   # Better memory reclaim
-  boot.kernelParams = [
+  boot.kernelParams = lib.mkAfter [
     "lru_gen=1"
   ];
 
