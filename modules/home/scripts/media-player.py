@@ -134,9 +134,10 @@ class PlayerManager:
     def on_metadata_changed(self, player, metadata, _=None):
         logger.debug(f"Metadata changed for player {player.props.player_name}")
         player_name = player.props.player_name
-        artist = player.get_artist()
+        artist = player.get_artist() or ""
+        title = player.get_title() or ""
+
         artist = artist.replace("&", "&amp;")
-        title = player.get_title()
         title = title.replace("&", "&amp;")
 
         track_info = ""
@@ -146,7 +147,7 @@ class PlayerManager:
             and ":ad:" in player.props.metadata["mpris:trackid"]
         ):
             track_info = "Advertisement"
-        elif artist is not None and title is not None:
+        elif artist and title:
             track_info = f"{truncate(artist)} - {truncate(title)}"
         else:
             track_info = truncate(title)
