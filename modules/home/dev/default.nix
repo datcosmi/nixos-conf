@@ -20,10 +20,15 @@
     isort
     black
     rustc
+    rustfmt
     prettierd
     prettier
     alejandra
     kdlfmt
+
+    # Treesitter
+    tree-sitter
+    gcc
   ];
 
   programs.neovim = {
