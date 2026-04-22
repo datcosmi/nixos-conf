@@ -299,7 +299,7 @@ binds {
         spawn "swaync-client" "-t" "-sw"
     }
     Mod+Shift+Space hotkey-overlay-title="Restart Waybar" {
-        spawn-sh "pkill waybar && waybar"
+        spawn-sh "pkill waybar || waybar"
     }
     Mod+Q hotkey-overlay-title="Toggle Audio Output (Sinks)" {
         spawn "toggle-audio-output" "Sinks"
