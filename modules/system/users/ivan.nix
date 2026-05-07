@@ -23,5 +23,10 @@
 
   programs.zsh.enable = true;
 
+  programs.neovim = {
+    enable = true;
+    defaultEditor = true;
+  };
+
   nix.settings.trusted-users = lib.mkAfter ["ivan"];
 }

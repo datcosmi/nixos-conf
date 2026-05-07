@@ -31,11 +31,6 @@
     gcc
   ];
 
-  programs.neovim = {
-    enable = true;
-    defaultEditor = true;
-  };
-
   programs.ssh = {
     enable = true;
     enableDefaultConfig = false;
