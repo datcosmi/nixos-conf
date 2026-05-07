@@ -40,6 +40,8 @@ in {
     services.udev.packages = [pkgs.gamemode];
 
     boot.kernelModules = lib.mkAfter ["ntsync"];
+    boot.kernel.sysctl."kernel.ntsync" = 1;
+    boot.kernel.sysctl."kernel.sched_latency_ns" = 1000000;
 
     # environment.variables.MANGOHUD = "1";
 
