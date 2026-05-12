@@ -5,8 +5,8 @@
     nixpkgs.url = "nixpkgs/nixos-unstable";
 
     niri = {
-      url = "github:niri-wm/niri";
-      # url = "github:sodiboo/niri-flake";
+      # url = "github:niri-wm/niri";
+      url = "github:sodiboo/niri-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -42,10 +42,11 @@
     disko,
     catppuccin,
     home-manager,
+    niri,
     ...
   } @ inputs: let
     mkHost = import ./lib/mkHost.nix {
-      inherit inputs nixpkgs disko catppuccin home-manager;
+      inherit inputs nixpkgs disko catppuccin home-manager niri;
     };
   in {
     nixosConfigurations = {

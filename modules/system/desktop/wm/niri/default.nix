@@ -12,23 +12,28 @@ in {
     lib.mkEnableOption "Niri window manager";
 
   config = lib.mkIf cfg.enable {
+    nixpkgs.overlays = [inputs.niri.overlays.niri];
+
     programs.niri = {
       enable = true;
-      package = inputs.niri.packages.${system}.niri;
+      package = pkgs.niri-unstable;
+      # package = inputs.niri.packages.${system}.niri;
     };
+
+    services.displayManager.sessionPackages = [pkgs.niri-unstable];
 
     environment.systemPackages = with pkgs; [
       xwayland-satellite
       alacritty
     ];
 
-    environment.etc."xdg/wayland-sessions/niri.desktop".text = ''
+    environment.etc."wayland-sessions/niri.desktop".text = ''
       [Desktop Entry]
       Name=Niri
       Comment=Scrollable-tiling Wayland compositor
-      Exec=${config.programs.niri.package}/bin/niri
+      Exec=niri-session
       Type=Application
-      DesktopNames=Niri
+      DesktopNames=niri
     '';
   };
 }

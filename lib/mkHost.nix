@@ -3,6 +3,7 @@
   disko,
   catppuccin,
   home-manager,
+  niri,
   inputs,
 }: {
   hostname,
@@ -21,6 +22,7 @@ in
         disko.nixosModules.disko
         home-manager.nixosModules.home-manager
         catppuccin.nixosModules.catppuccin
+        niri.nixosModules.niri
         ../hosts/${hostname}
         {
           system.activationScripts.createNixUserProfiles = lib.stringAfter ["users"] ''

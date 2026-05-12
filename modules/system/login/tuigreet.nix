@@ -5,7 +5,8 @@
 }: let
   # tuigreet = "${pkgs.tuigreet}/bin/tuigreet";
   # hyprland-session = "${pkgs.hyprland}/share/wayland-sessions";
-  waylandSessions = "/run/current-system/sw/share/wayland-sessions";
+  # waylandSessions = "/run/current-system/sw/share/wayland-sessions";
+  waylandSessions = "/etc/wayland-sessions";
 in {
   environment.systemPackages = with pkgs; [
     tuigreet
