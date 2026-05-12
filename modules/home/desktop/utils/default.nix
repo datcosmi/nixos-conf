@@ -44,6 +44,7 @@
   home.packages = with pkgs; [
     wiremix
     bluetui
+    impala
     unzip
     rofimoji
 
