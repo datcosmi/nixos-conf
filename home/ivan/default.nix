@@ -20,6 +20,16 @@
     niri = true;
   };
 
+  custom.waylandLockSuspend = {
+    enable = true;
+    lockTimeout = 300;
+    screenOffTimeout = 330;
+    suspendTimeout = 900;
+    gracePeriod = 5;
+    fontFamily = "JetBrainsMono Nerd Font";
+    blurPasses = 3;
+  };
+
   programs.hardened-firefox.enable = true;
 
   home.username = "ivan";
