@@ -70,6 +70,8 @@ in
         };
       };
 
+      home.sessionVariables.GTK_THEME = "adw-gtk3";
+
       home.packages = with pkgs; [
         cantarell-fonts
         source-code-pro
